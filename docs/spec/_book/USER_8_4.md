@@ -70,6 +70,87 @@
           - 「メールアドレス」（Email address）
         
           - 「メールアドレスの再入力」（Re-enter email address）
+
+          ※以下、管理者画面のプロフィール設定編集画面の操作により表示される項目
+          「fullname」
+            初期ラベル名：氏名
+            初期表示設定：True
+          
+          「university」
+            初期ラベル名：大学・機関
+            初期表示設定：True
+
+          「department」
+            初期ラベル名：所属部局・部署
+            初期表示設定：True
+
+          「position」
+            初期ラベル名：役職
+            初期表示設定：True
+
+          「item1」
+            初期ラベル名：役職（その他）
+            初期表示設定：True
+
+          「item2」
+            初期ラベル名：電話番号
+            初期表示設定：True
+
+          「item3」
+            初期ラベル名：所属学会名
+            初期表示設定：True
+
+          「item4」
+            初期ラベル名：所属学会役職
+            初期表示設定：True
+
+          「item5」
+            初期ラベル名：所属学会名
+            初期表示設定：True
+
+          「item6」
+            初期ラベル名：所属学会役職
+            初期表示設定：True
+
+          「item7」
+            初期ラベル名：所属学会名
+            初期表示設定：True
+
+          「item8」
+            初期ラベル名：所属学会役職
+            初期表示設定：True
+
+          「item9」
+            初期ラベル名：所属学会名
+            初期表示設定：True
+
+          「item10」
+            初期ラベル名：所属学会役職
+            初期表示設定：True
+
+          「item11」
+            初期ラベル名：所属学会名
+            初期表示設定：True
+
+          「item12」
+            初期ラベル名：所属学会役職
+            初期表示設定：True
+
+          「item13」
+            初期ラベル名：item13
+            初期表示設定：False
+
+          「item14」
+            初期ラベル名：item14
+            初期表示設定：False
+
+          「item15」
+            初期ラベル名：item15
+            初期表示設定：False
+
+          「item16」
+            初期ラベル名：item16
+            初期表示設定：False
     
       - ［Update Profile］ボタンを押すと、設定内容をチェックし、エラーがない場合、設定内容を保存する
         
@@ -96,6 +177,9 @@
             > メッセージ：  
             > 　日本語：「ユーザー名は3文字以上を指定してください(英数字, ハイフン, アンダーバーのみ使用可能)」  
             > 　英語：「Username must start with a letter, be at least three characters long and only contain alphanumeric characters, dashes and underscores.」
+
+          - >管理者画面にて入力方法が「identifier」に設定されている項目のフォーマットが不正の場合、エラーメッセージを項目エリアの下に表示する。
+          メッセージ：Only digits are allowed.
     
       - 「キャンセル」（Cancel）ボタンを押すと、プロフィール画面に再度遷移することで設定内容をリセットする
     
@@ -132,6 +216,46 @@
 
   - > 言語（Language）はlanguageカラムに保存される。
 
+  - > fullnameはfullnameカラムに保存される。
+
+  - > universityはuniversityカラムに保存される。
+
+  - > departmentはdepartmentカラムに保存される。
+
+  - > positionはpositionカラムに保存される。
+
+  - > item1はotherPositionカラムに保存される。
+
+  - > item2はphoneNoumberカラムに保存される。
+
+  - > item3はinstituteNameカラムに保存される。
+
+  - > item4はinstitutePositionカラムに保存される。
+
+  - > item5はinstituteName2カラムに保存される。
+
+  - > item6はinstitutePosition2カラムに保存される。
+
+  - > item7はinstituteName3カラムに保存される。
+
+  - > item8はinstitutePosition3カラムに保存される。
+
+  - > item9はinstituteName4カラムに保存される。
+
+  - > item10はinstitutePosition4カラムに保存される。
+
+  - > item11はinstituteName5カラムに保存される。
+
+  - > item12はinstitutePosition5カラムに保存される。
+
+  - > item13はitem13カラムに保存される。
+
+  - > item14はitem14カラムに保存される。
+
+  - > item15はitem15カラムに保存される。
+
+  - > item16はitem16カラムに保存される。
+
 > メールアドレスの変更は、flask\_loginのグローバル変数current\_user.emailを更新することで保存される。
 
   - > 更新履歴
@@ -151,6 +275,13 @@
 </blockquote></td>
 <td>353ba1deb094af5056a58bb40f07596b8e95a562</td>
 <td>初版作成</td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>2024/10/18</p>
+</blockquote></td>
+<td>https://github.com/ivis-weko3-dev/weko/pull/308/commits/6bf785b2956fb19773f22681db7080425c5544f2</td>
+<td>v1.0.7対応</td>
 </tr>
 </tbody>
 </table>
