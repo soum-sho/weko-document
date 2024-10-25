@@ -178,6 +178,20 @@
             > 　日本語：「ユーザー名は3文字以上を指定してください(英数字, ハイフン, アンダーバーのみ使用可能)」  
             > 　英語：「Username must start with a letter, be at least three characters long and only contain alphanumeric characters, dashes and underscores.」
 
+          
+          - > 管理者画面にて入力方法が「phoneNumber」に設定されている項目のフォーマットが以下の条件の場合、エラーメッセージを項目エリアの下に表示する。
+
+              > 条件：入力文字数が15文字を超える場合。
+              > メッセージ：
+              > 英語：「Phone number must be less than 15 characters.」
+
+          - >管理者画面にて入力方法が「position(other)」に設定されている項目のフォーマットが以下の条件の場合、エラーメッセージを項目エリアの下に表示する。
+
+              > 項目「position」の値が「その他」もしくは「Others」以外の時に「item1」項目に入力し保存を行った場合
+              > メッセージ：
+              > 日本語「役職が入力されています（「その他」選択時のみ入力可能）」
+              > 英語：「Position is being inputted (Only input when selecting 'Others')」
+
           - >管理者画面にて入力方法が「identifier」に設定されている項目のフォーマットが不正の場合、エラーメッセージを項目エリアの下に表示する。
           メッセージ：Only digits are allowed.
     
@@ -280,7 +294,7 @@
 <td><blockquote>
 <p>2024/10/18</p>
 </blockquote></td>
-<td>https://github.com/ivis-weko3-dev/weko/pull/308/commits/6bf785b2956fb19773f22681db7080425c5544f2</td>
+<td>6bf785b2956fb19773f22681db7080425c5544f2</td>
 <td>v1.0.7対応</td>
 </tr>
 </tbody>

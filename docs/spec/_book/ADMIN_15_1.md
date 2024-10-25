@@ -50,11 +50,9 @@
 
   - > 項目の要素について
   
-      - >テーブル名admin_settingsのレコード名profiles_items_settingsのsettingsカラムに格納されているJsonデータをもとに項目を作成している。
-        項目の設定は以下の通り。
       - >ラベル名：プロフィール画面に表示される項目の見出しを入力
 
-      - >入力方法："text","select","identifier"の三種類から選択する
+      - >入力方法："text","select","identifier","position(other)","phonenumber"の5種類から選択する
 
       - >表示設定：チェックボックスにチェックを入れることでプロフィール画面に表示される、チェックを外すことで項目を非表示状態にできる。
 
@@ -63,16 +61,16 @@
       - > 表示項目は以下のとおりである
 
         - fullname項目
-            初期ラベル名：氏名
-            初期入力方法：text
-            初期表示設定；True
-            初期オプション：空文字
+          初期ラベル名：氏名
+          初期入力方法：text
+          初期表示設定；True
+          初期オプション：空文字
       
         - university項目
           初期ラベル名：大学・機関
           初期入力方法：text
           初期表示設定；True
-          初期オプション：空文字
+          初期オプション：Professor|Assistant Professor|Full-time Instructor|Assistant Teacher|Full-time Researcher|Others (Input Detail)|JSPS Research Fellowship for Young Scientists (PD, SPD etc.)|JSPS Research Fellowship for Young Scientists (DC1, DC2)|Doctoral Course (Doctoral Program)|Master Course (Master Program)|Fellow Researcher|Listener|Student|
 
         - department項目
           初期ラベル名：所属部局・部署
@@ -88,7 +86,7 @@
 
         - item1項目
           初期ラベル名：役職（その他）
-          初期入力方法：text
+          初期入力方法：otherPosition
           初期表示設定；True
           初期オプション：空文字
 
@@ -108,19 +106,7 @@
           初期ラベル名：所属学会役職
           初期入力方法：select
           初期表示設定；True
-          初期オプション：空文字
-
-        - item3項目
-          初期ラベル名：所属学会名
-          初期入力方法：text
-          初期表示設定；True
-          初期オプション：空文字
-
-        - item4項目
-          初期ラベル名：所属学会役職
-          初期入力方法：select
-          初期表示設定；True
-          初期オプション：空文字
+          初期オプション：Member|Committee member|Director/Officer|President
       
         - item5項目
           初期ラベル名：所属学会名
@@ -132,7 +118,7 @@
           初期ラベル名：所属学会役職
           初期入力方法：select
           初期表示設定；True
-          初期オプション：空文字
+          初期オプション：Member|Committee member|Director/Officer|President
 
         - item7項目
           初期ラベル名：所属学会名
@@ -144,7 +130,7 @@
           初期ラベル名：所属学会役職
           初期入力方法：select
           初期表示設定；True
-          初期オプション：空文字
+          初期オプション：Member|Committee member|Director/Officer|President
 
         - item9項目
           初期ラベル名：所属学会名
@@ -156,7 +142,7 @@
           初期ラベル名：所属学会役職
           初期入力方法：select
           初期表示設定；True
-          初期オプション：空文字
+          初期オプション：Member|Committee member|Director/Officer|President
 
         - item11項目
           初期ラベル名：所属学会名
@@ -168,7 +154,7 @@
           初期ラベル名：所属学会役職
           初期入力方法：select
           初期表示設定；True
-          初期オプション：空文字
+          初期オプション：Member|Committee member|Director/Officer|President
 
         - item13項目
           初期ラベル名：item13
@@ -201,6 +187,13 @@
     - > 項目のラベル名を空文字の状態で保存した場合に最上部に「Failed to update settings.」というエラーメッセージが最上部にモーダルウィンドウが表示される。
     
     - > 項目のオプションを空文字の状態で保存した場合に最上部に「Failed to update settings.」というエラーメッセージが最上部にモーダルウィンドウが表示される。
+
+  - > プロフィール設定編集機能ON
+    下記パスに格納されているフラグをTrueに変更するとプロフィール設定編集機能をONにすることができる。初期値はFalseであり、機能はOFF状態となっている。
+
+    パス：/root/weko/modules/weko-user-profiles/weko_user_profiles/config.py
+
+    変数：WEKO_USERPROFILES_CUSTOMIZE_ENABLED
 
   
   <!-- end list -->
