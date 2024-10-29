@@ -559,21 +559,25 @@ Resource Syncの管理に関する操作手順を説明しています。
 
 [15.16 メール送信を設定する 358](#メール送信を設定する)
 
-[15.17 WebAPIのアカウントを設定する 360](#webapiのアカウントを設定する)
+[15.17 メールテンプレートを編集する 385](#メールテンプレートを編集する)
 
-[15.18 File Previewを設定する 361](#file-previewを設定する)
+[15.17.1 デフォルトメールテンプレート 386](#デフォルトメールテンプレート)
 
-[15.19 Shibbolethユーザを許可する 362](#shibbolethユーザを許可する)
+[15.18 WebAPIのアカウントを設定する 360](#webapiのアカウントを設定する)
 
-[15.20 制限公開機能を管理する 363](#制限公開機能を管理する)
+[15.19 File Previewを設定する 361](#file-previewを設定する)
 
-[15.20.1 制限公開機能を設定する 363](#制限公開機能を設定する)
+[15.20 Shibbolethユーザを許可する 362](#shibbolethユーザを許可する)
 
-[15.20.2 制限公開機能の承認メール内容 367](#_Toc137111756)
+[15.21 制限公開機能を管理する 363](#制限公開機能を管理する)
 
-[15.20.3 制限公開機能の通知メール内容 367](#_Toc137111757)
+[15.21.1 制限公開機能を設定する 363](#制限公開機能を設定する)
 
-[15.21 機関名を設定する 368](#_Toc137111758)
+[15.21.2 制限公開機能の承認メール内容 367](#_Toc137111756)
+
+[15.21.3 制限公開機能の通知メール内容 367](#_Toc137111757)
+
+[15.22 機関名を設定する 368](#_Toc137111758)
 
 [16. メンテナンス 369](#メンテナンス)
 
@@ -2530,6 +2534,7 @@ WEKO3システムは、JPCOAR, JPCOAR v1, JPCOAR v2, Dublin Core, DDI, lomのス
 <li><p>IndexID##</p></li>
 <li><p>POS_INDEX##</p></li>
 <li><p>FEEDBACK_MAIL</p></li>
+<li><p>REQUEST_MAIL</p></li>
 <li><p>PUBLISH_STATUS</p></li>
 <li><p>CNRI</p></li>
 <li><p>DOI_RA</p></li>
@@ -2927,7 +2932,7 @@ WEKO3システムは、JPCOAR, JPCOAR v1, JPCOAR v2, Dublin Core, DDI, lomのス
 </tr>
 <tr class="odd">
 <td>エラー</td>
-<td>[.FEEDBACK_MAIL#n]</td>
+<td>[.FEEDBACK_MAIL#n], [.REQUEST_MAIL#n]</td>
 <td>Specified {} is invalid.</td>
 <td>指定された{}が不正です。</td>
 <td><p>以下の値が不正な形式で指定された場合</p>
@@ -6480,7 +6485,7 @@ TSV形式でダウンロードすることができる定型レポートを次�
 
 ![グラフィカル ユーザー インターフェイス, アプリケーション 自動的に生成された説明](media/media/image245.png)
 
-140. アクションを実行するロールまたはユーザを限定する場合、ドロップダウンリストで選択します。
+2. アクションを実行するロールまたはユーザを限定する場合、ドロップダウンリストで選択します。
 
 ![グラフィカル ユーザー インターフェイス, アプリケーション, Web サイト 自動的に生成された説明](media/media/image246.png)
 
@@ -6492,13 +6497,31 @@ Action Userには、どの承認フローでどのメールを送信するかを
 
 ![](media/media/image248.png)
 
-141. アクションを追加または削除する場合、［+More Action］をクリックします。
+「登録者にメールを送信する」にチェックを入れ、直下のメール選択タブからメールを選択すると利用申請時に、申請者に対して送信するメールを設定することができます。
+
+「利用申請時に、アイテム登録者に対しメールを送信する」にチェックを入れ、直下のメール選択タブからメールを選択すると、利用申請時に申請元のアイテムの登録者に対して送信するメールを設定することができます。
+
+「Action User」のアイテム登録者を選択した場合、アイテム登録者が自分で作成したワークフローをapproval出来るようになります。
+
+また、設定＞アイテム表示画面にてRequest FormでDisplay Request Formを選択していた場合、「Action User」にてリクエスト送信先が選択できるようになります。
+
+「Action User」のリクエスト送信先を選択した場合、アイテム登録時に設定登録した「リクエスト送信先」のメールアドレスをもつのユーザーがapprovalができるようになります。
+
+ただし、利用申請系で「リクエスト送信先」が選択されていた場合、利用申請の対象となった制限公開アイテムの「リクエスト送信先」に設定されているのユーザーがapprovalできるようになります。
+
+また、「Approval」の「Action User」の欄にある「通知メール設定」をクリックすると、制限公開アイテムの承認/却下を通知するメールをログインユーザーと非ログインユーザー向けそれぞれに設定できる「通知メール設定」モーダル画面が表示されます。
+
+「通知メール設定」ボタンはメールテンプレート機能がOFFの際は、非表示となります。メールテンプレート機能については「[15.17 メールテンプレートを編集する](#メールテンプレートを編集する)」、メールの文面については、「[15.17.1 デフォルトメールテンプレート](#デフォルトメールテンプレート)」を参照してください。
+
+![](media/media/image442.png)
+
+3. アクションを追加または削除する場合、［+More Action］をクリックします。
      
      アクション一覧が表示されます。
 
 ![コンピューターのスクリーンショット 自動的に生成された説明](media/media/image249.png)
 
-142. アクションを追加する場合、［適用］をクリックします。アクションを削除する場合、［無効］をクリックします。
+4. アクションを追加する場合、［適用］をクリックします。アクションを削除する場合、［無効］をクリックします。
      
      アクションが追加または削除されます。
      
@@ -6510,11 +6533,11 @@ Action Userには、どの承認フローでどのメールを送信するかを
 
 ![グラフィカル ユーザー インターフェイス, アプリケーション 自動的に生成された説明](media/media/image250.png)
 
-143. アクションの順序を変更する場合、［Change Order］で上下に移動します。
+5. アクションの順序を変更する場合、［Change Order］で上下に移動します。
 
 ![コンピューターのスクリーンショット 自動的に生成された説明](media/media/image251.png)
 
-144. 画面の下部に表示されている［保存］をクリックします。
+6. 画面の下部に表示されている［保存］をクリックします。
      
      フローが保存されます。メッセージ「Updated flow action successfully.」が表示されます。
 
@@ -9897,7 +9920,904 @@ https://{FQDN}/ weko/sitemaps/sitemap\_\*\*\*\*.xml.gz
 331. ［送信］をクリックします。
      
      テストメールが送信されます。宛先でテストメールを受信できることを確認します。
-     
+
+###  メールテンプレートを編集する
+
+このメールテンプレート機能はシステムでON/OFFの切り替えが可能な機能です。OFFの場合はサイドメニューから非表示となります。
+
+1.  システムから送信されるメールの編集方法について説明します。編集したいメールテンプレートを選択する。  
+    新規のメールテンプレートを作成したい場合は、追加ボタンを押下する。
+
+    ![](media/media/image440.png)
+
+2.  活性化した右のテキストボックスでメールテンプレートを編集する。  
+    その際に、[]で囲むことで変数として使用される文字列とその内容について以下の表15-14に示す。
+
+    表 15-14 メールテンプレート編集で使用可能な変数
+
+<table>
+<thead>
+<tr class="header">
+<th>変数名</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>url_guest_user</td>
+<td>ゲスト用の利用申請登録の案内URL</td>
+</tr>
+<tr class="even">
+<td>register_date</td>
+<td>登録年月日、報告年月日</td>
+</tr>
+<tr class="odd">
+<td>restricted_fullname</td>
+<td>登録者名</td>
+</tr>
+<tr class="even">
+<td>restricted_university_institution</td>
+<td>登録者の所属機関</td>
+</tr>
+<tr class="odd">
+<td>restricted_activity_id</td>
+<td>利用申請の申請番号</td>
+</tr>
+<tr class="even">
+<td>restricted_research_title</td>
+<td>登録者の研究題目</td>
+</tr>
+<tr class="odd">
+<td>restricted_data_name</td>
+<td>利用申請データ</td>
+</tr>
+<tr class="even">
+<td>restricted_application_date</td>
+<td>利用申請年月日</td>
+</tr>
+<tr class="odd">
+<td>restricted_mail_address</td>
+<td>登録者のメールアドレス</td>
+</tr>
+<tr class="even">
+<td>advisor_fullname</td>
+<td>指導教員の姓名</td>
+</tr>
+<tr class="odd">
+<td>advisor_university_institution</td>
+<td>指導教員の所属機関</td>
+</tr>
+<tr class="even">
+<td>guarantor_fullname</td>
+<td>保証人の姓名</td>
+</tr>
+<tr class="odd">
+<td>guarantor_university_institution</td>
+<td>保証人の所属機関</td>
+</tr>
+<tr class="even">
+<td>restricted_download_link</td>
+<td>ファイルのダウンロードリンク</td>
+</tr>
+<tr class="odd">
+<td>restricted_expiration_date</td>
+<td>ダウンロードURLの有効期限日数</td>
+</tr>
+<tr class="even">
+<td>restricted_expiration_date_ja/en</td>
+<td>ダウンロード回数説明（日/英）</td>
+</tr>
+<tr class="odd">
+<td>restricted_site_name_ja/en</td>
+<td>サイト名（日/英）</td>
+</tr>
+<tr class="even">
+<td>restricted_institution_name_ja/en</td>
+<td>サイト機関名（日/英）</td>
+</tr>
+<tr class="odd">
+<td>restricted_site_mail</td>
+<td>サイトの連絡メール</td>
+</tr>
+<tr class="even">
+<td>restricted_site_url</td>
+<td>サイトのURL</td>
+</tr>
+<tr class="odd">
+<td>data_download_date</td>
+<td>データダウンロード日</td>
+</tr>
+<tr class="even">
+<td>usage_report_url</td>
+<td>利用報告登録の案内URL</td>
+</tr>
+<tr class="odd">
+<td>restricted_usage_activity_id</td>
+<td>利用報告の申請番号</td>
+</tr>
+<tr class="even">
+<td>output_report_activity_id</td>
+<td>成果物登録の申請番号</td>
+</tr>
+<tr class="odd">
+<td>output_report_title</td>
+<td>成果物登録のタイトル</td>
+</tr>
+<tr class="even">
+<td>terms_of_use_jp/en</td>
+<td>申請対象の利用規約（日/英）</td>
+</tr>
+<tr class="odd">
+<td>secret_url</td>
+<td>非公開、エンバーゴデータ向けシークレットURL</td>
+</tr>
+<tr class="even">
+<td>landing_url</td>
+<td>申請対象のランディングページURL</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>申請者の所属機関</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>申請者の姓名</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>申請ワークフローのアクティビティID</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>申請者のメールアドレス</td>
+</tr>
+<tr class="odd">
+<td>6</td>
+<td>申請したアイテム名</td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td>URL</td>
+</tr>
+<tr class="odd">
+<td>13</td>
+<td>承認日</td>
+</tr>
+<tr class="even">
+<td>14</td>
+<td>承認日から7日後の日付</td>
+</tr>
+<tr class="odd">
+<td>15</td>
+<td>その年の年度末の年月日</td>
+</tr>
+<tr class="even">
+<td>16</td>
+<td>アクティビティID</td>
+</tr>
+<tr class="odd">
+<td>restricted_approver_name</td>
+<td>※</td>
+</tr>
+<tr class="even">
+<td>restricted_approver_affiliation</td>
+<td>※</td>
+</tr>
+<tr class="odd">
+<td>restricted_supervisor</td>
+<td>※</td>
+</tr>
+<tr class="even">
+<td>restricted_reference</td>
+<td>※</td>
+</tr>
+<tr class="odd">
+<td>file_name</td>
+<td>ファイル名</td>
+</tr>
+<tr class="even">
+<td>restricted_download_count</td>
+<td>ダウンロード回数</td>
+</tr>
+<tr class="odd">
+<td>restricted_download_count_ja/en</td>
+<td>ダウンロード回数説明（日/英）</td>
+</tr>
+<tr class="even">
+<td>restricted_research_plan</td>
+<td>研究計画</td>
+</tr>
+</tbody>
+</table>
+
+※ 変数として特定の意味は持たないが、[]で囲んでしまうと空欄となる文字列
+
+3.  保存ボタンを押下し、編集内容を保存する。
+
+    ![](media/media/image441.png)
+
+#### デフォルトメールテンプレート
+
+初期状態で登録されているメールテンプレートは以下の12種になります。
+
+1.  利用申請登録のご案内
+
+    - 宛先：利用申請者（ゲストユーザー）
+    - 概要：制限公開アイテムに対し、利用申請を求めるゲストユーザーに利用申請の案内をするメール
+        - メール文は日英併記
+
+    - Subject：　利用申請登録のご案内／Register Application for Use
+    - 本文:
+    ```
+    [restricted_site_name_ja]です。
+    下記のリンクにアクセスしていただき、利用申請の登録を行ってください。
+
+    このメールは自動送信されているので返信しないでください。
+    お問い合わせは下記までお願いします。また、このメールに心当たりのない方は、[restricted_site_name_ja]までご連絡ください。
+    [url_guest_user]
+
+    [restricted_site_name_ja]：[restricted_site_url]
+    問い合わせ窓口：[restricted_site_mail]
+
+    ----------------------------------------------------------------------------------
+
+    This is a message from [restricted_site_name_en].
+    Please access the link below and register your Application.
+
+    [url_guest_user]
+
+    Please do not reply to this email as it has been sent automatically.
+    Please direct all inquiries to the following address.
+    Also, if you received this message in error, please notify [restricted_site_name_en].
+
+    [restricted_site_name_en]：[restricted_site_url]
+    E-mail：[restricted_site_mail]
+    ```
+
+2.  データ利用申請の受付のお知らせメール
+
+    - 宛先：利用申請者
+    - 概要：利用申請者に利用申請を受け付けたことを通知するメール
+        - メール文は日英併記
+
+    - Subject：　データ利用申請の受付のお知らせ／Your Application was Received
+    - 本文:
+    ```
+    [restricted_university_institution]
+    [restricted_fullname]　様
+
+    [restricted_institution_name_ja]です。
+    [restricted_site_name_ja]をご利用いただいて、ありがとうございます。
+
+    下記の利用申請を受け付けました。
+
+    申請番号： [restricted_activity_id]
+    登録者名： [restricted_fullname]
+    メールアドレス： [restricted_mail_address]
+    所属機関：[restricted_university_institution]
+    研究題目：[restricted_research_title]
+    申請データ：[restricted_data_name]
+    申請年月日：[restricted_application_date]
+
+    [restricted_institution_name_ja]で審査しますので、結果の連絡をお待ちください。
+
+    このメールは自動送信されているので返信しないでください。
+    お問い合わせは下記までお願いします。また、このメールに心当たりのない方は、[restricted_institution_name_ja]までご連絡ください。
+
+    [restricted_site_name_ja]：[restricted_site_url]
+    問い合わせ窓口：[restricted_site_mail]
+
+    ----------------------------------------------------------------------------------
+
+    Dear [restricted_fullname],
+
+    This is a message from [restricted_institution_name_en].
+    Thank you for using [restricted_site_name_en].
+
+    We received the below application:
+
+    Application No.：[restricted_activity_id]
+    Name：[restricted_fullname]
+    E-mail：[restricted_mail_address]
+    Affiliation：[restricted_university_institution]
+    Title of research：[restricted_research_title]
+    Dataset requested ：[restricted_data_name]
+    Application date：[restricted_application_date]
+
+    You will be notified once the application is approved.
+
+    Please do not reply to this email as it has been sent automatically.
+    Please direct all inquiries to the following address.
+    Also, if you received this message in error, please notify [restricted_institution_name_en].
+
+    [restricted_site_name_en]：[restricted_site_url]
+    E-mail：[restricted_site_mail]
+    ```
+
+3.  承認依頼通知メール（ログインユーザーからの承認依頼）
+
+    - 宛先：承認者（Action Userに設定されたユーザ）
+    - 概要：承認者に設定されたユーザに対して、承認作業を依頼するメール
+        - メール文は日英併記
+
+    - Subject：　データ利用申請の承認のお願い（ログインユーザー向け）／Request for Approval of Application for Use （for logged in users）
+    - 本文:
+    ```
+    [advisor_university_institution]
+    [advisor_fullname]　様
+
+    [restricted_site_name_ja]です。
+    [advisor_university_institution] [advisor_fullname]様から以下のデータの利用申請がありました。
+
+    申請番号：[restricted_activity_id]
+    登録者名：[restricted_fullname]
+    メールアドレス：[restricted_mail_address]
+    所属機関：[restricted_university_institution]
+    研究題目：[restricted_research_title]
+    申請データ：[restricted_data_name]
+    申請年月日：[restricted_application_date]
+
+    ご自身のアカウントにログインして、ワークフローより上記の申請内容をご確認ください。
+    「承認」または「却下」のボタンをクリックしてください。
+
+    このメールは自動送信されているので返信しないでください。
+    このメールに心当たりのない方は、[restricted_site_name_ja]までご連絡ください。
+
+    [restricted_site_name_ja]：[restricted_site_url]
+    問い合わせ窓口：[restricted_site_mail]
+
+    ----------------------------------------------------------------------------------
+
+    Dear [advisor_fullname],
+
+    This is a message from [restricted_site_name_en].
+    We received the below application from [restricted_university_institution] [restricted_fullname]
+
+    Application No.：[restricted_activity_id]
+    Name：[restricted_fullname]
+    E-mail：[restricted_mail_address]
+    Affiliation：[restricted_university_institution]
+    Title of research：[restricted_research_title]
+    Dataset requested ：[restricted_data_name]
+    Application date：[restricted_application_date]
+
+    Please log in your account and From [Workflow], confirm the above application by clicking on “approve” or “reject”.
+
+    Please do not reply to this email as it has been sent automatically.
+    If you received this message in error, please notify the [restricted_site_name_en]
+
+    [restricted_site_name_en]：[restricted_site_url]
+    E-mail：[restricted_site_mail]
+    ```
+
+4.  承認依頼通知メール（ゲストユーザーからの承認依頼）
+
+    - 宛先：承認者（Action Userに設定されたユーザ）
+    - 概要：承認者に設定されたユーザに対して、承認作業を依頼するメール
+        - メール文は日英併記
+
+    - Subject：　データ利用申請の承認のお願い（ゲストユーザー向け）／Request for Approval of Application for Use （for logged in users）
+    - 本文:
+    ```
+    [advisor_university_institution]
+    [advisor_fullname]　様
+
+    [restricted_site_name_ja]です。
+    [advisor_university_institution] [advisor_fullname]様から以下のデータの利用申請がありました。
+
+    申請番号：[restricted_activity_id]
+    登録者名：[restricted_fullname]
+    メールアドレス：[restricted_mail_address]
+    所属機関：[restricted_university_institution]
+    研究題目：[restricted_research_title]
+    申請データ：[restricted_data_name]
+    申請年月日：[restricted_application_date]
+
+    ご自身のアカウントにログインして、ワークフローより上記の申請内容をご確認ください。
+    「承認」または「却下」のボタンをクリックしてください。
+
+    このメールは自動送信されているので返信しないでください。
+    このメールに心当たりのない方は、[restricted_site_name_ja]までご連絡ください。
+
+    [restricted_site_name_ja]：[restricted_site_url]
+    問い合わせ窓口：[restricted_site_mail]
+
+    ----------------------------------------------------------------------------------
+
+    Dear [advisor_fullname],
+
+    This is a message from [restricted_site_name_en].
+    We received the below application from [restricted_university_institution] [restricted_fullname]
+
+    Application No.：[restricted_activity_id]
+    Name：[restricted_fullname]
+    E-mail：[restricted_mail_address]
+    Affiliation：[restricted_university_institution]
+    Title of research：[restricted_research_title]
+    Dataset requested ：[restricted_data_name]
+    Application date：[restricted_application_date]
+
+    Please log in your account and From [Workflow], confirm the above application by clicking on “approve” or “reject”.
+
+    Please do not reply to this email as it has been sent automatically.
+    If you received this message in error, please notify the [restricted_site_name_en]
+
+    [restricted_site_name_en]：[restricted_site_url]
+    E-mail：[restricted_site_mail]
+    ```
+
+5.  申請却下通知メール（ログインユーザーへの却下）
+
+    - 宛先：利用申請者
+    - 概要：利用申請者に承認フローが却下されたことを通知するメール
+        - メール文は日英併記
+
+    - Subject：　利用申請の審査結果について（ログインユーザー向け）／The results of the review of your application （for logged in users）
+    - 本文:
+    ```
+    [restricted_university_institution]
+    [restricted_fullname]　様
+
+    この度は、[restricted_site_name_ja]をご利用いただきありがとうございます。
+    申請いただいた内容をもとに、所内で慎重な検討を重ねましたが、今回はコンテンツの提供を見送らせていただくこととなりました。
+
+    申請番号： [restricted_activity_id]
+    登録者名： [restricted_fullname]
+    メールアドレス： [restricted_mail_address]
+    所属機関：[restricted_university_institution]
+    研究題目：[restricted_research_title]
+    申請データ：[restricted_data_name]
+    申請年月日：[restricted_application_date]
+
+    ご申請いただいたにも関わらず、このような返事となり大変申し訳ございません。
+    今後とも[restricted_site_name_ja]をよろしくお願いします。
+
+    このメールは自動送信されているので返信しないでください。
+    このメールに心当たりのない方は、[restricted_site_name_ja]までご連絡ください。
+
+    [restricted_site_name_ja]：[restricted_site_url]
+    問い合わせ窓口：[restricted_site_mail]
+
+    ----------------------------------------------------------------------------------
+
+    Dear [restricted_fullname],
+
+    Thank you for using [restricted_site_name_en].
+    Based on the content of your application, after careful consideration within our office,
+    we have decided not to provide the content at this time.
+
+    Application No.：[restricted_activity_id]
+    Name：[restricted_fullname]
+    E-mail：[restricted_mail_address]
+    Affiliation：[restricted_university_institution]
+    Title of research：[restricted_research_title]
+    Dataset requested ：[restricted_data_name]
+    Application date：[restricted_application_date]
+
+    We are very sorry for this reply despite your application.
+    Thank you for your continued support of [restricted_site_name_en].
+
+    Please do not reply to this email as it has been sent automatically.
+    If you received this message in error, please notify the [restricted_site_name_en]
+
+    [restricted_site_name_en]：[restricted_site_url]
+    E-mail：[restricted_site_mail]
+    ```
+
+6.  申請却下通知メール（ゲストユーザーへの却下）
+
+    - 宛先：利用申請者
+    - 概要：利用申請者に承認フローが却下されたことを通知するメール
+        - メール文は日英併記
+
+    - Subject：　利用申請の審査結果について（ゲストユーザー向け）／The results of the review of your application （for guest user）
+    - 本文:
+    ```
+    [restricted_university_institution]
+    [restricted_fullname]　様
+
+    この度は、[restricted_site_name_ja]をご利用いただきありがとうございます。
+    申請いただいた内容をもとに、所内で慎重な検討を重ねましたが、今回はコンテンツの提供を見送らせていただくこととなりました。
+
+    申請番号： [restricted_activity_id]
+    登録者名： [restricted_fullname]
+    メールアドレス： [restricted_mail_address]
+    所属機関：[restricted_university_institution]
+    研究題目：[restricted_research_title]
+    申請データ：[restricted_data_name]
+    申請年月日：[restricted_application_date]
+
+    ご申請いただいたにも関わらず、このような返事となり大変申し訳ございません。
+    今後とも[restricted_site_name_ja]をよろしくお願いします。
+
+    このメールは自動送信されているので返信しないでください。
+    このメールに心当たりのない方は、[restricted_site_name_ja]までご連絡ください。
+
+    [restricted_site_name_ja]：[restricted_site_url]
+    問い合わせ窓口：[restricted_site_mail]
+
+    ----------------------------------------------------------------------------------
+
+    Dear [restricted_fullname],
+
+    Thank you for using [restricted_site_name_en].
+    Based on the content of your application, after careful consideration within our office,
+    we have decided not to provide the content at this time.
+
+    Application No.：[restricted_activity_id]
+    Name：[restricted_fullname]
+    E-mail：[restricted_mail_address]
+    Affiliation：[restricted_university_institution]
+    Title of research：[restricted_research_title]
+    Dataset requested ：[restricted_data_name]
+    Application date：[restricted_application_date]
+
+    We are very sorry for this reply despite your application.
+    Thank you for your continued support of [restricted_site_name_en].
+
+    Please do not reply to this email as it has been sent automatically.
+    If you received this message in error, please notify the [restricted_site_name_en]
+
+    [restricted_site_name_en]：[restricted_site_url]
+    E-mail：[restricted_site_mail]
+    ```
+
+7.  申請承認通知メール（ログインユーザーへの承認）
+
+    - 宛先：利用申請者
+    - 概要：登録者にワークフローが承認されたことを通知するメール
+        - メール文は日英併記
+
+    - Subject：　利用申請の承認のお知らせ（ログインユーザー向け）／Your application was approved （for logged in users）
+    - 本文:
+    ```
+    [restricted_university_institution]
+    [restricted_fullname]　様
+
+    この度は、[restricted_site_name_ja]をご利用いただきありがとうございます。
+
+    下記の利用申請を承認しました。
+
+    申請番号：[restricted_activity_id]
+    登録者名：[restricted_fullname]
+    メールアドレス：[restricted_mail_address]
+    所属機関：[restricted_university_institution]
+    研究題目：[restricted_research_title]
+    申請データ：[restricted_data_name]
+    申請年月日：[restricted_application_date]
+
+    ご申請いただいたコンテンツは、次のページよりダウンロードすることができます。
+
+    [landing_url]
+
+    上記アドレスより[restricted_site_name_ja]にアクセスいただき、ご登録いただいたアカウントでログインをして下さい。
+    ログインしていただけますと、ダウンロードボタンより申請いただいたデータをダウンロードすることができます。
+
+    ダウンロードは[restricted_expiration_date_ja]まで可能です。
+    ダウンロード期限は[restricted_expiration_date_ja]までなので、期限内に必ず保存してください。
+    ダウンロード回数が上限を超えたり、ダウンロード期限を過ぎると、再申請が必要になります。
+
+    今後とも[restricted_site_name_ja]をよろしくお願いします。
+
+    このメールは自動送信されているので返信しないでください。
+    このメールに心当たりのない方は、[restricted_site_name_ja]までご連絡ください。
+
+    [restricted_site_name_ja]：[restricted_site_url]
+    問い合わせ窓口：[restricted_site_mail]
+
+    ----------------------------------------------------------------------------------
+
+    Dear [restricted_fullname],
+
+    Thank you for using [restricted_site_name_en].
+    Your application below has been approved.
+
+    Application No.：[restricted_activity_id]
+    Name：[restricted_fullname]
+    E-mail：[restricted_mail_address]
+    Affiliation：[restricted_university_institution]
+    Title of research：[restricted_research_title]
+    Dataset requested ：[restricted_data_name]
+    Application date：[restricted_application_date]
+
+    The data can be downloaded from the address below.
+
+    [landing_url]
+
+    Please access [restricted_site_name_en] from the above address and login with your registered account.
+    If you logged in, you will be able to download the submitted data from the download button.
+
+    Please do not reply to this email as it has been sent automatically.
+    If you received this message in error, please notify the [restricted_site_name_en]
+
+    [restricted_site_name_en]：[restricted_site_url]
+    E-mail：[restricted_site_mail]
+    ```
+
+8.  申請承認通知メール（ゲストユーザーへの承認）
+
+    - 宛先：利用申請者
+    - 概要：登録者にワークフローが承認されたことを通知するメール
+        - メール文は日英併記
+
+    - Subject：　利用申請の承認のお知らせ（ゲストユーザー向け）／Guest''s application was approved （for guest user）
+    - 本文:
+    ```
+    [restricted_university_institution]
+    [restricted_fullname]　様
+
+    この度は、[restricted_site_name_ja]をご利用いただきありがとうございます。
+
+    下記の利用申請を承認しました。
+
+    申請番号：[restricted_activity_id]
+    登録者名：[restricted_fullname]
+    メールアドレス：[restricted_mail_address]
+    所属機関：[restricted_university_institution]
+    研究題目：[restricted_research_title]
+    申請データ：[restricted_data_name]
+    申請年月日：[restricted_application_date]
+
+    申請いただいたコンテンツは、次のリンクアドレスよりダウンロードすることができます。
+
+    [restricted_download_link]
+
+    リンクアドレスをクリックすると、メールアドレスの入力が必要となります。
+    利用申請の際に登録されたメールアドレスを入力頂きますと、申請いただいたコンテンツをダウンロードすることができます。
+
+    ダウンロードは[restricted_expiration_date_ja]まで可能です。
+    ダウンロード期限は[restricted_expiration_date_ja]までなので、期限内に必ず保存してください。
+    ダウンロード回数が上限を超えたり、ダウンロード期限を過ぎると、再申請が必要になります。
+
+    今後とも[restricted_site_name_ja]をよろしくお願いします。
+
+    このメールは自動送信されているので返信しないでください。
+    このメールに心当たりのない方は、[restricted_site_name_ja]までご連絡ください。
+
+    [restricted_site_name_ja]：[restricted_site_url]
+    問い合わせ窓口：[restricted_site_mail]
+
+    ----------------------------------------------------------------------------------
+
+    Dear [restricted_fullname]
+
+    Thank you for using [restricted_site_name_en].
+    Your application below has been approved.
+
+    Application No.：[restricted_activity_id]
+    Name：[restricted_fullname]
+    E-mail：[restricted_mail_address]
+    Affiliation：[restricted_university_institution]
+    Title of research：[restricted_research_title]
+    Dataset requested ：[restricted_data_name]
+    Application date：[restricted_application_date]
+
+    The data can be downloaded from the address below.
+
+    [restricted_download_link]
+
+    If you click the address, you will be required to enter your email address.
+    You can download the content you have applied for by entering the email address you registered when applying for use.
+
+    Please do not reply to this email as it has been sent automatically.
+    If you received this message in error, please notify the [restricted_site_name_en]
+
+    [restricted_site_name_en]：[restricted_site_url]
+    E-mail：[restricted_site_mail]
+    ```
+
+9.  利用報告ワークフロー通知メール
+
+    - 宛先：利用申請が必要なアイテムのコンテンツファイルをダウンロードしたユーザ
+    - 概要：申請者がデータをダウンロードした際に、利用報告WFのリンクを提供する通知メール
+        - メール文は日英併記
+
+    - Subject：　利用報告の登録のお願い／Request for register Data Usage Report
+    - 本文:
+    ```
+    [restricted_site_name_ja]です。
+    下記で申請いただいたデータについてダウンロードされたことを確認しました。
+
+    申請番号： [restricted_usage_activity_id]
+    登録者名： [restricted_fullname]
+    メールアドレス： [restricted_mail_address]
+    所属機関：[restricted_university_institution]
+    研究題目：[restricted_research_title]
+    申請データ：[restricted_data_name]
+    申請年月日：[restricted_application_date]
+
+    ダウンロードしたデータについて、下記のリンクから利用報告の登録をお願いします。
+
+    [usage_report_url]
+
+    このメールは自動送信されているので返信しないでください。
+    お問い合わせは下記までお願いします。また、このメールに心当たりのない方は、[restricted_site_name_ja]までご連絡ください。
+
+    [restricted_site_name_ja]：[restricted_site_url]
+    問い合わせ窓口：[restricted_site_mail]
+
+    ----------------------------------------------------------------------------------
+
+    This is a message from [restricted_site_name_en].
+    We have confirmed that the dataset which you registered at below has been downloaded.
+
+    Application No.：[restricted_usage_activity_id]
+    Name：[restricted_fullname]
+    E-mail：[restricted_mail_address]
+    Affiliation：[restricted_university_institution]
+    Title of research：[restricted_research_title]
+    Dataset requested ：[restricted_data_name]
+    Application date：[restricted_application_date]
+
+    For the downloaded data, please register the Data Usage Report by the link below.
+
+    [usage_report_url]
+
+    Please do not reply to this email as it has been sent automatically.
+    Please direct all inquiries to the following address.
+    Also, if you received this message in error, please notify [restricted_site_name_en].
+
+    [restricted_site_name_en]：[restricted_site_url]
+    E-mail：[restricted_site_mail]
+    ```
+
+10. 利用報告督促メール
+
+    - 宛先：利用報告未提出者
+    - 概要：利用報告未提出者に対しての督促メール
+        - メール文は日英併記
+
+    - Subject：　利用報告の登録のお願い／Request for register Data Usage Report
+    - 本文:
+    ```
+    [restricted_site_name_ja]です。
+    現時点で、下記の利用報告が登録されていません
+
+    報告番号：[restricted_activity_id]
+    登録者名：[restricted_fullname]
+    メールアドレス：[restricted_mail_address]
+    所属機関：[restricted_university_institution]
+    利用データ：[restricted_data_name]
+    データダウンロード日：[data_download_date]
+
+    下記のリンクから利用報告の登録をお願いします。
+
+    [usage_report_url]
+
+    このメールは自動送信されているので返信しないでください。
+    お問い合わせは下記までお願いします。また、このメールに心当たりのない方は、[restricted_site_name_ja]までご連絡ください。
+
+    [restricted_site_name_ja]：[restricted_site_url]
+    問い合わせ窓口：[restricted_site_mail]
+
+    ----------------------------------------------------------------------------------
+
+    This is a message from [restricted_site_name_en].
+    At this time, the Data Usage Report below has not been registered.
+
+    Usage Report No.：[restricted_activity_id]
+    Name：[restricted_fullname]
+    E-mail：[restricted_mail_address]
+    Affiliation：[restricted_university_institution]
+    Usage Dataset：[restricted_data_name]
+    Download date：[data_download_date]
+
+    Please register the Data Usage Report from the link below.
+
+    [usage_report_url]
+
+    Please do not reply to this email as it has been sent automatically.
+    Please direct all inquiries to the following address.
+    Also, if you received this message in error, please notify [restricted_site_name_en].
+
+    [restricted_site_name_en]：[restricted_site_url]
+    E-mail：[restricted_site_mail]
+    ```
+
+11. シークレットURL提供メール
+
+    - 宛先：登録者
+    - 概要：シークレットURLを発行し、送付するためのメール
+        - メール文は日英併記
+        - 設定でシークレットURLダウンロード機能がONになっていない場合は、このメールは表示されません。  
+            ON/OFFの切り替えについては「15.21 制限公開機能を管理する」を参照してください。
+
+    - Subject：　シークレットURL提供のお知らせ／Notice of providing secret URL
+    - 本文
+    ```
+    [restricted_university_institution]
+    [restricted_fullname]様
+
+    [restricted_site_name_ja]です。
+
+    [restricted_data_name]に登録されている[file_name]のシークレットURLを作成しました。
+
+    下記アドレスよりダウンロードすることができます。
+
+    [secret_url]
+
+    このURLは[restricted_expiration_date][restricted_expiration_date_ja]まで有効です。ダウンロードは[restricted_download_count][restricted_download_count_ja]回まで可能です。
+
+    ＊このメールは自動送信されているので返信しないでください。
+    ＊このメールに心当たりのない方は、[restricted_site_name_ja]までご連絡ください。
+
+    [restricted_site_name_ja]：[restricted_site_url]
+    問い合わせ窓口：[restricted_site_mail]
+
+
+    ----------------------------------------------------------------------------------
+
+    [restricted_university_institution]
+    [restricted_fullname]
+
+    This is a message from [restricted_site_name_en].
+    Secret URL for [file_name] registered in [restricted_data_name] is created.
+
+    The data can be downloaded from the address below.
+
+
+    [secret_url]
+
+    This URL is valid until [restricted_expiration_date][restricted_expiration_date_en]. You can download it up to [restricted_download_count][restricted_download_count_en] times.
+
+    Please do not reply to this email as it has been sent automatically.
+    If you received this message in error, please notify the [restricted_site_name_en].
+
+    [restricted_site_name_en]：[restricted_site_url]
+    E-mail：[restricted_site_mail]
+    ```
+
+12. 利用申請のお知らせ
+
+    - 宛先：アイテム登録者（利用申請の際の申請先アイテムの登録者）
+    - 概要：利用申請の際に、申請先のアイテム登録者に対し 送信されるメール
+        - メール文は日英併記
+
+    - Subject：　利用申請登録のご案内／Register Application for Use
+    - 本文:
+    ```
+    データ提供者 様
+
+    [restricted_institution_name_ja]です。
+    [restricted_fullname]様から、ご登録いただいたコンテンツに対して、下記のデータの利用申請がありましたので報告いたします。
+
+    申請番号： [restricted_activity_id]
+    登録者名： [restricted_fullname]
+    メールアドレス： [restricted_mail_address]
+    所属機関：[restricted_university_institution]
+    研究題目：[restricted_research_title]
+    申請データ：[restricted_data_name]
+    申請年月日：[restricted_application_date]
+
+    このメールは自動送信されているので返信しないでください。
+    お問い合わせは下記までお願いします。また、このメールに心当たりのない方は、[restricted_institution_name_ja]までご連絡ください。
+
+    [restricted_site_name_ja]：[restricted_site_url]
+    問い合わせ窓口：[restricted_site_mail]
+
+    ----------------------------------------------------------------------------------
+
+    Dear Data Provider,
+
+    This is a message from [restricted_institution_name_en].
+    We received the below application from [restricted_fullname].
+
+    Application No.：[restricted_activity_id]
+    Name：[restricted_fullname]
+    E-mail：[restricted_mail_address]
+    Affiliation：[restricted_university_institution]
+    Title of research：[restricted_research_title]
+    Dataset requested ：[restricted_data_name]
+    Application date：[restricted_application_date]
+
+    Please do not reply to this email as it has been sent automatically.
+    Please direct all inquiries to the following address.
+    Also, if you received this message in error, please notify [restricted_institution_name_en].
+
+    [restricted_site_name_en]：[restricted_site_url]
+    E-mail：[restricted_site_mail]
+    ```
+
 ### WebAPIのアカウントを設定する
 
 Web APIのアカウントを設定する方法を説明します。
@@ -9975,7 +10895,45 @@ PDFファイルのプレビューを設定する方法を説明します。
 
 ![](media/media/image419.png)
 
-1.  シークレットURLのダウンロード
+1.  コンテンツ未登録アイテムの利用申請
+
+> コンテンツが未登録のアイテムに対して利用申請可能とする機能のON/OFFが設定できます。
+>
+> チェックをいれることで、コンテンツ未登録状態で利用申請可能なアイテムタイプを設定できるようになります。機能の詳細については「ユーザ操作マニュアル」の「4.1.10. 外部データ利用申請」および「5.1.1. アイテムを登録する (15)　アイテムの利用申請方法を設定する。」をご参照ください。
+>
+> ・「コンテンツ未登録状態で利用申請可能なアイテムタイプ」と「コンテンツ未登録状態で利用申請不可能なアイテムタイプ」
+>
+> 　初期値は全てのアイテムタイプが「コンテンツ未登録状態で利用申請不可能なアイテムタイプ」です。「コンテンツ未登録状態で利用申請可能なアイテムタイプ」に設定されたアイテムタイプのみ、本機能は有効となります。
+>
+> 　「コンテンツ未登録状態で利用申請不可能なアイテムタイプ」からアイテムタイプを選択し、左矢印ボタンを押下することで、利用申請可能なアイテムタイプに設定できます。
+>
+> 　逆に利用申請可能なアイテムタイプから外したい場合は、「コンテンツ未登録状態で利用申請可能なアイテムタイプ」からアイテムタイプを選択し、右矢印ボタンを押下することで利用申請可能なアイテムタイプから外すことが可能です。
+
+2.  承認アクションにおけるファイルプレビュー
+
+> 利用申請アクティビティの承認アクションにおけるファイルプレビュー機能のON/OFFが設定できます。
+>
+> チェックをいれることで、制限公開アイテムに対する「利用申請」、「二段階利用申請」アクティビティの承認アクションで、申請時に登録されたアイテムの表示形式に関係なくプレビュー機能が表示されます。
+
+3.  メールテンプレート編集
+
+> 送信するメールのテンプレート編集のON/OFFが設定できます。
+>
+> チェックをいれ、保存した後に、管理画面を更新することでメールのテンプレートを編集するメニューを表示することができます。詳細については、「15.17　メールテンプレートを編集する」をご参照ください。
+
+4.  リクエストフォーム
+
+> リクエストメール送信フォームのON/OFFが設定できます。
+>
+> チェックをいれることで、アイテムの作成または編集時にリクエストメール送信先として設定されたメールアドレスに送信できます。詳細については、「ユーザ操作マニュアル」の「4.1.9. リクエストメール送信フォーム」をご参照ください。
+
+5.  非ログインユーザーのDLにおけるパスワードチェック機能
+
+> 非ログインユーザーがコンテンツをダウンロードする際に使用されるパスワードチェック機能のON/OFFが設定できます。
+>
+> チェックをいれることで、利用申請の際のメールアドレス入力欄の下にパスワード設定欄が表示されます。また、パスワードが設定されていない申請は承認されていてもコンテンツのダウンロードができなくなります。
+
+6.  シークレットURLのダウンロード
 
 <*この機能の利用に興味のある方はwekosoftware@nii.ac.jpへお問い合わせください>
 
@@ -10005,7 +10963,7 @@ PDFファイルのプレビューを設定する方法を説明します。
 
 ![](media/media/image421.png)
 
-2.  コンテンツファイルのダウンロード
+7.  コンテンツファイルのダウンロード
     
     \*この機能の利用に興味のある方はwekosoftware@nii.ac.jpへお問い合わせください（2024年4月）
 
@@ -10035,7 +10993,7 @@ PDFファイルのプレビューを設定する方法を説明します。
 
 > なお、登録時にアイテムを公開状態としていて、途中で非公開/削除した場合、ダウンロード期間内でもファイルはダウンロードできなくなります。また、登録時に指定したインデックスを非公開に変更した場合も、ダウンロード期間内でもファイルはダウンロードできなくなります。
 
-339. 利用報告ワークフローへのアクセス
+8. 利用報告ワークフローへのアクセス
      
      \*この機能の利用に興味のある方はwekosoftware@nii.ac.jpへお問い合わせください
 
@@ -10049,7 +11007,7 @@ PDFファイルのプレビューを設定する方法を説明します。
 > 
 > 　設定された有効期限を超過したリンクにアクセスした場合は、エラーページを表示します。
 
-340. 利用規約
+9. 利用規約
 
 > ワークフローの利用規約のプルダウンで選択できるテンプレートを設定することができます。
 > 
@@ -10077,7 +11035,19 @@ PDFファイルのプレビューを設定する方法を説明します。
 > 
 > 　登録する利用規約（英語）の文言を入力するテキストエリアです。文字数上限はありません。
 
-341. 利用報告督促メール
+10. エラーメッセージ編集
+
+> 制限公開アイテムに対し、申請する権限を持たないユーザーがアクセスした際に表示されるエラーメッセージを編集することができます。文字数制限はありません。
+>
+> 初期設定では、以下のエラーメッセージが入力されています。
+>
+> 日本語：「このデータは利用できません（権限がないため。）」
+>
+> 英語：「This data is not available for this user.」
+>
+> テキストエリアを空欄にした状態で保存を行うと、エラーになります。
+
+11. 利用報告督促メール
      
      \*この機能の利用に興味のある方はwekosoftware@nii.ac.jpへお問い合わせください
 
