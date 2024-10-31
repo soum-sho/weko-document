@@ -600,5 +600,12 @@
 <td>7733de131da9ad59ab591b2df1c70ddefcfcad98</td>
 <td>v1.0.7対応</td>
 </tr>
+<tr class="odd">
+<td><blockquote>
+<p>2024/10/31</p>
+</blockquote></td>
+<td>e4ea785f91f1e9d6a20f518f637d60e4b8960dc9</td>
+<td>強制インポート機能を追加</td>
+</tr>
 </tbody>
 </table>

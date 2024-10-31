@@ -366,17 +366,17 @@ E-mail：\[restricted\_site\_mail\]*
 <tbody>
 <tr class="odd">
 <td><blockquote>
-<p>2024/09/03</p>
-</blockquote></td>
-<td></td>
-<td>メールテンプレート編集画面に送信者、CC、BCCを追加</td>
-</tr>
-<tr class="odd">
-<td><blockquote>
 <p>2023/08/31</p>
 </blockquote></td>
 <td>353ba1deb094af5056a58bb40f07596b8e95a562</td>
 <td>初版作成</td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>2024/10/31</p>
+</blockquote></td>
+<td>edd6d1f14e0f8344cec7552ed8a02bd2bccf68b7</td>
+<td>メールテンプレート拡張機能を追加</td>
 </tr>
 </tbody>
 </table>
