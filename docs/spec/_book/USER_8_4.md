@@ -71,86 +71,29 @@
         
           - 「メールアドレスの再入力」（Re-enter email address）
 
-          ※以下、管理者画面のプロフィール設定編集画面の操作により表示される項目
-          「fullname」
-            初期ラベル名：氏名
-            初期表示設定：True
-          
-          「university」
-            初期ラベル名：大学・機関
-            初期表示設定：True
-
-          「department」
-            初期ラベル名：所属部局・部署
-            初期表示設定：True
-
-          「position」
-            初期ラベル名：役職
-            初期表示設定：True
-
-          「item1」
-            初期ラベル名：役職（その他）
-            初期表示設定：True
-
-          「item2」
-            初期ラベル名：電話番号
-            初期表示設定：True
-
-          「item3」
-            初期ラベル名：所属学会名
-            初期表示設定：True
-
-          「item4」
-            初期ラベル名：所属学会役職
-            初期表示設定：True
-
-          「item5」
-            初期ラベル名：所属学会名
-            初期表示設定：True
-
-          「item6」
-            初期ラベル名：所属学会役職
-            初期表示設定：True
-
-          「item7」
-            初期ラベル名：所属学会名
-            初期表示設定：True
-
-          「item8」
-            初期ラベル名：所属学会役職
-            初期表示設定：True
-
-          「item9」
-            初期ラベル名：所属学会名
-            初期表示設定：True
-
-          「item10」
-            初期ラベル名：所属学会役職
-            初期表示設定：True
-
-          「item11」
-            初期ラベル名：所属学会名
-            初期表示設定：True
-
-          「item12」
-            初期ラベル名：所属学会役職
-            初期表示設定：True
-
-          「item13」
-            初期ラベル名：item13
-            初期表示設定：False
-
-          「item14」
-            初期ラベル名：item14
-            初期表示設定：False
-
-          「item15」
-            初期ラベル名：item15
-            初期表示設定：False
-
-          「item16」
-            初期ラベル名：item16
-            初期表示設定：False
+※以下、管理者画面のプロフィール設定編集画面の操作により表示される項目
+| 項目名         | 初期ラベル名        | 初期表示設定 |
+| -------------- | ------------------- | ------------ |
+| fullname       | 氏名                | True         |
+| university     | 大学・機関         | True         |
+| department     | 所属部局・部署      | True         |
+| position       | 役職                | True         |
+| item1          | 役職（その他）      | True         |
+| item2          | 電話番号            | True         |
+| item3          | 所属学会名          | True         |
+| item4          | 所属学会役職        | True         |
+| item5          | 所属学会名          | True         |
+| item6          | 所属学会役職        | True         |
+| item7          | 所属学会名          | True         |
+| item8          | 所属学会役職        | True         |
+| item9          | 所属学会名          | True         |
+| item10         | 所属学会役職        | True         |
+| item11         | 所属学会名          | True         |
+| item12         | 所属学会役職        | True         |
+| item13         | item13              | False        |
+| item14         | item14              | False        |
+| item15         | item15              | False        |
+| item16         | item16              | False        |
     
       - ［Update Profile］ボタンを押すと、設定内容をチェックし、エラーがない場合、設定内容を保存する
         
@@ -295,7 +238,7 @@
 <p>2024/10/18</p>
 </blockquote></td>
 <td>6bf785b2956fb19773f22681db7080425c5544f2</td>
-<td>v1.0.7対応</td>
+<td>プロフィール設定編集機能追加</td>
 </tr>
 </tbody>
 </table>

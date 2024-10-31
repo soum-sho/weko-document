@@ -240,7 +240,7 @@
 <p>2024/10/18</p>
 </blockquote></td>
 <td>0bd5306557f56f25887b5e159db723457c09e8a2</td>
-<td>v1.0.7対応</td>
+<td>初版作成</td>
 </tr>
 </tbody>
 </table>
