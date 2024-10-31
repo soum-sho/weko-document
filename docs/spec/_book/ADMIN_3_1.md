@@ -546,7 +546,7 @@
 
   - インデックス削除について
     
-      - 【Administration \> インデックスツリー管理(Index Tree) \> ツリー編集（Edit Tree）】画面にてインデックスを選択後、「削除」ボタンを押し、ポップアップの選択肢「すべて削除」を押下する。この操作によってweko\_index\_tree.rest.deleteにて同フォルダのutil.pyのperform\_delete\_indexメソッドが呼び出される。このメソッドによってindexテーブルから該当インデックスとその子インデックスを論理削除する。
+      - 【Administration \> インデックスツリー管理(Index Tree) \> ツリー編集（Edit Tree）】画面にてインデックスを選択後、「削除」ボタンを押し、ポップアップの選択肢「すべて削除」を押下する。この操作によってweko\_index\_tree.rest.deleteにて同フォルダのutil.pyのperform\_delete\_indexメソッドが呼び出される。このメソッドによってindexテーブルから該当インデックスとその子インデックスを削除する。
 
   - インデックス移動について
     
@@ -571,13 +571,6 @@
 <tbody>
 <tr class="odd">
 <td><blockquote>
-<p>2024/08/27</p>
-</blockquote></td>
-<td>f49b016c92ef98e0656947bf651ca1a2f3dbc286</td>
-<td>v1.0.8</td>
-</tr>
-<tr class="odd">
-<td><blockquote>
 <p>2023/08/31</p>
 </blockquote></td>
 <td>353ba1deb094af5056a58bb40f07596b8e95a562</td>
@@ -589,6 +582,13 @@
 </blockquote></td>
 <td>7733de131da9ad59ab591b2df1c70ddefcfcad98</td>
 <td>v1.0.7対応</td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>2024/10/31</p>
+</blockquote></td>
+<td>3581747ebfbda5f623e7b8da759293d2090c4112</td>
+<td>インデックス公開ロック機能追加</td>
 </tr>
 </tbody>
 </table>
