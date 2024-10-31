@@ -87,6 +87,14 @@
   - 「公開」（Publish）
     
       - 「公開する」（Open to public）チェックボックスを設ける。
+
+        - チェックを入れる際に、ポップアップが表示される。
+
+        - ポップアップの「公開設定を有効化する（Open to public）」チェックボックスにチェックを入れ、「有効にする（Enable）」ボタンを押下することで、「公開する」チェックボックスにチェックが入る。
+
+        - ポップアップの表示制御を以下のコンフィグファイルで行っている。下記変数の値をTrueに変更することで表示することができる。(初期値はFalseになっている)
+          - > パス：/root/weko/modules/weko-index-tree/weko_index_tree/config.py
+          - > 変数：WEKO_INDEX_TREE_SHOW_MODAL
     
       - チェックを入れた場合
         
@@ -131,6 +139,13 @@
   - 「ハーベスト公開」（Harvest Publish）  
     「公開する」（Open to public）チェックボックスを設ける
     
+      - チェックを入れる際に、ポップアップが表示される。
+
+      - ポップアップの「公開設定を有効化する（Open to public）」チェックボックスにチェックを入れ、「有効にする（Enable）」ボタンを押下することで、「公開する」チェックボックスにチェックが入る。
+      - ポップアップの表示制御を以下のコンフィグファイルで行っている。下記変数の値をTrueに変更することで表示することができる。(初期値はFalseになっている)
+        - > パス：/root/weko/modules/weko-index-tree/weko_index_tree/config.py
+        - > 変数：WEKO_INDEX_TREE_SHOW_MODAL
+
       - チェックを入れた場合、インデックスへのハーベスト要求に対して、所属するデータを提供できる。
 
   - 「ONLINE ISSN」（Online ISSN）  
@@ -567,6 +582,13 @@
 </blockquote></td>
 <td>7733de131da9ad59ab591b2df1c70ddefcfcad98</td>
 <td>v1.0.7対応</td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>2024/10/31</p>
+</blockquote></td>
+<td>3581747ebfbda5f623e7b8da759293d2090c4112</td>
+<td>インデックス公開ロック機能追加</td>
 </tr>
 </tbody>
 </table>
