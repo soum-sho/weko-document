@@ -36,7 +36,7 @@
     const webHostName = 'xxx';　（ホスト名を設定）
     const entityID = 'https://' + webHostName + '/shibboleth';
     const handlerURL = 'https://' + webHostName + '/Shibboleth.sso';
-    const returnURL = 'https://' + webHostName + '/secure/login.py?next=shib';
+    const returnURL = 'https://' + webHostName + '/secure/login.py?next=ams';
     ```
 
   - /secure/login.pyからweko_accounts\.views\.shib_sp_login関数を実行する
