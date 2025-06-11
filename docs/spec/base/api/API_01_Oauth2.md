@@ -56,6 +56,13 @@ Query parametersの値を以下とする。
 > 
 > 「Authorize application」ボタンを押下すると、codeとstateの値がサーバー側からクライアント側に渡される。
 
+レスポンスコード
+
+  | コード | 説明                                                          |
+  | ------ | ------------------------------------------------------------- |
+  | 200    | ・正常終了<br>・ユーザが OAuth 認証画面で Reject を押下した時 |
+  | 400    | リクエストに不備がある時                                     |
+
 **Access token URL (POST) /oauth/token**
 
 Request body parameters:
@@ -107,6 +114,13 @@ Request body parametersを以下のものだとする。
 > accessurl = 'https://「weko3の接続先」/oauth/token'
 > 
 > request = requests.post(url=accessurl, data=params)
+
+レスポンスコード
+
+  | コード | 説明                                                          |
+  | ------ | ------------------------------------------------------------- |
+  | 200    | 正常終了|
+  | 400    | リクエストに不備がある時                                     |
 
 **アクセストークンの発行**
 
@@ -225,14 +239,7 @@ url, headers, body = oauth.prepare_token_request('https://dev.ir.rcos.nii.ac.jp/
 
   - > 関連モジュール
 
-> invenio\_oauth2server
-
-  - > レスポンスコード
-
-| コード | 説明                                                          |
-| ------ | ------------------------------------------------------------- |
-| 200    | ・正常終了<br>・ユーザが OAuth 認証画面で Reject を押下した時 |
-| 400    | リクエストに不備がある時                                      |
+> invenio\_oauth2server 
 
   - > 更新履歴
 

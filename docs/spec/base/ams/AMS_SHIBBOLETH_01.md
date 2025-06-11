@@ -18,39 +18,11 @@
 
   - 所属しているグループが「目標2Grp」である場合、目標2ユーザ（認証ユーザ）としてアクセス権限を付与する
 
-    - WEKOのインデックスツリー管理＞ツリー編集 で未病データベース用のインデックスの「閲覧権限」、「投稿権限」のグループ欄に目標2ユーザのグループ情報を設定する
-
-      - 例としてjc_xxx_groups_yyyを登録した図
-
-        ![](../media/media/image37.png)
-
     - 属性情報からグループ名「jc_\<entityid>\_groups_\<groupname>」を判定する (\<groupname> に目標2Grpの値が入る)
 
   - 所属グループが「目標2Grp」ではない場合は通常のログインユーザとしてアクセス権限を付与する
 
-- 付与されるアクセス権限は以下の通り
 
-  - 目標2ユーザ（認証ユーザ）
-
-    - 全てのアイテムを閲覧・検索することが出来る
-
-    - アイテムの編集が出来る
-
-    - 目標2ユーザがアクセス可能なインデックスにアイテムを登録出来る（SWORD API経由およびUI経由）
-
-  - ログインユーザ
-
-    - 自身の所属グループのインデックスに登録されているアイテム、および公開アイテム（オープンアクセス）を閲覧・検索出来る
-
-    - 上記アイテムの編集が出来る
-
-    - 自身の所属グループのインデックスにアイテムを登録出来る
-
-    - 目標2Grpのインデックスにはアクセス出来ない
-
-  - ゲストユーザ（非ログイン）
-
-    - 公開アイテムのみ閲覧・検索出来る
 
 ### 2\. Shibbolethログインの実装
 
@@ -75,9 +47,9 @@
 
   - ログイン処理後のリダイレクト先はフロントのTOPページを指定する
 
-- ログイン処理後、nginx\ams\weko-frontend\pages\index.vueからOauth2 APIを実行する
+- ログイン処理後、nginx\ams\weko-frontend\pages\index.vueからOAuth2 APIを実行する
 
-  - 参考： [Oauth2 API](../api/API_01_Oauth2.md)
+  - 参考： [OAuth2 API](../api/API_01_Oauth2.md)
 
   - ユーザがトークン発行を許可することで認可コードを受け取ることが出来る
 
@@ -126,7 +98,7 @@
 
   - ログイン画面へ遷移時、クエリに'source=detail'がない場合はnginx\ams\weko-frontend\pages\login.vueのonBeforeMountで'sessionStorage'のアイテム詳細画面URLを削除する
 
-  - nginx\ams\weko-frontend\pages\index.vueでOauth2 APIを実行する際にリダイレクト先をアイテム詳細画面のURLに指定する
+  - nginx\ams\weko-frontend\pages\index.vueでOAuth2 APIを実行する際にリダイレクト先をアイテム詳細画面のURLに指定する
 
     - API実行前にそれぞれの変数を指定する
 
