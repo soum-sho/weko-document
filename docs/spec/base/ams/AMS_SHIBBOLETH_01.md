@@ -63,11 +63,11 @@
 
     | エラー原因 | ステータスコード | レスポンス | エラーメッセージ（日/英） |
     | --------- | --------------- | --------- | ----------------------- |
-    | WEKOでログインブロックされている | 403 | Login is blocked. | ログインがブロックされています。<br>/Login is blocked. |
+    | WEKOでログインブロックされている | 403 | Login is blocked. | ログインに失敗しました。管理者に連絡してください。<br>/Failed to Login. Please contact server administrator. |
     | 登録ユーザー情報がない | 403 | There is no user information. | ユーザー情報がありません。<br>/There is no user information. |
-    | Redisにcache_keyがない | 400 | Missing SHIB_CACHE_PREFIX! | ログインに失敗しました。原因：SHIB_CACHE_PREFIXが見つかりません。<br>/Failed to Login. Cause: Missing SHIB_CACHE_PREFIX. |
-    | Shibboleth-Session-IDが取得出来ない | 400 | Missing Shib-Session-ID! | ログインに失敗しました。原因：Shib-Session-IDが見つかりません。<br>/Failed to Login. Cause: Missing Shib-Session-ID. |
-    | shib_eppnが取得出来ない | 400 | Missing SHIB_ATTRs! | ログインに失敗しました。原因：SHIB_ATTRsが見つかりません。<br>/Failed to Login. Cause: Missing SHIB_ATTRs. |
+    | Redisにcache_keyがない | 400 | Missing SHIB_CACHE_PREFIX! | ログインに失敗しました。管理者に連絡してください。<br>/Failed to Login. Please contact server administrator.  |
+    | Shibboleth-Session-IDが取得出来ない | 400 | Missing Shib-Session-ID! | ログインに失敗しました。管理者に連絡してください。<br>/Failed to Login. Please contact server administrator.  |
+    | shib_eppnが取得出来ない | 400 | Missing SHIB_ATTRs! | ログインに失敗しました。管理者に連絡してください。<br>/Failed to Login. Please contact server administrator.  |
 
   - > OAuth認証画面
 
