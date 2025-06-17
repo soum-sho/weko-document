@@ -34,11 +34,11 @@ JSON-LDマッピング機能により、`プロジェクトURL.関連タイプ`�
 WEKOのRO-Crateマッピング機能を使用し、関連識別子と関連タイプを以下のキーにマッピングする。  
 
 - 関連識別子
-  - ツリー構造: root > プロジェクトURL > URL
-  - RO-Crateのキー: `isBasedOn`
+  - ツリー構造: root > プロジェクトURL > URL > URL
+  - RO-Crateのキー: `text`
 - 関連タイプ
-  - ツリー構造: root > プロジェクトURL > 関連タイプ
-  - RO-Crateのキー: `description`
+  - ツリー構造: root > プロジェクトURL > 関連タイプ > 関連タイプ
+  - RO-Crateのキー: `text`
 
 ### 3. フロントでのGRDMボタン表示
 
