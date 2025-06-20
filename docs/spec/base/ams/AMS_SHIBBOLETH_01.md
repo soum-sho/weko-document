@@ -26,7 +26,7 @@
 
 ### 2\. Shibbolethログインの実装
 
-- nginx\ams\weko-frontend\pages\login.vueのonMounted関数でEmbedded DSを導入する
+- nginx/ams/weko-frontend/pages/login.vueのonMounted関数でEmbedded DSを導入する
 
   - Embedded DSの導入にはiframeを活用する
 
@@ -47,7 +47,7 @@
 
   - ログイン処理後のリダイレクト先はフロントのTOPページを指定する
 
-- ログイン処理後、nginx\ams\weko-frontend\pages\index.vueからOAuth2 APIを実行する
+- ログイン処理後、nginx/ams/weko-frontend/pages/index.vueからOAuth2 APIを実行する
 
   - 参考： [OAuth2 API](../api/API_01_Oauth2.md)
 
@@ -74,7 +74,7 @@
     | エラー原因 | ステータスコード | レスポンス | エラーメッセージ（日/英） |
     | --------- | --------------- | --------- | ----------------------- |
     | レスポンスタイプ誤り | 400 | This response type is not supported. | このレスポンスタイプはサポートされていません。<br>/This response type is not supported. |
-    | クライアントID誤り　| 400 | The client ID is incorrect. | クライアントIDに誤りがあります。<br>/The client ID is incorrect. |
+    | クライアントID誤り | 400 | The client ID is incorrect. | クライアントIDに誤りがあります。<br>/The client ID is incorrect. |
     | スコープ誤り | 400 | The scope is incorrect. | スコープに誤りがあります。<br>/The scope is incorrect. |
     | ユーザーが【Reject】を選択 | 200 | Access has been denied. | アクセスが拒否されました。<br>/Access has been denied. |
 
@@ -84,21 +84,21 @@
 
   - 401エラー(認証エラー)が発生し、xx秒後にフロントのログイン画面に遷移する
 
-  - xx(秒数)はnginx\ams\weko-frontend\app.config.tsで指定する
+  - xx(秒数)はnginx/ams/weko-frontend/app.config.tsで指定する
 
     - defineAppConfig関数に'transitionTime:xx'を追加する
 
     - デフォルト値は10000(=10秒)
 
-  - アイテム詳細画面からログイン画面にリダイレクトする際に、nginx\ams\weko-frontend\pages\detail.vueで以下処理を実行する
+  - アイテム詳細画面からログイン画面にリダイレクトする際に、nginx/ams/weko-frontend/pages/detail.vueで以下処理を実行する
 
     - アイテム詳細画面のURLをsessionStorageに保存する
 
     - navigateTo関数のパスに'/login'と、クエリに'source=detail'を指定する
 
-  - ログイン画面へ遷移時、クエリに'source=detail'がない場合はnginx\ams\weko-frontend\pages\login.vueのonBeforeMountで'sessionStorage'のアイテム詳細画面URLを削除する
+  - ログイン画面へ遷移時、クエリに'source=detail'がない場合はnginx/ams/weko-frontend/pages/login.vueのonBeforeMountで'sessionStorage'のアイテム詳細画面URLを削除する
 
-  - nginx\ams\weko-frontend\pages\index.vueでOAuth2 APIを実行する際にリダイレクト先をアイテム詳細画面のURLに指定する
+  - nginx/ams/weko-frontend/pages/index.vueでOAuth2 APIを実行する際にリダイレクト先をアイテム詳細画面のURLに指定する
 
     - API実行前にそれぞれの変数を指定する
 
