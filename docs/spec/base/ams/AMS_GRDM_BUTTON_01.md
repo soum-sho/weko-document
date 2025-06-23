@@ -21,7 +21,18 @@ WEKOのJSON-LDマッピング機能（[ADMIN_1_5：JSON-LDマッピング](../ad
 また、`プロジェクトURL.関連タイプ`に固定値で`xxx`(未定)をマッピングする。(以下、関連タイプとする。)  
 JSON-LDマッピング機能により、`プロジェクトURL.関連タイプ`は`ams:projectid`が存在する場合のみアイテムに登録される。
 
-マッピング定義は以下のようになる。
+RO-Crateの例と対応するマッピング定義は以下のようになる。
+
+```json
+"@id": "./",
+"@type": "Dataset",
+"name": "Sample Dataset",
+"description": "This is a sample dataset.",
+"datePublished": "2025-03-01",
+"ams:projectid":{
+  "value": "https://rdm.nii.ac.jp/"
+}
+```
 
 ```json
 "プロジェクトURL": "ams:projectid",
