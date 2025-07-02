@@ -9423,7 +9423,7 @@ JSONVue を導入後、　https://FQDN/records/アイテムID/export/json にア
 
 検索対象が入ったJSONキーを右クリック。
 
-(media/media/image440.png)
+![グラフィカル ユーザー インターフェイス, テキスト, アプリケーション 自動的に生成された説明](media/media/image440.png)
 
 表示されるメニューから「JSONVue」>「Copy path」を選択すると、当該JSONキーのJSON pathが取得できます。
 
