@@ -42,7 +42,7 @@
 
 ### アイテム詳細画面
 
-エンドポイント: `/ams/detail?sess=search?number=<アイテムのuuid>`
+エンドポイント: `/ams/detail?sess=search?number=<アイテムID>`
 
 #### アクセス権限
 
