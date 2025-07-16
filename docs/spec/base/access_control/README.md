@@ -9,6 +9,7 @@
   - [バージョン削除](ITEM_DETAIL_01.md#バージョン削除)
   - [公開ステータス変更](ITEM_DETAIL_01.md#公開ステータス変更)
   - [リクエストメール](ITEM_DETAIL_01.md#リクエストメール)
+  - [利用申請](ITEM_DETAIL_01.md#利用申請)
   - [エクスポート](ITEM_DETAIL_01.md#エクスポート)
     - [OAI-PMH](ITEM_DETAIL_01.md#oai-pmh)
     - [Other Formats](ITEM_DETAIL_01.md#other-formats)
