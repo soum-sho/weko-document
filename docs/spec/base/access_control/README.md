@@ -2,7 +2,7 @@
 
 ## 目次
 
-- [アイテム](ITEM_DETAIL_01.md#アイテム)
+- [アイテム詳細画面](ITEM_DETAIL_01.md#アイテム詳細画面)
   - [アイテム閲覧](ITEM_DETAIL_01.md#アイテム閲覧)
   - [アイテム編集](ITEM_DETAIL_01.md#アイテム編集)
   - [アイテム削除](ITEM_DETAIL_01.md#アイテム削除)
