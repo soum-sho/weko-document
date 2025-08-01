@@ -32,6 +32,7 @@
       - [ItemLink](WORKFLOW_ACTIVITY_01.md#ItemLink)
       - [IdentifierGrant](WORKFLOW_ACTIVITY_01.md#IdentifierGrant)
       - [Approval](WORKFLOW_ACTIVITY_01.md#Approval)
+    - [インデックス投稿権限](WORKFLOW_ACTIVITY_01.md#インデックス投稿権限)
   - [コニュニティ画面](#コニュニティ画面)
   - [アカウント設定画面](#アカウント設定画面)
     - [プロフィール](#プロフィール)
