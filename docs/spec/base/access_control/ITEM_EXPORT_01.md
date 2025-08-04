@@ -49,3 +49,24 @@
 | アイテム有インデックスの<br>閲覧権限：無 | ○                  | ○                    | ×                      | ×            | ×            | ×                        |
 
 ※1 Messageに「Contains restricted content」と表示され、エクスポートを実行してもファイルはエクスポート出来ません。（ファイルコンテンツなしのアイテムがエクスポートされます。）
+
+- > 更新履歴
+
+<table>
+<thead>
+<tr class="header">
+<th>日付</th>
+<th>GitHubコミットID</th>
+<th>更新内容</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><blockquote>
+<p>2025/8/4</p>
+</blockquote></td>
+<td></td>
+<td>初版作成</td>
+</tr>
+</tbody>
+</table>
