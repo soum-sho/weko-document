@@ -27,7 +27,7 @@
   - [アクティビティ削除](#アクティビティ削除)
   - [コミュニティ](COMMUNITY_SUBREPOSITORY_01.md#コミュニティ)
     - [コミュニティ一覧](COMMUNITY_SUBREPOSITORY_01.md#コミュニティ一覧)
-    - [コミュニティ画面](COMMUNITY_SUBREPOSITORY_01.md#コミュニティ画面)
+    - [コミュニティ閲覧](COMMUNITY_SUBREPOSITORY_01.md#コミュニティ閲覧)
     - [コンテンツポリシー](COMMUNITY_SUBREPOSITORY_01.md#コンテンツポリシー)
   - [アカウント設定画面](#アカウント設定画面)
     - [プロフィール](#プロフィール)
