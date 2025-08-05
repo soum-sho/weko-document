@@ -13,8 +13,6 @@
 
 ## [GET] /api/\<version>/ranking/<pid_value>/files
 
-エンドポイント：[GET] /api/\<version>/ranking/<pid_value>/files
-
 いずれかの○に合致すれば、APIでファイルのランキング情報を取得することが出来ます。
 
 #### インデックス閲覧権限：あり
@@ -31,8 +29,6 @@
 | 利用可否 | ー                 | ー                   | ×                      | ×            | ×            | ×                        |
 
 ## [GET] /api/\<version>/records/<pid_value>/files/\<filename>
-
-エンドポイント：[GET] /api/\<version>/records/<pid_value>/files/\<filename>
 
 いずれかの○に合致すれば、ファイルを取得することが出来ます。
 
@@ -51,8 +47,6 @@
 
 ## [GET] /api/\<version>/records/<pid_value>/files/\<filename>/stats
 
-エンドポイント：[GET] /api/\<version>/records/<pid_value>/files/\<filename>/stats
-
 いずれかの○に合致すれば、レコード統計を取得することが出来ます。
 
 #### インデックス閲覧権限：あり
@@ -69,8 +63,6 @@
 | 利用可否 | ー                 | ー                   | ×                      | ×            | ×            | ×                        |
 
 ## [GET] /api/\<version>/records/<pid_value>/files/all
-
-エンドポイント：[GET] /api/\<version>/records/<pid_value>/files/all
 
 いずれかの○に合致すれば、全ファイルの一覧情報を取得することが出来ます。
 
@@ -89,8 +81,6 @@
 
 ## [POST] /api/\<version>/records/<pid_value>/files/selected
 
-エンドポイント：[POST] /api/\<version>/records/<pid_value>/files/selected
-
 いずれかの○に合致すれば、指定レコードの選択ファイルの一覧を取得することが出来ます。
 
 #### インデックス閲覧権限：あり
@@ -107,8 +97,6 @@
 | 利用可否 | ー                 | ー                   | ×                      | ×            | ×            | ×                        |
 
 ## [GET] /api/\<version>/ranking/<ranking_type>
-
-エンドポイント：[GET] /api/\<version>/ranking/<ranking_type>
 
 いずれかの○に合致すれば、ランキング情報を取得することが出来ます。
 
