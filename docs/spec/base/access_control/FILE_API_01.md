@@ -4,16 +4,16 @@
 
 ## 目次
 
-- [ファイルランキング情報取得](#ファイルランキング情報取得)
-- [ファイル取得](#ファイル取得)
-- [レコード統計取得](#レコード統計取得)
-- [全ファイル一覧情報取得](#全ファイル一覧情報取得)
-- [指定レコードの選択ファイル一覧取得](#指定レコードの選択ファイル一覧取得)
-- [ランキング情報取得](#ランキング情報取得)
+- [[GET] /api/\<version>/ranking/<pid_value>/files](#get-apiversionrankingpid_valuefiles)
+- [[GET] /api/\<version>/records/<pid_value>/files/\<filename>](#get-apiversionrecordspid_valuefilesfilename)
+- [[GET] /api/\<version>/records/<pid_value>/files/\<filename>/stats](#get-apiversionrecordspid_valuefilesfilenamestats)
+- [[GET] /api/\<version>/records/<pid_value>/files/all](#get-apiversionrecordspid_valuefilesall)
+- [[POST] /api/\<version>/records/<pid_value>/files/selected](#post-apiversionrecordspid_valuefilesselected)
+- [[GET] /api/\<version>/ranking/<ranking_type>](#get-apiversionrankingranking_type)
 
-## ファイルランキング情報取得
+## [GET] /api/\<version>/ranking/<pid_value>/files
 
-エンドポイント：[GET] /api/<version>/ranking/<pid_value>/files
+エンドポイント：[GET] /api/\<version>/ranking/<pid_value>/files
 
 いずれかの○に合致すれば、APIでファイルのランキング情報を取得することが出来ます。
 
@@ -30,9 +30,9 @@
 | -------- | ------------------ | -------------------- | ---------------------- | ------------ | ------------ | ------------------------ |
 | 利用可否 | ー                 | ー                   | ×                      | ×            | ×            | ×                        |
 
-## ファイル取得
+## [GET] /api/\<version>/records/<pid_value>/files/\<filename>
 
-エンドポイント：[GET] /api/<version>/records/<pid_value>/files/<filename>
+エンドポイント：[GET] /api/\<version>/records/<pid_value>/files/\<filename>
 
 いずれかの○に合致すれば、ファイルを取得することが出来ます。
 
@@ -49,9 +49,9 @@
 | -------- | ------------------ | -------------------- | ---------------------- | ------------ | ------------ | ------------------------ |
 | 利用可否 | ー                 | ー                   | ×                      | ×            | ×            | ×                        |
 
-## レコード統計取得
+## [GET] /api/\<version>/records/<pid_value>/files/\<filename>/stats
 
-エンドポイント：[GET] /api/<version>/records/<pid_value>/files/<filename>/stats
+エンドポイント：[GET] /api/\<version>/records/<pid_value>/files/\<filename>/stats
 
 いずれかの○に合致すれば、レコード統計を取得することが出来ます。
 
@@ -68,9 +68,9 @@
 | -------- | ------------------ | -------------------- | ---------------------- | ------------ | ------------ | ------------------------ |
 | 利用可否 | ー                 | ー                   | ×                      | ×            | ×            | ×                        |
 
-## 全ファイル一覧情報取得
+## [GET] /api/\<version>/records/<pid_value>/files/all
 
-エンドポイント：[GET] /api/<version>/records/<pid_value>/files/all
+エンドポイント：[GET] /api/\<version>/records/<pid_value>/files/all
 
 いずれかの○に合致すれば、全ファイルの一覧情報を取得することが出来ます。
 
@@ -87,9 +87,9 @@
 | -------- | ------------------ | -------------------- | ---------------------- | ------------ | ------------ | ------------------------ |
 | 利用可否 | ー                 | ー                   | ×                      | ×            | ×            | ×                        |
 
-## 指定レコードの選択ファイル一覧取得
+## [POST] /api/\<version>/records/<pid_value>/files/selected
 
-エンドポイント：[POST] /api/<version>/records/<pid_value>/files/selected
+エンドポイント：[POST] /api/\<version>/records/<pid_value>/files/selected
 
 いずれかの○に合致すれば、指定レコードの選択ファイルの一覧を取得することが出来ます。
 
@@ -106,9 +106,9 @@
 | -------- | ------------------ | -------------------- | ---------------------- | ------------ | ------------ | ------------------------ |
 | 利用可否 | ー                 | ー                   | ×                      | ×            | ×            | ×                        |
 
-## ランキング情報取得
+## [GET] /api/\<version>/ranking/<ranking_type>
 
-エンドポイント：[GET] /api/<version>/ranking/<ranking_type>
+エンドポイント：[GET] /api/\<version>/ranking/<ranking_type>
 
 いずれかの○に合致すれば、ランキング情報を取得することが出来ます。
 
