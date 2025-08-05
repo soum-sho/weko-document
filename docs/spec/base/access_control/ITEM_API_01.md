@@ -14,7 +14,7 @@
 
 ## [GET] /api/\<version>/records
 
-エンドポイント：[GET] /api/<version>/records
+エンドポイント：[GET] /api/\<version>/records
 
 使用出来る画面：未病フロント
 
@@ -56,7 +56,7 @@
 
 ## [GET] /api/\<version>/records/\<pid_value>
 
-エンドポイント：[GET] /api/<version>/records/<pid_value>
+エンドポイント：[GET] /api/\<version>/records/\<pid_value>
 
 いずれかの○に合致すれば、アイテム詳細情報を取得することが出来ます。
 
@@ -75,7 +75,7 @@
 
 ## [GET] /api/\<version>/records/\<pid_value>/stats
 
-エンドポイント：[GET] /api/<version>/records/<pid_value>/stats
+エンドポイント：[GET] /api/\<version>/records/\<pid_value>/stats
 
 いずれかの○に合致すれば、選択期間のアイテム閲覧数を取得することが出来ます。
 
@@ -94,7 +94,7 @@
 
 ## [POST] /api/\<version>/records/list
 
-エンドポイント：[POST] /api/<version>/records/list
+エンドポイント：[POST] /api/\<version>/records/list
 
 いずれかの○に合致すれば、検索結果の一覧を取得することが出来ます。
 
