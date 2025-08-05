@@ -14,8 +14,6 @@
 
 ## [GET] /api/\<version>/records
 
-エンドポイント：[GET] /api/\<version>/records
-
 使用出来る画面：未病フロント
 
 いずれかの○に合致すれば、アイテムを検索することが出来ます。
@@ -34,8 +32,6 @@
 | 利用可否 | ー                 | ー                   | ×                      | ×            | ×            | ×                        |
 
 ## [GET] /api/records/
-
-エンドポイント：[GET] /api/records/
 
 使用出来る画面：WEKO3
 
@@ -56,8 +52,6 @@
 
 ## [GET] /api/\<version>/records/\<pid_value>
 
-エンドポイント：[GET] /api/\<version>/records/\<pid_value>
-
 いずれかの○に合致すれば、アイテム詳細情報を取得することが出来ます。
 
 #### インデックス閲覧権限：あり
@@ -74,8 +68,6 @@
 | 利用可否 | ー                 | ー                   | ×                      | ×            | ×            | ×                        |
 
 ## [GET] /api/\<version>/records/\<pid_value>/stats
-
-エンドポイント：[GET] /api/\<version>/records/\<pid_value>/stats
 
 いずれかの○に合致すれば、選択期間のアイテム閲覧数を取得することが出来ます。
 
@@ -94,8 +86,6 @@
 
 ## [POST] /api/\<version>/records/list
 
-エンドポイント：[POST] /api/\<version>/records/list
-
 いずれかの○に合致すれば、検索結果の一覧を取得することが出来ます。
 
 #### インデックス閲覧権限：あり
@@ -113,8 +103,6 @@
 
 ## [GET] /api/index/
 
-エンドポイント：[GET] /api/index/
-
 いずれかの○に合致すれば、インデックスを検索することが出来ます。
 
 | 条件/ロール                       | システム<br>管理者 | リポジトリ<br>管理者 | コミュニティ<br>管理者 | 登録ユーザー | 一般ユーザー | ゲスト<br>（未ログイン） |
@@ -123,8 +111,6 @@
 | インデックス<br>閲覧権限:<br>なし | ー                 | ー                   | ×                      | ×            | ×            | ×                        |
 
 ## [PUT] /api/records/
-
-エンドポイント：[PUT] /api/records/
 
 いずれかの○に合致すれば、レコードの書き換えをすることが出来ます。
 
