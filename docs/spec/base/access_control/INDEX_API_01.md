@@ -4,15 +4,18 @@
 
 ## 目次
 
-- [全インデックス取得](#全インデックス取得)
-- [インデックス取得](#インデックス取得)
-- [インデックス登録](#インデックス登録)
-- [インデックス更新](#インデックス更新)
-- [インデックス削除](#インデックス削除)
+- [[GET] /api/\<version>/tree](#get-apiversiontree)
+- [[GET] /api/\<version>/tree/<index_id>](#get-apiversiontreeindex_id)
+- [[GET] /api/\<version>/tree/index](#get-apiversiontreeindex)
+- [[GET] /api/\<version>/tree/index/\<index_id>](#get-apiversiontreeindexindex_id)
+- [[GET] /api/\<version>/tree/index/\<index_id>/parent](#get-apiversiontreeindexindex_idparent)
+- [[POST] /api/\<version>/tree/index](#post-apiversiontreeindex)
+- [[PUT] /api/\<version>/tree/index/<index_id>](#put-apiversiontreeindexindex_id)
+- [[DELETE] /api/\<version>/tree/index/<index_id>](#delete-apiversiontreeindexindex_id)
 
-## 全インデックス取得
+## [GET] /api/\<version>/tree
 
-エンドポイント：[GET] /api/<version>/tree , [GET] /api/<version>/tree/<index_id>
+## [GET] /api/\<version>/tree/\<index_id>
 
 いずれかの○に合致すれば、全インデックスを取得することが出来ます。
 
@@ -24,9 +27,11 @@
 ※ インデックスの閲覧可否は画面からのアクセス(/search?&search_type=2&q=0)と同条件です。<br>
 　[インデックス閲覧権限](ITEM_SEARCH_01.md#インデックス閲覧権限)を参照ください。
 
-## インデックス取得
+## [GET] /api/\<version>/tree/index<br>
 
-エンドポイント：[GET] /api/<version>/tree/index , [GET] /api/<version>/tree/index/<index_id> , [GET] /api/<version>/tree/index/<index_id>/parent
+## [GET] /api/\<version>/tree/index/\<index_id><br>
+
+## [GET] /api/\<version>/tree/index/\<index_id>/parent
 
 いずれかの○に合致すれば、インデックスを取得することが出来ます。
 
@@ -38,9 +43,7 @@
 ※ インデックスの閲覧可否は画面からのアクセス(/search?&search_type=2&q=0)と同条件です。<br>
 　[インデックス閲覧権限](ITEM_SEARCH_01.md#インデックス閲覧権限)を参照ください。
 
-## インデックス登録
-
-エンドポイント：[POST] /api/<version>/tree/index
+## [POST] /api/\<version>/tree/index
 
 インデックス登録APIを使用するためには2つの条件を満たす必要があります。
 
@@ -60,9 +63,7 @@
 | index:create<br>がある | ○                  | ○                    | ○                      | ×            | ×            | ×                        |
 | 上記以外               | ×                  | ×                    | ×                      | ×            | ×            | ×                        |
 
-## インデックス更新
-
-エンドポイント：[PUT] /api/<version>/tree/index/<index_id>
+## [PUT] /api/\<version>/tree/index/<index_id>
 
 インデックス更新APIを使用するためには2つの条件を満たす必要があります。
 
@@ -82,9 +83,7 @@
 | index:update<br>がある | ○                  | ○                    | ○                      | ×            | ×            | ×                        |
 | 上記以外               | ×                  | ×                    | ×                      | ×            | ×            | ×                        |
 
-## インデックス削除
-
-エンドポイント：[DELETE] /api/<version>/tree/index/<index_id>
+## [DELETE] /api/\<version>/tree/index/<index_id>
 
 インデックス削除APIを使用するためには2つの条件を満たす必要があります。
 
