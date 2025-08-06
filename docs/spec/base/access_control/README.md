@@ -61,7 +61,7 @@
     - [API を利用可能なロール](#api-を利用可能なロール)
     - [アクセストークンに必要なスコープ](#アクセストークンに必要なスコープ)
   - [アクティビティ](#アクティビティ)
-  - [Opensearch](OPEN_SEARCH_01.md#opensearch)
+  - [OpenSearch](OPEN_SEARCH_01.md#opensearch)
     - [[GET] /api/opensearch/description.xml](OPEN_SEARCH_01.md#get-apiopensearchdescriptionxml)
     - [[GET] /api/opensearch/search](OPEN_SEARCH_01.md#get-apiopensearchsearch)
   - [著者](#著者)
