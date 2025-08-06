@@ -4,10 +4,10 @@ OpenSearchに関するAPIのアクセスコントロールについて記述し�
 
 ## 目次
 
-- [[GET] /api/opensearch/description.xml](#get-apiopensearchdescriptionxml)
-- [[GET] /api/opensearch/search](#get-apiopensearchsearch)
+- [GET /api/opensearch/description.xml](#get-apiopensearchdescriptionxml)
+- [GET /api/opensearch/search](#get-apiopensearchsearch)
 
-## [GET] /api/opensearch/description.xml
+## GET /api/opensearch/description.xml
 
 全てのロールでdescription.xmlを取得することが可能です。
 
@@ -15,7 +15,7 @@ OpenSearchに関するAPIのアクセスコントロールについて記述し�
 | -------- | ------------------ | -------------------- | ---------------------- | ------------ | ------------ | ------------------------ |
 | 利用可否 | ○                  | ○                    | ○                      | ○            | ○            | ○                        |
 
-## [GET] /api/opensearch/search
+## GET /api/opensearch/search
 
 全てのロールでOpenSearchによる検索をすることが可能です。
 
