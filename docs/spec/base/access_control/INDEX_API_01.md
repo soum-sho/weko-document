@@ -4,16 +4,16 @@
 
 ## 目次
 
-- [[GET] /api/\<version>/tree](#get-apiversiontree)
-- [[GET] /api/\<version>/tree/<index_id>](#get-apiversiontreeindex_id)
-- [[GET] /api/\<version>/tree/index](#get-apiversiontreeindex)
-- [[GET] /api/\<version>/tree/index/\<index_id>](#get-apiversiontreeindexindex_id)
-- [[GET] /api/\<version>/tree/index/\<index_id>/parent](#get-apiversiontreeindexindex_idparent)
-- [[POST] /api/\<version>/tree/index](#post-apiversiontreeindex)
-- [[PUT] /api/\<version>/tree/index/<index_id>](#put-apiversiontreeindexindex_id)
-- [[DELETE] /api/\<version>/tree/index/<index_id>](#delete-apiversiontreeindexindex_id)
+- [GET /api/\<version>/tree](#get-apiversiontree)
+- [GET /api/\<version>/tree/<index_id>](#get-apiversiontreeindex_id)
+- [GET /api/\<version>/tree/index](#get-apiversiontreeindex)
+- [GET /api/\<version>/tree/index/\<index_id>](#get-apiversiontreeindexindex_id)
+- [GET /api/\<version>/tree/index/\<index_id>/parent](#get-apiversiontreeindexindex_idparent)
+- [POST /api/\<version>/tree/index](#post-apiversiontreeindex)
+- [PUT /api/\<version>/tree/index/<index_id>](#put-apiversiontreeindexindex_id)
+- [DELETE /api/\<version>/tree/index/<index_id>](#delete-apiversiontreeindexindex_id)
 
-## [GET] /api/\<version>/tree
+## GET /api/\<version>/tree
 
 表内のいずれかの○に合致すれば、全てのインデックス情報を取得することが出来ます。
 
@@ -25,7 +25,7 @@
 ※ インデックスの閲覧可否は画面からのアクセス(/search?&search_type=2&q=0)と同一条件です。<br>
 　[インデックス閲覧権限](ITEM_SEARCH_01.md#インデックス閲覧権限)を参照ください。
 
-## [GET] /api/\<version>/tree/\<index_id>
+## GET /api/\<version>/tree/\<index_id>
 
 表内のいずれかの○に合致すれば、指定したインデックスIDのインデックスツリーを取得することが出来ます。
 
@@ -37,7 +37,7 @@
 ※ インデックスの閲覧可否は画面からのアクセス(/search?&search_type=2&q=0)と同一条件です。<br>
 　[インデックス閲覧権限](ITEM_SEARCH_01.md#インデックス閲覧権限)を参照ください。
 
-## [GET] /api/\<version>/tree/index
+## GET /api/\<version>/tree/index
 
 表内のいずれかの○に合致すれば、全てのインデックス情報を取得することが出来ます。
 
@@ -49,7 +49,7 @@
 ※ インデックスの閲覧可否は画面からのアクセス(/search?&search_type=2&q=0)と同一条件です。<br>
 　[インデックス閲覧権限](ITEM_SEARCH_01.md#インデックス閲覧権限)を参照ください。
 
-## [GET] /api/\<version>/tree/index/\<index_id><br>
+## GET /api/\<version>/tree/index/\<index_id><br>
 
 表内のいずれかの○に合致すれば、指定したインデックスIDのインデックスツリーを取得することが出来ます。
 
@@ -61,7 +61,7 @@
 ※ インデックスの閲覧可否は画面からのアクセス(/search?&search_type=2&q=0)と同一条件です。<br>
 　[インデックス閲覧権限](ITEM_SEARCH_01.md#インデックス閲覧権限)を参照ください。
 
-## [GET] /api/\<version>/tree/index/\<index_id>/parent
+## GET /api/\<version>/tree/index/\<index_id>/parent
 
 表内のいずれかの○に合致すれば、指定したインデックスIDとルートまでの親インデックス一覧を取得することが出来ます。
 
@@ -73,7 +73,7 @@
 ※ インデックスの閲覧可否は画面からのアクセス(/search?&search_type=2&q=0)と同一条件です。<br>
 　[インデックス閲覧権限](ITEM_SEARCH_01.md#インデックス閲覧権限)を参照ください。
 
-## [POST] /api/\<version>/tree/index
+## POST /api/\<version>/tree/index
 
 インデックス登録APIを使用するためには2つの条件を満たす必要があります。
 
@@ -93,7 +93,7 @@
 | index:create<br>がある | ○                  | ○                    | ○                      | ×            | ×            | ×                        |
 | 上記以外               | ×                  | ×                    | ×                      | ×            | ×            | ×                        |
 
-## [PUT] /api/\<version>/tree/index/<index_id>
+## PUT /api/\<version>/tree/index/<index_id>
 
 インデックス更新APIを使用するためには2つの条件を満たす必要があります。
 
@@ -113,7 +113,7 @@
 | index:update<br>がある | ○                  | ○                    | ○                      | ×            | ×            | ×                        |
 | 上記以外               | ×                  | ×                    | ×                      | ×            | ×            | ×                        |
 
-## [DELETE] /api/\<version>/tree/index/<index_id>
+## DELETE /api/\<version>/tree/index/<index_id>
 
 インデックス削除APIを使用するためには2つの条件を満たす必要があります。
 
