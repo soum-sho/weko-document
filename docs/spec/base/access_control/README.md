@@ -42,7 +42,7 @@
     - [一括更新](ITEM_ADMIN_01.md#一括更新)
     - [一括エクスポート](ITEM_ADMIN_01.md#一括エクスポート)
     - [インポート](ITEM_ADMIN_01.md#インポート)
-    - [RO-Crateインポート](ITEM_ADMIN_01.md#RO-Crateインポート)
+    - [RO-Crateインポート](ITEM_ADMIN_01.md#ro-crateインポート)
   - [インデックスツリー管理](#インデックスツリー管理)
   - [ウェブデザイン管理](#ウェブデザイン管理)
   - [著者 DB 管理](#著者-db-管理)
