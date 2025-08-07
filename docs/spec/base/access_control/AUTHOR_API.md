@@ -5,10 +5,10 @@
 ## 目次
 
 - [GET /api/\<version>/authors](#get-apiversionauthors)
-- [POST /api/<version>/authors](#post-apiversionauthors)
-- [PUT /api/<version>/authors/<identifier>](#put-apiversionauthorsidentifier)
-- [DELETE /api/<version>/authors/<identifier>](#delete-apiversionauthorsidentifier)
-- [GET /api/<version>/authors/count](#get-apiversionauthorscount)
+- [POST /api/\<version>/authors](#post-apiversionauthors)
+- [PUT /api/\<version>/authors/\<identifier>](#put-apiversionauthorsidentifier)
+- [DELETE /api/\<version>/authors/\<identifier>](#delete-apiversionauthorsidentifier)
+- [GET /api/\<version>/authors/count](#get-apiversionauthorscount)
 
 
 

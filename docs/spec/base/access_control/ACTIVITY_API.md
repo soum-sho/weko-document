@@ -5,8 +5,8 @@
 ## 目次
 
 - [POST /api/depositactivity](#post-apidepositactivity)
-- [GET /api/depositactivity/<activity_id>](#get-apidepositactivityactivity_id)
-- [DELETE /api/depositactivity/<activity_id>](#delete-apidepositactivityactivity_id)
+- [GET /api/depositactivity/\<activity_id>](#get-apidepositactivityactivity_id)
+- [DELETE /api/depositactivity/\<activity_id>](#delete-apidepositactivityactivity_id)
 
 
 
@@ -21,7 +21,7 @@
 
 
 
-## GET /api/depositactivity/<activity_id>
+## GET /api/depositactivity/\<activity_id>
 
 表内のいずれかの○に合致すれば、指定したアクティビティIDのアクティビティの状態を取得します。
 
@@ -32,7 +32,7 @@
 
 
 
-## DELETE /api/depositactivity/<activity_id>
+## DELETE /api/depositactivity/\<activity_id>
 
 表内のいずれかの○に合致すれば、指定したアクティビティIDのアクティビティを中断します。
 
