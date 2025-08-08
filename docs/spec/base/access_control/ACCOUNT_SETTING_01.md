@@ -4,15 +4,14 @@
 
 ## 目次
 
-- [アカウント設定画面](#アカウント設定画面)
-  - [プロフィール](#プロフィール)
-  - [Security](#security)
-  - [通知](#通知)
-  - [アプリケーション](#アプリケーション)
-  - [Groups](#groups)
-  - [セッション](#セッション)
-  - [Administration](#administration)
-  - [Workspace](#workspace)
+- [プロフィール](#プロフィール)
+- [Security](#security)
+- [通知](#通知)
+- [アプリケーション](#アプリケーション)
+- [Groups](#groups)
+- [セッション](#セッション)
+- [Administration](#administration)
+- [Workspace](#workspace)
 
 ## プロフィール
 

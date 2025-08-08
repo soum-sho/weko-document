@@ -3,12 +3,12 @@
 SWORD API のアクセスコントロールについて記述します。
 
 ## 目次
-- [SWORD API](#SWORD_API)
-  - [GET /sword/service-document](#get-swordservice-document)
-  - [GET /sword/deposit/\<recid\>](#get-sworddepositrecid)
-  - [POST /sword/service-document](#post-swordservice-document)
-  - [PUT /sword/deposit/\<recid\>](#put-sworddepositrecid)
-  - [DELETE /sword/deposit/](#delete-sworddeposit)
+
+- [GET /sword/service-document](#get-swordservice-document)
+- [GET /sword/deposit/\<recid\>](#get-sworddepositrecid)
+- [POST /sword/service-document](#post-swordservice-document)
+- [PUT /sword/deposit/\<recid\>](#put-sworddepositrecid)
+- [DELETE /sword/deposit/](#delete-sworddeposit)
 
 ## GET /sword/service-document
 
