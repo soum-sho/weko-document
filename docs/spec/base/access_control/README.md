@@ -65,7 +65,11 @@
     - [簡易アイテム登録画面](WORKSPACE_01.md#簡易アイテム登録画面)
 - 管理画面
   - [アイテムタイプ管理](#アイテムタイプ管理)
-  - [アイテム管理](#アイテム管理)
+  - [アイテム管理](ITEM_ADMIN_01.md#アイテム管理)
+    - [一括更新](ITEM_ADMIN_01.md#一括更新)
+    - [一括エクスポート](ITEM_ADMIN_01.md#一括エクスポート)
+    - [インポート](ITEM_ADMIN_01.md#インポート)
+    - [RO-Crateインポート](ITEM_ADMIN_01.md#ro-crateインポート)
   - [インデックスツリー管理](INDEXTREE_MANAGEMENT_01.md#インデックスツリー管理)
     - [ツリー編集](INDEXTREE_MANAGEMENT_01.md#ツリー編集)
     - [雑誌情報](INDEXTREE_MANAGEMENT_01.md#雑誌情報)
