@@ -5,15 +5,15 @@
 ## 目次
 
 - [ワークフロー](#ワークフロー)
-  - [ToDoタブ](#ToDoタブ)
-  - [Waitタブ](#Waitタブ)
-  - [Allタブ](#Allタブ)
+  - [ToDoタブ](#todoタブ)
+  - [Waitタブ](#waitタブ)
+  - [Allタブ](#allタブ)
 - [アクティビティ](#アクティビティ)
   - [新規アクティビティ](#新規アクティビティ)
-  - [ItemRegistration](#ItemRegistration)
-  - [ItemLink](#ItemLink)
-  - [IdentifierGrant](#IdentifierGrant)
-  - [Approval](#Approval)
+  - [ItemRegistration](#itemregistration)
+  - [ItemLink](#itemlink)
+  - [IdentifierGrant](#identifiergrant)
+  - [Approval](#approval)
 - [インデックス投稿権限](#インデックス投稿権限)
 
 ## ワークフロー

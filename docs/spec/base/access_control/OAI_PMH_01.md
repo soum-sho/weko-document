@@ -5,7 +5,7 @@ OAI-PMHのアクセスコントロールについて記述します。
 ## 目次
 
 - [ハーベスト](#ハーベスト)
-- [Identify](#Identify)
+- [Identify](#identify)
 - [set](#set)
 
 ## ハーベスト
