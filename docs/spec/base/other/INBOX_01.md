@@ -45,6 +45,36 @@ WEKO_NOTIFICATIONS = True
 
 この変更をした後、両コンテナを再起動する。
 
+VAPIDはOpenSSLやPythonで生成することができる。
+
+```sh
+$ openssl ecparam -genkey -name prime256v1 -out private_key.pem
+$ openssl ec -in private_key.pem -pubout -outform DER|tail -c 65|base64|tr -d '=' |tr '/+' '_-' |tr -d '\n'>> public_key.txt
+$ openssl ec -in private_key.pem -outform DER|tail -c +8|head -c 32|base64|tr -d '=' |tr '/+' '_-' >> private_key.txt
+```
+
+```python
+import base64
+import ecdsa
+
+def generate_vapid_keypair():
+  """
+  Generate a new set of encoded key-pair for VAPID
+  """
+  pk = ecdsa.SigningKey.generate(curve=ecdsa.NIST256p)
+  vk = pk.get_verifying_key()
+
+  return {
+    'private_key': base64.urlsafe_b64encode(pk.to_string()).strip(b"="),
+    'public_key': base64.urlsafe_b64encode(b"\x04" + vk.to_string()).strip(b"=")
+  }
+
+keypair = generate_vapid_keypair()
+
+print(f"Private:\n{keypair['private_key'].decode('utf-8')}\n")
+print(f"Public:\n{keypair['public_key'].decode('utf-8')}\n")
+```
+
 ### サーバー証明書のインポート
 
 開発環境でもWebプッシュ通知を利用するためには、サーバー証明書をインポートする必要がある。  
