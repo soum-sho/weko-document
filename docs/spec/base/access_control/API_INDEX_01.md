@@ -23,7 +23,7 @@
 | 上記以外                                     | ×                  | ×                    | ×                      | ×            | ×            | ×                        |
 
 ※ インデックスの閲覧可否は画面からのアクセス(/search?&search_type=2&q=0)と同一条件です。<br>
-　[インデックス閲覧権限](ITEM_SEARCH_01.md#インデックス閲覧権限)を参照ください。
+　[インデックス閲覧権限](USER_ITEM_SEARCH_01.md#インデックス閲覧権限)を参照ください。
 
 ## GET /api/\<version>/tree/\<index_id>
 
@@ -35,7 +35,7 @@
 | 上記以外                                     | ×                  | ×                    | ×                      | ×            | ×            | ×                        |
 
 ※ インデックスの閲覧可否は画面からのアクセス(/search?&search_type=2&q=0)と同一条件です。<br>
-　[インデックス閲覧権限](ITEM_SEARCH_01.md#インデックス閲覧権限)を参照ください。
+　[インデックス閲覧権限](USER_ITEM_SEARCH_01.md#インデックス閲覧権限)を参照ください。
 
 ## GET /api/\<version>/tree/index
 
@@ -47,7 +47,7 @@
 | 上記以外                                     | ×                  | ×                    | ×                      | ×            | ×            | ○                        |
 
 ※ インデックスの閲覧可否は画面からのアクセス(/search?&search_type=2&q=0)と同一条件です。<br>
-　[インデックス閲覧権限](ITEM_SEARCH_01.md#インデックス閲覧権限)を参照ください。
+　[インデックス閲覧権限](USER_ITEM_SEARCH_01.md#インデックス閲覧権限)を参照ください。
 
 ## GET /api/\<version>/tree/index/\<index_id><br>
 
@@ -59,7 +59,7 @@
 | 上記以外                                     | ×                  | ×                    | ×                      | ×            | ×            | ○                        |
 
 ※ インデックスの閲覧可否は画面からのアクセス(/search?&search_type=2&q=0)と同一条件です。<br>
-　[インデックス閲覧権限](ITEM_SEARCH_01.md#インデックス閲覧権限)を参照ください。
+　[インデックス閲覧権限](USER_ITEM_SEARCH_01.md#インデックス閲覧権限)を参照ください。
 
 ## GET /api/\<version>/tree/index/\<index_id>/parent
 
@@ -71,7 +71,7 @@
 | 上記以外                                     | ×                  | ×                    | ×                      | ×            | ×            | ○                        |
 
 ※ インデックスの閲覧可否は画面からのアクセス(/search?&search_type=2&q=0)と同一条件です。<br>
-　[インデックス閲覧権限](ITEM_SEARCH_01.md#インデックス閲覧権限)を参照ください。
+　[インデックス閲覧権限](USER_ITEM_SEARCH_01.md#インデックス閲覧権限)を参照ください。
 
 ## POST /api/\<version>/tree/index
 
