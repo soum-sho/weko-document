@@ -1,6 +1,6 @@
-# Resourse Sync
+# Resource Sync
 
-Resourse Syncのアクセスコントロールについて記述します。
+Resource Syncのアクセスコントロールについて記述します。
 
 ## 目次
 
