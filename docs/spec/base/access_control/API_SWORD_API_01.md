@@ -26,7 +26,7 @@ SWORD API のアクセスコントロールについて記述します。
 | -------- | ------------------ | -------------------- | ---------------------- | ------------ | ------------ | ------------------------ |
 | 利用可否 | ○                  | ○                    | ○                      | ○            | ○            | ×                        |
 
-以下三種のAPIは、`modules/weko-swordserver/weko_swordserver/config.py`の`WEKO_SWORDSERVER_DEPOSIT_ROLE_ENABLE`の値によって使用可能なロールを指定することが出来ます。ただし、インデックスの公開状態や投稿権限を無視して投稿可能となります。
+以下3種のAPIは、`modules/weko-swordserver/weko_swordserver/config.py`の`WEKO_SWORDSERVER_DEPOSIT_ROLE_ENABLE`の値によって使用可能なロールを指定することが出来ます。ただし、インデックスの公開状態や投稿権限を無視して投稿可能となります。
 
 ## POST /sword/service-document
 
