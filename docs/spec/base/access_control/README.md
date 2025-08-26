@@ -113,7 +113,7 @@
   - [Resource Sync](ADMIN_RESOURCE_SYNC_01.md#resource-sync)
     - [Resource List](ADMIN_RESOURCE_SYNC_01.md#resource-list)
     - [Change List](ADMIN_RESOURCE_SYNC_01.md#change-list)
-    - [Rsync](ADMIN_RESOURCE_SYNC_01.md#rsync)
+    - [Resync](ADMIN_RESOURCE_SYNC_01.md#resync)
   - [SWORD API](ADMIN_SWORD_API_01.md#sword-api)
     - [TSV/XML](ADMIN_SWORD_API_01.md#tsvxml)
     - [JSON-LD](ADMIN_SWORD_API_01.md#json-ld)
