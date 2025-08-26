@@ -111,7 +111,7 @@
     - [Identify](ADMIN_OAI_PMH_01.md#identify)
     - [set](ADMIN_OAI_PMH_01.md#set)
   - [Resource Sync](ADMIN_RESOURCE_SYNC_01.md#resource-sync)
-    - [Resouce List](ADMIN_RESOURCE_SYNC_01.md#resouce-list)
+    - [Resource List](ADMIN_RESOURCE_SYNC_01.md#resource-list)
     - [Change List](ADMIN_RESOURCE_SYNC_01.md#change-list)
     - [Rsync](ADMIN_RESOURCE_SYNC_01.md#rsync)
   - [SWORD API](ADMIN_SWORD_API_01.md#sword-api)
