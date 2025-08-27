@@ -6,9 +6,12 @@ SWORD API のアクセスコントロールについて記述します。
 
 - [GET /sword/service-document](#get-swordservice-document)
 - [GET /sword/deposit/\<recid\>](#get-sworddepositrecid)
-- [POST /sword/service-document](#post-swordservice-document)
-- [PUT /sword/deposit/\<recid\>](#put-sworddepositrecid)
-- [DELETE /sword/deposit/](#delete-sworddeposit)
+- [POST /sword/service-document](#post-swordservice-document) ※
+- [PUT /sword/deposit/\<recid\>](#put-sworddepositrecid) ※
+- [DELETE /sword/deposit/](#delete-sworddeposit) ※
+
+※ `weko_swordserver/config.py` の `WEKO_SWORDSERVER_DEPOSIT_ROLE_ENABLE` の値によって使用可能なロールを指定することが出来ます。  
+ただし、インデックスの公開状態や投稿権限を無視して投稿可能となります。
 
 ## GET /sword/service-document
 
@@ -26,8 +29,6 @@ SWORD API のアクセスコントロールについて記述します。
 | -------- | ------------------ | -------------------- | ---------------------- | ------------ | ------------ | ------------------------ |
 | 利用可否 | ○                  | ○                    | ○                      | ○            | ○            | ×                        |
 
-以下3種のAPIは、`modules/weko-swordserver/weko_swordserver/config.py`の`WEKO_SWORDSERVER_DEPOSIT_ROLE_ENABLE`の値によって使用可能なロールを指定することが出来ます。ただし、インデックスの公開状態や投稿権限を無視して投稿可能となります。
-
 ## POST /sword/service-document
 
 ○ に合致すれば、アイテムを登録することが出来ます。
@@ -41,7 +42,7 @@ SWORD API のアクセスコントロールについて記述します。
 - API使用可否(ワークフロー経由で登録)
   | 条件/ロール | システム<br>管理者 | リポジトリ<br>管理者 | コミュニティ<br>管理者 | 登録ユーザー | 一般ユーザー | ゲスト<br>（未ログイン） |
   | ----------------------------------------------------------------------------------------------- | ------------------ | -------------------- | ---------------------- | ------------ | ------------ | ------------------------ |
-  | トークンのスコープに<br>deposit:write<br>deposit:actions<br>item:create<br>user:activity が全て存在 | ○ | ○ | × | × | × | × |
+  | トークンのスコープに<br>deposit:write<br>deposit:actions<br>item:create<br>**user:activity** が全て存在 | ○ | ○ | × | × | × | × |
   | 上記以外 | × | × | × | × | × | × |
 
 ## PUT /sword/deposit/\<recid>
@@ -57,7 +58,7 @@ SWORD API のアクセスコントロールについて記述します。
 - API使用可否(ワークフロー経由で更新)
   | 条件/ロール | システム<br>管理者 | リポジトリ<br>管理者 | コミュニティ<br>管理者 | 登録ユーザー | 一般ユーザー | ゲスト<br>（未ログイン） |
   | ----------------------------------------------------------------------------------------------- | ------------------ | -------------------- | ---------------------- | ------------ | ------------ | ------------------------ |
-  | トークンのスコープに<br>deposit:write<br>deposit:actions<br>item:update<br>user:activity が全て存在 | ○ | ○ | × | × | × | × |
+  | トークンのスコープに<br>deposit:write<br>deposit:actions<br>item:update<br>**user:activity** が全て存在 | ○ | ○ | × | × | × | × |
   | 上記以外 | × | × | × | × | × | × |
 
 ## DELETE /sword/deposit/<recid>
@@ -73,27 +74,12 @@ SWORD API のアクセスコントロールについて記述します。
 - API使用可否(ワークフロー経由で削除)
   | 条件/ロール | システム<br>管理者 | リポジトリ<br>管理者 | コミュニティ<br>管理者 | 登録ユーザー | 一般ユーザー | ゲスト<br>（未ログイン） |
   | ----------------------------------------------------------------------------------------------- | ------------------ | -------------------- | ---------------------- | ------------ | ------------ | ------------------------ |
-  | トークンのスコープに<br>deposit:write<br>deposit:actions<br>item:delete<br>user:activity が全て存在 | ○ | ○ | × | × | × | × |
+  | トークンのスコープに<br>deposit:write<br>deposit:actions<br>item:delete<br>**user:activity** が全て存在 | ○ | ○ | × | × | × | × |
   | 上記以外 | × | × | × | × | × | × |
 
 
-- > 更新履歴
+## 更新履歴
 
-<table>
-<thead>
-<tr class="header">
-<th>日付</th>
-<th>GitHubコミットID</th>
-<th>更新内容</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><blockquote>
-<p>2025/8/6</p>
-</blockquote></td>
-<td></td>
-<td>初版作成</td>
-</tr>
-</tbody>
-</table>
+| 日付       | GitHubコミットID                           | 更新内容                                                 |
+| ---------- | ------------------------------------------ | -------------------------------------------------------- |
+| 2025/08/29 |                                            | 初版作成                                                 |
