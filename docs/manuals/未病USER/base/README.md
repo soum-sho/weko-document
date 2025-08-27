@@ -1,12 +1,10 @@
-# 未病データベース画面ユーザ操作マニュアル
-
-一般閲覧者
+# 未病データベース ユーザ操作マニュアル
 
 ## はじめに
 
-このマニュアルは、未病用の WEKO3 システム（以下、システムと称す）で登録したアイテムを閲覧する未病データベース画面（以下、未病データベースと称す）の操作方法を説明したものです。
+このマニュアルは、未病データベースの操作方法を説明したものです。
 
-- 対象読者
+### 対象読者
 
 本書は次の方を対象としています。
 
@@ -88,7 +86,7 @@
 　 ┣[5.2 タブの切り替え](#タブの切り替え)<br>
 　 ┣[5.3 セクションの切り替え](#セクションの切り替え)<br>
 　 ┣[5.4 リクエストメール](#リクエストメール)<br>
-　 ┗[5.5 GakuNin RDM](#gakuninrdm)
+　 ┗[5.5 GakuNin RDM](#gakunin-rdm)
 
 [第６章 添付ファイルを確認する](#第６章-添付ファイルを確認する)<br>
 　 ┣[6.1 ファイル一覧画面 各部名称説明](#ファイル一覧画面各部名称説明)<br>
@@ -163,67 +161,63 @@
 - 図 2-1 最新情報画面<br>
   <img src="media/media/image7.PNG">
 
-<table>
-<thead>
-<tr class="header">
-<th>表 2‑1 最新情報画面 項目と説明</th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>項番</td>
-<td>項目</td>
-<td>説明</td>
-</tr>
-<tr class="even">
-<td>1</td>
-<td>[<img src="media/media/image58.PNG">]アイコン</td>
-<td>
-<p>クリックすると最新情報画面に遷移します。</p></td>
-</tr>
-<tr class="odd">
-<td>2</td>
-<td>[<img src="media/media/image59.PNG">]プルダウンリスト</td>
-<td>言語の切り替えが出来ます。<br>
-切替はja（日本語）とen（英語）の二種類です。</td>
-</tr>
-<tr class="even">
-<td>3</td>
-<td>[<img src="media/media/image60.PNG">]ボタン／<br>[<img src="media/media/image61.PNG">]ボタン
-</td>
-<td>クリックすると[ログイン]もしくは[ログアウト]画面へ遷移します。</td>
-</tr>
-<tr class="odd">
-<td>4</td>
-<td>[<img src="media/media/image62.PNG">]ボタン</td>
-<td>クリックするとインデックス一覧を表示します。</td>
-</tr>
-<tr class="even">
-<td>5</td>
-<td>[検索フォーム]</td>
-<td>アイテムを検索することが出来ます。<br>
-[<img src="media/media/image63.PNG">]ボタンをクリックすると検索結果画面へ遷移します。
-</td>
-</tr>
-<tr class="odd">
-<td>6</td>
-<td>[最新情報]</td>
-<td>直近で登録されたアイテム5件が表示されます。</td>
-</tr>
-<tr class="even">
-<td>7</td>
-<td>[TOP]</td>
-<td>クリックすると最新情報画面に遷移します。</td>
-</tr>
-<tr class="odd">
-<td>8</td>
-<td>[CONTACT]</td>
-<td>クリックするとお問い合わせ画面へ遷移します。</td>
-</tr>
-</tbody>
-</table>
+- 表 2-1 最新情報画面 項目と説明
+  <table>
+  <thead>
+  <tr class="header">
+  <th>項番</th>
+  <th>項目</th>
+  <th>説明</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr class="even">
+  <td>1</td>
+  <td>[<img src="media/media/image58.PNG">]アイコン</td>
+  <td>
+  <p>クリックすると最新情報画面に遷移します。</p></td>
+  </tr>
+  <tr class="odd">
+  <td>2</td>
+  <td>[<img src="media/media/image59.PNG">]プルダウンリスト</td>
+  <td>言語の切り替えが出来ます。<br>
+  切替はja（日本語）とen（英語）の二種類です。</td>
+  </tr>
+  <tr class="even">
+  <td>3</td>
+  <td>[<img src="media/media/image60.PNG">]ボタン／<br>[<img src="media/media/image61.PNG">]ボタン
+  </td>
+  <td>クリックすると[ログイン]もしくは[ログアウト]画面へ遷移します。</td>
+  </tr>
+  <tr class="odd">
+  <td>4</td>
+  <td>[<img src="media/media/image62.PNG">]ボタン</td>
+  <td>クリックするとインデックス一覧を表示します。</td>
+  </tr>
+  <tr class="even">
+  <td>5</td>
+  <td>[検索フォーム]</td>
+  <td>アイテムを検索することが出来ます。<br>
+  [<img src="media/media/image63.PNG">]ボタンをクリックすると検索結果画面へ遷移します。
+  </td>
+  </tr>
+  <tr class="odd">
+  <td>6</td>
+  <td>[最新情報]</td>
+  <td>直近で登録されたアイテム5件が表示されます。</td>
+  </tr>
+  <tr class="even">
+  <td>7</td>
+  <td>[TOP]</td>
+  <td>クリックすると最新情報画面に遷移します。</td>
+  </tr>
+  <tr class="odd">
+  <td>8</td>
+  <td>[CONTACT]</td>
+  <td>クリックするとお問い合わせ画面へ遷移します。</td>
+  </tr>
+  </tbody>
+  </table>
 
 ### 最新情報画面を表示する
 
@@ -240,48 +234,44 @@
 - 図 2-2 ログイン画面<br>
   <img src="media/media/image79.PNG">
 
-<table>
-<thead>
-<tr class="header">
-<th>表 2‑2 ログイン画面 項目と説明</th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>項番</td>
-<td>項目</td>
-<td>説明</td>
-</tr>
-<tr class="even">
-<td>1</td>
-<td>[<img src="media/media/image64.PNG">]ボタン</td>
-<td>
-<p>クリックすると最新情報画面に遷移します。</p></td>
-</tr>
-<tr class="odd">
-<td>2</td>
-<td>[Shibbolethログイン]エリア</td>
-<td>所属機関を選択後、[選択]ボタンを押下すると各IdPのログイン画面に遷移し、Shibbolethログインを実行することが出来ます。</td>
-</tr>
-<tr class="even">
-<td>3</td>
-<td>[メールアドレス]テキストボックス</td>
-<td>[メールアドレス]の入力欄です。</td>
-</tr>
-<tr class="odd">
-<td>4</td>
-<td>[パスワード]テキストボックス</td>
-<td>[パスワード]の入力欄です。</td>
-<tr class="even">
-<td>5</td>
-<td>[<img src="media/media/image65.PNG">]ボタン</td>
-<td>[メールアドレス]、[パスワード]が正しく入力されていれば、クリックして[ログイン]することが出来ます。</br>
-どちらかに誤りがある場合はバリデーションが表示され、[ログイン]することは出来ません。
-</td>
-</tbody>
-</table>
+- 表 2-2 ログイン画面 項目と説明
+  <table>
+  <thead>
+  <tr class="header">
+  <th>項番</th>
+  <th>項目</th>
+  <th>説明</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr class="even">
+  <td>1</td>
+  <td>[<img src="media/media/image64.PNG">]ボタン</td>
+  <td>
+  <p>クリックすると最新情報画面に遷移します。</p></td>
+  </tr>
+  <tr class="odd">
+  <td>2</td>
+  <td>[Shibbolethログイン]エリア</td>
+  <td>所属機関を選択後、[選択]ボタンを押下すると各IdPのログイン画面に遷移し、Shibbolethログインを実行することが出来ます。</td>
+  </tr>
+  <tr class="even">
+  <td>3</td>
+  <td>[メールアドレス]テキストボックス</td>
+  <td>[メールアドレス]の入力欄です。</td>
+  </tr>
+  <tr class="odd">
+  <td>4</td>
+  <td>[パスワード]テキストボックス</td>
+  <td>[パスワード]の入力欄です。</td>
+  <tr class="even">
+  <td>5</td>
+  <td>[<img src="media/media/image65.PNG">]ボタン</td>
+  <td>[メールアドレス]、[パスワード]が正しく入力されていれば、クリックして[ログイン]することが出来ます。</br>
+  どちらかに誤りがある場合はバリデーションが表示され、[ログイン]することは出来ません。
+  </td>
+  </tbody>
+  </table>
 
 #### 手順
 
@@ -324,40 +314,36 @@
 - 図 2-3 ログアウト画面<br>
   <img src="media/media/image9.PNG">
 
-<table>
-<thead>
-<tr class="header">
-<th>表 2‑3 ログアウト画面 項目と説明</th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>項番</td>
-<td>項目</td>
-<td>説明</td>
-</tr>
-<tr class="even">
-<td>1</td>
-<td>[<img src="media/media/image64.PNG">]ボタン</td>
-<td>
-<p>クリックすると最新情報画面に遷移します。</p></td>
-</tr>
-<tr class="even">
-<td>2</td>
-<td>[<img src="media/media/image66.PNG">]ボタン</td>
-<td>クリックすると未病データベースから[ログアウト]します。
-</td>
-</tr>
-<tr class="odd">
-<td>3</td>
-<td>[<img src="media/media/image67.PNG">]ボタン</td>
-<td>クリックすると最新情報画面に遷移します。
-</td>
-</tr>
-</tbody>
-</table>
+- 表 2-3 ログアウト画面 項目と説明
+  <table>
+  <thead>
+  <tr class="header">
+  <th>項番</th>
+  <th>項目</th>
+  <th>説明</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr class="even">
+  <td>1</td>
+  <td>[<img src="media/media/image64.PNG">]ボタン</td>
+  <td>
+  <p>クリックすると最新情報画面に遷移します。</p></td>
+  </tr>
+  <tr class="even">
+  <td>2</td>
+  <td>[<img src="media/media/image66.PNG">]ボタン</td>
+  <td>クリックすると未病データベースから[ログアウト]します。
+  </td>
+  </tr>
+  <tr class="odd">
+  <td>3</td>
+  <td>[<img src="media/media/image67.PNG">]ボタン</td>
+  <td>クリックすると最新情報画面に遷移します。
+  </td>
+  </tr>
+  </tbody>
+  </table>
 
 #### 手順
 
@@ -383,97 +369,93 @@
 - 図 3-2 [<img src="media/media/image68.PNG">]ボタンのクリックで折りたたみを開いた状態<br>
   <img src="media/media/image11.PNG">
 
-<table>
-<thead>
-<tr class="header">
-<th>表 3-1, 3-2 検索フォーム 項目と説明</th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>項番</td>
-<td>項目</td>
-<td>説明</td>
-</tr>
-<tr class="even">
-<td>1</td>
-<td>[キーワード検索]テキストボックス</td>
-<td>
-検索したいキーワードを入力します。<br>
-単語と単語を「 」（半角スペース）で区切るとAND検索、<br>
-「OR」、「｜」で区切るとOR検索を行います。</td>
-</tr>
-<tr class="odd">
-<td>2</td>
-<td>[<img src="media/media/image63.PNG">]ボタン</td>
-<td>クリックすると[キーワード入力]欄と[詳細検索]欄の入力値で検索を行います。
-</td>
-</tr>
-<tr class="even">
-<td>3</td>
-<td>[<img src="media/media/image68.PNG">]ボタン</td>
-<td>クリックすると折りたたまれた詳細検索欄が開きます。(図3-2 参照)
-</td>
-</tr>
-<tr class="odd">
-<td>4</td>
-<td>[フィルター]</td>
-<td>詳細検索結果を絞り込みます。<br>
-チェックボックスにチェックを入れる等の入力を行うと即時絞り込みを実行します。
-チェックを解除すると即時絞り込みも解除します。
-</td>
-</tr>
-<tr class="even">
-<td>5</td>
-<td>[<img src="media/media/image69.PNG">]ボタン</td>
-<td>クリックすると[フィルター]による絞り込みを解除します。
-</td>
-</tr>
-</tr>
-<tr class="odd">
-<td>6</td>
-<td>[<img src="media/media/image70.PNG">]ボタン</td>
-<td>クリックすると[詳細検索]および[フィルター]で設定した検索条件のURLをコピーすることが出来ます。
-</td>
-</tr>
-<tr class="even">
-<td>7</td>
-<td>[あいまい検索／完全一致]ラジオボタン</td>
-<td>[データセットの名称]の検索方法を設定します。<br>
-[あいまい検索]にチェックを入れて検索を行うと部分一致検索を行い、[完全一致]にチェックを入れて検索を行うと完全一致検索を行います。
-</td>
-</tr>
-<tr class="odd">
-<td>8</td>
-<td>[<img src="media/media/image71.PNG">]ボタン</td>
-<td>クリックすると該当の検索条件項目を削除します。<br>
-[データセットの名称の検索方法]、[データセットの名称]は削除出来ません。
-</td>
-</tr>
-<tr class="even">
-<td>9</td>
-<td>[<img src="media/media/image74.PNG">]プルダウン</td>
-<td>クリックするとプルダウンが開き、検索条件項目を追加することが出来ます。
-</td>
-</tr>
-<tr class="odd">
-<td>10</td>
-<td>[<img src="media/media/image72.PNG">]ボタン</td>
-<td>クリックすると詳細検索欄に入力した内容が解除されます。<br>
-追加または削除した検索条件項目は変動しません。
-</td>
-</tr>
-<tr class="even">
-<td>11</td>
-<td>[<img src="media/media/image73.PNG">]ボタン</td>
-<td>クリックすると詳細検索欄が折りたたまれます。<br>
-詳細検索の入力内容は保持します。
-</td>
-</tr>
-</tbody>
-</table>
+- 表 3-1, 3-2 検索フォーム 項目と説明
+  <table>
+  <thead>
+  <tr class="header">
+  <th>項番</th>
+  <th>項目</th>
+  <th>説明</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr class="even">
+  <td>1</td>
+  <td>[キーワード検索]テキストボックス</td>
+  <td>
+  検索したいキーワードを入力します。<br>
+  単語と単語を「 」（半角スペース）で区切るとAND検索、<br>
+  「OR」、「｜」で区切るとOR検索を行います。</td>
+  </tr>
+  <tr class="odd">
+  <td>2</td>
+  <td>[<img src="media/media/image63.PNG">]ボタン</td>
+  <td>クリックすると[キーワード入力]欄と[詳細検索]欄の入力値で検索を行います。
+  </td>
+  </tr>
+  <tr class="even">
+  <td>3</td>
+  <td>[<img src="media/media/image68.PNG">]ボタン</td>
+  <td>クリックすると折りたたまれた詳細検索欄が開きます。(図3-2 参照)
+  </td>
+  </tr>
+  <tr class="odd">
+  <td>4</td>
+  <td>[フィルター]</td>
+  <td>詳細検索結果を絞り込みます。<br>
+  チェックボックスにチェックを入れる等の入力を行うと即時絞り込みを実行します。
+  チェックを解除すると即時絞り込みも解除します。
+  </td>
+  </tr>
+  <tr class="even">
+  <td>5</td>
+  <td>[<img src="media/media/image69.PNG">]ボタン</td>
+  <td>クリックすると[フィルター]による絞り込みを解除します。
+  </td>
+  </tr>
+  </tr>
+  <tr class="odd">
+  <td>6</td>
+  <td>[<img src="media/media/image70.PNG">]ボタン</td>
+  <td>クリックすると[詳細検索]および[フィルター]で設定した検索条件のURLをコピーすることが出来ます。
+  </td>
+  </tr>
+  <tr class="even">
+  <td>7</td>
+  <td>[あいまい検索／完全一致]ラジオボタン</td>
+  <td>[データセットの名称]の検索方法を設定します。<br>
+  [あいまい検索]にチェックを入れて検索を行うと部分一致検索を行い、[完全一致]にチェックを入れて検索を行うと完全一致検索を行います。
+  </td>
+  </tr>
+  <tr class="odd">
+  <td>8</td>
+  <td>[<img src="media/media/image71.PNG">]ボタン</td>
+  <td>クリックすると該当の検索条件項目を削除します。<br>
+  [データセットの名称の検索方法]、[データセットの名称]は削除出来ません。
+  </td>
+  </tr>
+  <tr class="even">
+  <td>9</td>
+  <td>[<img src="media/media/image74.PNG">]プルダウン</td>
+  <td>クリックするとプルダウンが開き、検索条件項目を追加することが出来ます。
+  </td>
+  </tr>
+  <tr class="odd">
+  <td>10</td>
+  <td>[<img src="media/media/image72.PNG">]ボタン</td>
+  <td>クリックすると詳細検索欄に入力した内容が解除されます。<br>
+  追加または削除した検索条件項目は変動しません。
+  </td>
+  </tr>
+  <tr class="even">
+  <td>11</td>
+  <td>[<img src="media/media/image73.PNG">]ボタン</td>
+  <td>クリックすると詳細検索欄が折りたたまれます。<br>
+  詳細検索の入力内容は保持します。
+  </td>
+  </tr>
+  </tbody>
+  </table>
 
 ### 詳細検索
 
@@ -544,7 +526,7 @@
    - 図 3-12<br>
      <img src="media/media/image19.PNG">
 
-4. 外部ページ（Google など）のアドレスバーにコピーした URL を入力します。
+4. ブラウザのアドレスバーにコピーした URL を入力します。
 
    - 図 3-13<br>
      <img src="media/media/image20.PNG">
@@ -562,69 +544,65 @@
 - 図 4-1<br>
   <img src="media/media/image21.PNG"><br>
   ※ [フィルター]、[検索／フィルター条件のコピーボタン]については
-  「[第３章　アイテムを検索する](#第３章-アイテムを検索する)」で説明しているため、本章では割愛します。
+  「[第３章 アイテムを検索する](#第３章-アイテムを検索する)」で説明しているため、本章では割愛します。
 
-<table>
-<thead>
-<tr class="header">
-<th>表 4-1 サマリーテーブル 項目と説明</th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>項番</td>
-<td>項目</td>
-<td>説明</td>
-</tr>
-<tr class="even">
-<td>1</td>
-<td>[表示件数]プルダウン</td>
-<td>
-表示する件数を設定出来ます。
-</td>
-</tr>
-<tr class="odd">
-<td>2</td>
-<td>[並び順]プルダウン</td>
-<td>並び順を変更出来ます。
-</td>
-</tr>
-<tr class="even">
-<td>3</td>
-<td>[昇順／降順]ボタン</td>
-<td>[並び順]プルダウンで選んだ項目を基に昇順／降順に並び替えします。
-</td>
-</tr>
-<tr class="odd">
-<td>4</td>
-<td>[検索結果全てをDLする]リンク</td>
-<td>検索結果を全てtsv形式でダウンロードします。
-</td>
-</tr>
-<tr class="even">
-<td>5</td>
-<td>[データセットの名称]リンク</td>
-<td>アイテムのタイトルです。<br>
-クリックするとアイテム詳細画面に遷移します。
-</td>
-</tr>
-<tr class="odd">
-<td>6</td>
-<td>[あり(<em>添付ファイル件数</em>)]リンク</td>
-<td>アイテムにファイルが添付されている場合、[あり(<em>添付ファイル件数</em>)]と表示されます。添付ファイルがない場合は[なし]と表示されます。<br>
-クリックするとファイル一覧画面に遷移します。
-</td>
-</tr>
-<tr class="even">
-<td>7</td>
-<td>[<em>ページ数</em>]</td>
-<td>複数ページがある場合、現在のページ数以外をクリックするとページを移動します。
-</td>
-</tr>
-</tbody>
-</table>
+- 表 4-1 サマリーテーブル 項目と説明
+  <table>
+  <thead>
+  <tr class="header">
+  <th>項番</th>
+  <th>項目</th>
+  <th>説明</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr class="even">
+  <td>1</td>
+  <td>[表示件数]プルダウン</td>
+  <td>
+  表示する件数を設定出来ます。
+  </td>
+  </tr>
+  <tr class="odd">
+  <td>2</td>
+  <td>[並び順]プルダウン</td>
+  <td>並び順を変更出来ます。
+  </td>
+  </tr>
+  <tr class="even">
+  <td>3</td>
+  <td>[昇順／降順]ボタン</td>
+  <td>[並び順]プルダウンで選んだ項目を基に昇順／降順に並び替えします。
+  </td>
+  </tr>
+  <tr class="odd">
+  <td>4</td>
+  <td>[検索結果全てをDLする]リンク</td>
+  <td>検索結果を全てtsv形式でダウンロードします。
+  </td>
+  </tr>
+  <tr class="even">
+  <td>5</td>
+  <td>[データセットの名称]リンク</td>
+  <td>アイテムのタイトルです。<br>
+  クリックするとアイテム詳細画面に遷移します。
+  </td>
+  </tr>
+  <tr class="odd">
+  <td>6</td>
+  <td>[あり(<em>添付ファイル件数</em>)]リンク</td>
+  <td>アイテムにファイルが添付されている場合、[あり(<em>添付ファイル件数</em>)]と表示されます。添付ファイルがない場合は[なし]と表示されます。<br>
+  クリックするとファイル一覧画面に遷移します。
+  </td>
+  </tr>
+  <tr class="even">
+  <td>7</td>
+  <td>[<em>ページ数</em>]</td>
+  <td>複数ページがある場合、現在のページ数以外をクリックするとページを移動します。
+  </td>
+  </tr>
+  </tbody>
+  </table>
 
 ### 検索したアイテムをダウンロードする
 
@@ -657,97 +635,93 @@
 - 図 5-1 アイテム詳細画面<br>
   <img src="media/media/image25.PNG">
 
-<table>
-<thead>
-<tr class="header">
-<th>表 5-1 アイテム詳細画面 項目と説明</th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>項番</td>
-<td>項目</td>
-<td>説明</td>
-</tr>
-<tr class="even">
-<td>1</td>
-<td>[インデックス]リンク</td>
-<td>
-アイテムが登録されているインデックス名が表示されます。<br>
-クリックするとインデックスに登録されているアイテムの一覧画面に遷移します。
-</td>
-</tr>
-<tr class="odd">
-<td>2</td>
-<td>[検索結果リストに戻る]リンク</td>
-<td>クリックすると検索結果画面に遷移します。
-</td>
-</tr>
-<tr class="even">
-<td>3</td>
-<td>[前のアイテムを表示]リンク</td>
-<td>クリックすると前のアイテムの詳細画面に遷移します。
-</td>
-</tr>
-<tr class="odd">
-<td>4</td>
-<td>[次のアイテムを表示]リンク</td>
-<td>クリックすると次のアイテムの詳細画面に遷移します。
-</td>
-</tr>
-<tr class="even">
-<td>5</td>
-<td>[サムネイル]</td>
-<td>アイテムのサムネイルです。
-</td>
-</tr>
-<tr class="odd">
-<td>6</td>
-<td>[アイテムの概要]</td>
-<td>アイテムの概要が表示されます。</td>
-</tr>
-<tr class="even">
-<td>7</td>
-<td>[<img src="media/media/image56.PNG">]ボタン</td>
-<td>クリックするとファイル一覧画面に遷移します。
-</td>
-</tr>
-<tr class="odd">
-<td>8</td>
-<td>[<img src="media/media/image57.PNG">]タブ</td>
-<td>タブを切り替えすることでアイテムに登録されているメタデータを確認出来ます。
-</td>
-</tr>
-<tr class="even">
-<td>9</td>
-<td>[<img src="media/media/image55.PNG">]ボタン</td>
-<td>クリックすると画面上部へ移動します。
-</td>
-</tr>
-<tr class="odd">
-<td>10</td>
-<td>[閲覧数]</td>
-<td>これまでに閲覧された件数が表示されます。<br>
-[See details]をクリックすると閲覧数の詳細を確認出来ます。
-</td>
-</tr>
-<tr class="even">
-<td>11</td>
-<td>[DLランキング]</td>
-<td>添付ファイルがある場合、これまでにダウンロードされたランキングが表示されます。<br>
-ファイル名右横の <img src="media/media/image50.PNG"> アイコンをクリックするとファイルをダウンロード出来ます。
-</td>
-</tr>
-<tr class="odd">
-<td>12</td>
-<td>[エクスポート]</td>
-<td>アイテムのメタデータのXMLファイル、JSONファイル等を確認することが出来ます。
-</td>
-</tr>
-</tbody>
-</table>
+- 表 5-1 アイテム詳細画面 項目と説明
+  <table>
+  <thead>
+  <tr class="header">
+  <th>項番</th>
+  <th>項目</th>
+  <th>説明</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr class="even">
+  <td>1</td>
+  <td>[インデックス]リンク</td>
+  <td>
+  アイテムが登録されているインデックス名が表示されます。<br>
+  クリックするとインデックスに登録されているアイテムの一覧画面に遷移します。
+  </td>
+  </tr>
+  <tr class="odd">
+  <td>2</td>
+  <td>[検索結果リストに戻る]リンク</td>
+  <td>クリックすると検索結果画面に遷移します。
+  </td>
+  </tr>
+  <tr class="even">
+  <td>3</td>
+  <td>[前のアイテムを表示]リンク</td>
+  <td>クリックすると前のアイテムの詳細画面に遷移します。
+  </td>
+  </tr>
+  <tr class="odd">
+  <td>4</td>
+  <td>[次のアイテムを表示]リンク</td>
+  <td>クリックすると次のアイテムの詳細画面に遷移します。
+  </td>
+  </tr>
+  <tr class="even">
+  <td>5</td>
+  <td>[サムネイル]</td>
+  <td>アイテムのサムネイルです。
+  </td>
+  </tr>
+  <tr class="odd">
+  <td>6</td>
+  <td>[アイテムの概要]</td>
+  <td>アイテムの概要が表示されます。</td>
+  </tr>
+  <tr class="even">
+  <td>7</td>
+  <td>[<img src="media/media/image56.PNG">]ボタン</td>
+  <td>クリックするとファイル一覧画面に遷移します。
+  </td>
+  </tr>
+  <tr class="odd">
+  <td>8</td>
+  <td>[<img src="media/media/image57.PNG">]タブ</td>
+  <td>タブを切り替えすることでアイテムに登録されているメタデータを確認出来ます。
+  </td>
+  </tr>
+  <tr class="even">
+  <td>9</td>
+  <td>[<img src="media/media/image55.PNG">]ボタン</td>
+  <td>クリックすると画面上部へ移動します。
+  </td>
+  </tr>
+  <tr class="odd">
+  <td>10</td>
+  <td>[閲覧数]</td>
+  <td>これまでに閲覧された件数が表示されます。<br>
+  [See details]をクリックすると閲覧数の詳細を確認出来ます。
+  </td>
+  </tr>
+  <tr class="even">
+  <td>11</td>
+  <td>[DLランキング]</td>
+  <td>添付ファイルがある場合、これまでにダウンロードされたランキングが表示されます。<br>
+  ファイル名右横の <img src="media/media/image50.PNG"> アイコンをクリックするとファイルをダウンロード出来ます。
+  </td>
+  </tr>
+  <tr class="odd">
+  <td>12</td>
+  <td>[エクスポート]</td>
+  <td>アイテムのメタデータのXMLファイル、JSONファイル等を確認することが出来ます。
+  </td>
+  </tr>
+  </tbody>
+  </table>
 
 ### タブの切り替え
 
@@ -779,7 +753,7 @@
 
 ここではリクエストメールについて説明します。
 
-1. 「アイテムにフィードバックメールアドレスが登録されていること」および「アイテムにGakuNinRDMのプロジェクトURLが登録されていないこと」の条件を満たす場合、[閲覧数]の下に[リクエストメール]が表示されます。
+1. 「アイテムにリクエストメールアドレスが登録されていること」および「アイテムにGakuNin RDMのプロジェクトURLが登録されていないこと」の条件を満たす場合、[閲覧数]の下に[リクエストメール]が表示されます。
 
    - 図 5-6<br>
      <img src="media/media/image30.PNG">
@@ -791,16 +765,16 @@
 
 3. [送信フォーム]に必要事項を入力のうえ、[送信]ボタンをクリックするとリクエストメールを送信することが出来ます。
 
-### GakuNinRDM
+### GakuNin RDM
 
-ここでは GakuNinRDM のデータセットを確認する手順を説明します。
+ここでは GakuNin RDM のデータセットを確認する手順を説明します。
 
-1. 「アイテムにGakuNinRDMのプロジェクトURLが登録されていること」の条件を満たす場合、[閲覧数]の下に[GakuNin RDM]が表示されます。
+1. 「アイテムにGakuNin RDMのプロジェクトURLが登録されていること」の条件を満たす場合、[閲覧数]の下に[GakuNin RDM]が表示されます。
 
    - 図 5-8<br>
      <img src="media/media/image32.PNG">
 
-2. [<img src="media/media/image76.PNG">]アイコンをクリックすると GakuNinRDM のデータセットを開くことが出来ます。
+2. [<img src="media/media/image76.PNG">]アイコンをクリックすると GakuNin RDM のデータセットを開くことが出来ます。
 
 ### 閲覧権限のないユーザーがアイテムにアクセスした場合
 
@@ -833,101 +807,97 @@
 - 図 6-1 ファイル一覧画面<br>
   <img src="media/media/image33.PNG">
 
-<table>
-<thead>
-<tr class="header">
-<th>表 6-1 ファイル一覧画面 項目と説明</th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>項番</td>
-<td>項目</td>
-<td>説明</td>
-</tr>
-<tr class="even">
-<td>1</td>
-<td>[表示件数]プルダウン</td>
-<td>
-表示する件数を設定出来ます。
-</td>
-</tr>
-<tr class="odd">
-<td>2</td>
-<td>[DL回数統計対象期間]プルダウン</td>
-<td>[ダウンロード]された回数の統計対象期間を変更出来ます。
-</td>
-</tr>
-<tr class="even">
-<td>3</td>
-<td>[アイテム詳細画面に戻る]リンク</td>
-<td>クリックすると該当の[アイテム詳細画面]に遷移します。
-</td>
-</tr>
-<tr class="odd">
-<td>4</td>
-<td>[全件ダウンロード]リンク</td>
-<td>表示されているファイルを全件ダウンロードします。
-</td>
-</tr>
-<tr class="even">
-<td>5</td>
-<td>[フィルター]</td>
-<td>表示されているファイルを絞り込みます。
-</td>
-</tr>
-<tr class="odd">
-<td>6</td>
-<td>[<img src="media/media/image69.PNG">]ボタン</td>
-<td>[フィルター]の絞り込みを解除します。</td>
-</tr>
-<tr class="even">
-<td>7</td>
-<td>ファイル一覧テーブル</td>
-<td>ファイルの一覧が表示されます。
-</td>
-</tr>
-<tr class="odd">
-<td>8</td>
-<td>[ライセンス]アイコン</td>
-<td>クリックすると該当の[ライセンス]ページに遷移します。
-</td>
-</tr>
-<tr class="even">
-<td>9</td>
-<td>[<img src="media/media/image52.PNG">]ボタン</td>
-<td>クリックするとファイルのプレビュー画面が別ウィンドウで開きます。
-</td>
-</tr>
-<tr class="odd">
-<td>10</td>
-<td>[<img src="media/media/image53.PNG">]ボタン</td>
-<td>クリックすると選択したファイルを[ダウンロード]します。
-</td>
-</tr>
-<tr class="even">
-<td>11</td>
-<td>[格納場所URL]</td>
-<td>ファイルが格納されているURLです。<br>
-クリックすると選択したファイルを[ダウンロード]します。
-</td>
-</tr>
-<tr class="odd">
-<td>12</td>
-<td>[<img src="media/media/image77.PNG">]ボタン</td>
-<td>ファイル一覧テーブルで選択したファイルを[ダウンロード]します。<br>(<em>0</em>件)には選択したファイル件数が入ります。
-</td>
-</tr>
-<tr class="even">
-<td>13</td>
-<td>[<em>ページ数</em>]</td>
-<td>複数ページがある場合、現在のページ数以外をクリックするとページを移動します。
-</td>
-</tr>
-</tbody>
-</table>
+- 表 6-1 ファイル一覧画面 項目と説明
+  <table>
+  <thead>
+  <tr class="header">
+  <th>項番</th>
+  <th>項目</th>
+  <th>説明</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr class="even">
+  <td>1</td>
+  <td>[表示件数]プルダウン</td>
+  <td>
+  表示する件数を設定出来ます。
+  </td>
+  </tr>
+  <tr class="odd">
+  <td>2</td>
+  <td>[DL回数統計対象期間]プルダウン</td>
+  <td>[ダウンロード]された回数の統計対象期間を変更出来ます。
+  </td>
+  </tr>
+  <tr class="even">
+  <td>3</td>
+  <td>[アイテム詳細画面に戻る]リンク</td>
+  <td>クリックすると該当の[アイテム詳細画面]に遷移します。
+  </td>
+  </tr>
+  <tr class="odd">
+  <td>4</td>
+  <td>[全件ダウンロード]リンク</td>
+  <td>表示されているファイルを全件ダウンロードします。
+  </td>
+  </tr>
+  <tr class="even">
+  <td>5</td>
+  <td>[フィルター]</td>
+  <td>表示されているファイルを絞り込みます。
+  </td>
+  </tr>
+  <tr class="odd">
+  <td>6</td>
+  <td>[<img src="media/media/image69.PNG">]ボタン</td>
+  <td>[フィルター]の絞り込みを解除します。</td>
+  </tr>
+  <tr class="even">
+  <td>7</td>
+  <td>ファイル一覧テーブル</td>
+  <td>ファイルの一覧が表示されます。
+  </td>
+  </tr>
+  <tr class="odd">
+  <td>8</td>
+  <td>[ライセンス]アイコン</td>
+  <td>クリックすると該当の[ライセンス]ページに遷移します。
+  </td>
+  </tr>
+  <tr class="even">
+  <td>9</td>
+  <td>[<img src="media/media/image52.PNG">]ボタン</td>
+  <td>クリックするとファイルのプレビュー画面が別ウィンドウで開きます。
+  </td>
+  </tr>
+  <tr class="odd">
+  <td>10</td>
+  <td>[<img src="media/media/image53.PNG">]ボタン</td>
+  <td>クリックすると選択したファイルを[ダウンロード]します。
+  </td>
+  </tr>
+  <tr class="even">
+  <td>11</td>
+  <td>[格納場所URL]</td>
+  <td>ファイルが格納されているURLです。<br>
+  クリックすると選択したファイルを[ダウンロード]します。
+  </td>
+  </tr>
+  <tr class="odd">
+  <td>12</td>
+  <td>[<img src="media/media/image77.PNG">]ボタン</td>
+  <td>ファイル一覧テーブルで選択したファイルを[ダウンロード]します。<br>(<em>0</em>件)には選択したファイル件数が入ります。
+  </td>
+  </tr>
+  <tr class="even">
+  <td>13</td>
+  <td>[<em>ページ数</em>]</td>
+  <td>複数ページがある場合、現在のページ数以外をクリックするとページを移動します。
+  </td>
+  </tr>
+  </tbody>
+  </table>
 
 ### ファイルをプレビューで確認する
 
@@ -958,7 +928,7 @@
 ### ファイルをダウンロードする
 
 ここではファイルのダウンロード手順を説明します。
-大まかに分けて、3 種類のダウンロード方法があります。
+大きく分けて、3 種類のダウンロード方法があります。
 
 1. [全件ダウンロード](#全件ダウンロード)
 2. [選択ダウンロード](#選択ダウンロード)
@@ -973,7 +943,7 @@
    - 図 6-6<br>
      <img src="media/media/image38.PNG">
 
-2. 表示されている 4 件を[ダウンロード]します。
+2. ファイルが[ダウンロード]されます。
 
    - 図 6-7<br>
      <img src="media/media/image39.PNG">
@@ -995,7 +965,7 @@
    - 図 6-10<br>
      <img src="media/media/image42.PNG">
 
-3. 選択したファイルを 2 件を[ダウンロード]します。
+3. チェックを入れたファイルが[ダウンロード]されます。
    - 図 6-11 ダウンロードしたファイル一覧リスト<br>
      <img src="media/media/image43.PNG">
 
