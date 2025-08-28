@@ -1,6 +1,6 @@
-## 未病データベース GakuNinRDMボタン表示
+## 未病データベース GakuNin RDMボタン表示
 
-アイテム詳細画面のGakuNinRDM(以下GRDM)ボタンの表示について記述する。
+アイテム詳細画面のGakuNin RDM(以下GRDM)ボタンの表示について記述する。
 
 ### 用語説明
 
@@ -15,33 +15,35 @@
 ### 1. RO-CrateからWEKOのアイテムへの変換
 
 プロジェクトURLはRO-Crate内で`ams:projectId`として記述される。  
-WEKOのJSON-LDマッピング機能（[ADMIN_1_5：JSON-LDマッピング](../admin/ADMIN_1_5.md)を使用して、`ams:projectId`を未病アイテムタイプのプロジェクトURL(関連情報プロパティ)にマッピングする。
+WEKOのJSON-LDマッピング機能( [ADMIN_1_5：JSON-LDマッピング](../admin/ADMIN_1_5.md) )を使用して、  
+`ams:projectId`を未病アイテムタイプのプロジェクトURL(関連情報プロパティ)にマッピングする。
 
-`ams:projectId`は`プロジェクトURL.関連識別子.関連識別子`にマッピングする。(以下、関連識別子とする。)  
-また、`プロジェクトURL.関連タイプ`に固定値で`xxx`(未定)をマッピングする。(以下、関連タイプとする。)  
-JSON-LDマッピング機能により、`プロジェクトURL.関連タイプ`は`ams:projectId`が存在する場合のみアイテムに登録される。
+`ams:projectId`を`プロジェクトURL.関連識別子.関連識別子`にマッピングする。(以下、関連識別子とする。)  
+`プロジェクトURL.関連タイプ`には固定値で後述の`grdm.relationType` の値をマッピングする。(以下、関連タイプとする。)  
+JSON-LDマッピング機能により、`ams:projectId`が存在する場合のみ関連タイプが登録される。
 
-RO-Crateの例と対応するマッピング定義は以下のようになる。
+- RO-Crateの例
+  ```json
+  "@id": "./",
+  "@type": "Dataset",
+  "name": "Sample Dataset",
+  "description": "This is a sample dataset.",
+  "datePublished": "2025-03-01",
+  "ams:projectId":{
+    "value": "https://rdm.nii.ac.jp/"
+  }
+  ```
 
-```json
-"@id": "./",
-"@type": "Dataset",
-"name": "Sample Dataset",
-"description": "This is a sample dataset.",
-"datePublished": "2025-03-01",
-"ams:projectId":{
-  "value": "https://rdm.nii.ac.jp/"
-}
-```
-
-```json
-"プロジェクトURL": "ams:projectId",
-"プロジェクトURL.関連識別子.関連識別子": "ams:projectId.value",
-"プロジェクトURL.関連タイプ": "$isVersionOf",
-```
+- RO-Crateに対応するマッピング定義の例
+  ```json
+  "プロジェクトURL": "ams:projectId",
+  "プロジェクトURL.関連識別子.関連識別子": "ams:projectId.value",
+  "プロジェクトURL.関連タイプ": "$isVersionOf",
+  ```
 
 ### 2. WEKOのアイテムからRO-Crateへの変換
 
+アイテム取得API (`/api/v1/records/<アイテムID>`)使用時、  
 WEKOのRO-Crateマッピング機能を使用し、関連識別子と関連タイプを以下のキーにマッピングする。  
 
 - 関連識別子
@@ -54,14 +56,12 @@ WEKOのRO-Crateマッピング機能を使用し、関連識別子と関連タ�
 ### 3. フロントでのGRDMボタン表示
 
 WEKOのアイテム詳細情報取得APIを使用し、RO-Crateから関連識別子と関連タイプを取得する。  
-関連識別子と関連タイプが取得でき、以下の条件を共にみたす場合、プロジェクトURLとして扱う。
+関連識別子と関連タイプが以下の2条件を共にみたす場合、関連識別子をプロジェクトURLとして扱う。
 
+- `nginx/ams/weko-frontend/app.config.ts` で設定した `grdm.url` の値が`''`(空文字列)の場合、関連識別子が空でないこと  
+  `nginx/ams/weko-frontend/app.config.ts` で設定した `grdm.url` の値が`''`(空文字列)でない場合、関連識別子が `grdm.url` の値から始まること
 
-- nginx/ams/weko-frontend/app.config.ts で設定したgrdm > urlの値が''(空文字列)
-
-  またはnginx/ams/weko-frontend/app.config.ts で設定したgrdm > urlの値が''(空文字列)以外の場合、アイテム登録時にams:projectIdとして指定したURLが、grdm > urlの値の値から始まる
-
-- アイテム登録時に指定した「関連タイプ」が nginx/ams/weko-frontend/app.config.ts で設定した grdm > relationType の値と一致する
+- 関連タイプが `nginx/ams/weko-frontend/app.config.ts` で設定した `grdm.relationType` の値と一致すること
 
 プロジェクトURLが設定されている場合、ユーザのログイン状態に関わらずアイテム詳細画面にGRDMボタンを表示する。  
 ユーザがGRDMボタンを押下した場合は、プロジェクトURLを新規ウィンドウで開く。  
@@ -71,4 +71,4 @@ GRDMボタンを表示している場合、リクエストボタンとその表�
 
 | 日付         | GitHubコミットID | 更新内容   |
 |--------------|------------------|------------|
-| 2025/06/13   |                  | 初版作成   |
+| 2025/08/29   |                  | 初版作成   |
