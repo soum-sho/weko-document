@@ -67,4 +67,4 @@ nginxコンテナの`/etc/nginx/conf.d/weko.conf`に`weko/nginx/weko-ams-restric
 
 | 日付         | GitHubコミットID | 更新内容   |
 |--------------|------------------|------------|
-| 2025/08/29   |                  | 初版作成   |
+| 2025/08/29   |   6ee63da44c8f2e23ac73d6218ee09f23ba5edcb3  | 初版作成   |
