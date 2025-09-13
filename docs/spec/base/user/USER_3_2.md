@@ -1,47 +1,23 @@
+# コンテンツファイル管理
 
-
-### コンテンツファイル管理
-
-  - > 目的・用途
+## 目的・用途
 
 本機能は、アイテムに登録されたファイルの情報を表示し、ファイルバージョンを管理する機能である。
 
-  - > 利用方法
+## 利用方法
 
-アイテム詳細画面のファイル一覧からファイルの情報の閲覧、【information】を押下して詳細情報の閲覧をし、【download】を押下してファイルのダウンロードを行う。
+- アイテム詳細画面にファイル一覧を表示
+- 【information】を押下してファイルの詳細情報の表示
+- 【download】を押下してファイルのダウンロード
+- 一定条件下で表示される【Import to GakuNin RDM】を押下してGakuNin RDMへのファイルの取り込み
 
-  - > 利用可能なロール
+## 利用可能なロール
 
-<table>
-<thead>
-<tr class="header">
-<th>ロール</th>
-<th>システム<br />
-管理者</th>
-<th>リポジトリ<br />
-管理者</th>
-<th>コミュニティ<br />
-管理者</th>
-<th>登録ユーザー</th>
-<th>一般ユーザー</th>
-<th>ゲスト<br />
-(未ログイン)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>利用可否</td>
-<td>○</td>
-<td>○</td>
-<td>○</td>
-<td>○</td>
-<td>○</td>
-<td>○</td>
-</tr>
-</tbody>
-</table>
+|ロール|システム管理者|リポジトリ管理者|コミュニティ管理者|登録ユーザ|一般ユーザ|ゲスト(未ログイン)|
+|---|---|---|---|---|---|---|
+|利用可否|○|○|○|○|○|○|
 
-  - > 機能内容
+## 機能内容
 
 1\. ファイルの情報を表示する
 
@@ -372,7 +348,7 @@
 
 <!-- end list -->
 
-  - > 関連モジュール
+## 関連モジュール
 
 <!-- end list -->
 
@@ -380,7 +356,7 @@
 
 <!-- end list -->
 
-  - > 処理概要
+## 処理概要
 
 1\. 設定
 
@@ -670,52 +646,11 @@
 
 1TBファイルまではダウンロードの動作を確認済みだが、それより大きいファイルについては、動作を保証していない。
 
-  - > 更新履歴
+## 更新履歴
 
-<table>
-<thead>
-<tr class="header">
-<th>日付</th>
-<th>GitHubコミットID</th>
-<th>更新内容</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><blockquote>
-<p>2023/08/31</p>
-</blockquote></td>
-<td>353ba1deb094af5056a58bb40f07596b8e95a562</td>
-<td>初版作成</td>
-</tr>
-<tr class="even">
-<td><blockquote>
-<p>2023/11/11</p>
-</blockquote></td>
-<td>V0.9.27</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>2023/12/22</td>
-<td>4ec162bf3bdcf843df23863fbf7d5bb36ba875e4</td>
-<td>W2023-42</td>
-</tr>
-<tr class="even">
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td><blockquote>
-<p>2024/07/1</p>
-</blockquote></td>
-<td>7733de131da9ad59ab591b2df1c70ddefcfcad98</td>
-<td>v1.0.7対応</td>
-</tr>
-</tbody>
-</table>
+|日付|GitHubコミットID|更新内容|
+|---|---|---|
+|2023/08/31|353ba1deb094af5056a58bb40f07596b8e95a562|初版作成|
+|2023/11/11||V0.9.27|
+|2023/12/22|4ec162bf3bdcf843df23863fbf7d5bb36ba875e4|W2023-42|
+|2024/07/1|7733de131da9ad59ab591b2df1c70ddefcfcad98|v1.0.7対応|
