@@ -327,6 +327,9 @@
 | .publish_status   | .PUBLISH_STATUS      | アイテムの公開／非公開を指定する。public/privateのいずれかを設定する。必須項目。                                                          |
 | .feedback_mail[0] | .FEEDBACK_MAIL[0]    | フィードバックメールの送信先メールアドレスを指定する。複数指定可。                                                                        |
 | .request_mail[0]  | .REQUEST_MAIL[0]     | リクエストメールの送信先メールアドレスを指定する。複数指定可。                                                                            |
+| .item_application.workflow | .ITEM_APPLICATION.WORKFLOW | コンテンツファイルがない場合の利用申請のワークフローIDを指定する。|
+| .item_application.terms | .ITEM_APPLICATION.TERMS |コンテンツファイルがない場合の利用規約IDを指定する。この列のデータ行にterm_freeが入力された場合、利用規約を自由入力として.item_application.terms_descriptionが表示される。 |
+| .item_application.terms_description | .ITEM_APPLICATION.TERMS_DESCRIPTION | コンテンツファイルがない場合の利用規約（自由入力）を指定する。 |
 | .cnri             | .CNRI                | CNRIハンドルサーバを使用する場合(※2)に設定できる。CNRIは「prefix/suffix」の形式で設定される。通常モードの時は自動採番(※3)される。識別子変更モードの時に「prefix」または「prefix/」を指定すると自動採番となる。 |
 | .doi_ra           | .DOI_RA              | DOIの種類を指定する。JaLC/Crossref/DataCite(※4)/NDL JaLC (※5)のいずれかを設定する。                                                     |
 | .doi              | .DOI                 | DOIを「prefix/suffix」の形式で設定する。通常モードの時は自動採番(※3)される。識別子変更モードの時は手入力で変更可能。                     |
@@ -766,11 +769,17 @@ DOI付与後は変更不可</td>
 | 1      | 指定されていない                   | エラー    | {}は必須項目です。                       | {} is required item.                     | {}に「PUBLISH\_STATUS」が入る |
 | 2      | 指定された内容が不正（public/private） | エラー    | {}はpublic,privateのいずれかを設定してください。 | Please set "public" or "private" for {}. | {}に「PUBLISH\_STATUS」が入る |
 
-  - .feedback\_mail\[0\]（.FEEDBACK\_MAIL\[0\]）
+  - .feedback\_mail\[0\]（.FEEDBACK\_MAIL\[0\]）と.request_mail[0]（.REQUEST_MAIL[0]）
 
 | **\#** | **条件**               | **処理** | **メッセージ(日本語)** | **メッセージ(英語)**            | **備考**        |
 | ------ | -------------------- | ------ | -------------- | ------------------------ | ------------- |
 | 1      | 形式チェック（メールアドレスの形式不正） | エラー    | 指定された{}が不正です。  | Specified {} is invalid. | {}にメールアドレスが入る |
+
+  - .item_application.workflow(.ITEM_APPLICATION.WORKFLOW)と.item_application.terms(.ITEM_APPLICATION.TERMS)と.item_application.terms_description(.ITEM_APPLICATION.TERMS_DESCRIPTION)
+
+| **\#** | **条件**                                                               | **処理** | **メッセージ(日本語)**                                       | **メッセージ(英語)**                                          | **備考** |
+| ------ | ---------------------------------------------------------------------- | -------- | ------------------------------------------------------------ | ------------------------------------------------------------- | -------- |
+| 1      | 利用規約系に入力があるときにコンテンツファイルがアップロードされている | エラー   | コンテンツファイル情報がある場合、利用規約は設定できません。 | If there is info of content file, terms of use cannot be set. |          |
 
   - .cnri（.CNRI）
 
@@ -1150,13 +1159,13 @@ DOIを指定したアイテムについて、指定された項目が各DOI付�
 
 > \#ItemType 紀要論文（出版者版、オープンアクセス、JaLC\_DOI\_登録あり）(16) https://FQDN/items/jsonschema/16
 > 
-> \#.id .uri .metadata.path\[0\] .pos\_index\[0\] .publish\_status .feedback\_mail\[0\] .cnri .doi\_ra .doi .edit\_mode .metadata.pubdate　 …
+> \#.id .uri .metadata.path\[0\] .pos\_index\[0\] .publish\_status .feedback\_mail\[0\] .request\_mail\[0\] .item_application.workflow .item_application.terms .item_application.terms_description .cnri .doi\_ra .doi .edit\_mode .metadata.pubdate　 …
 > 
-> \#ID URI .IndexID\[0\] .POS\_INDEX\[0\] .PUBLISH\_STATUS .FEEDBACK\_MAIL\[0\] .CNRI .DOI\_RA .DOI Keep/Upgrade Version PubDate …
+> \#ID URI .IndexID\[0\] .POS\_INDEX\[0\] .PUBLISH\_STATUS .FEEDBACK\_MAIL\[0\] .REQUEST\_MAIL\[0\] .ITEM_APPLICATION.WORKFLOW .ITEM_APPLICATION.TERMS .ITEM_APPLICATION.TERMS_DESCRIPTION .CNRI .DOI\_RA .DOI Keep/Upgrade Version PubDate …
 > 
 > \# …
 > 
-> \# Allow Multiple Allow Multiple Required Allow Multiple Required Required …
+> \# Allow Multiple Allow Multiple Required Allow Multiple Allow Multiple Required Required …
 
 ### 2. インポート前チェック結果ファイル
 
@@ -1288,6 +1297,14 @@ DOIを指定したアイテムについて、指定された項目が各DOI付�
               - FEEDBACK\_MAIL：フィードバックメール送信先メールアドレス
                 
                   - 指定されたメールアドレスはメールアドレスの形式チェックをすること
+
+              - REQUEST\_MAIL：リクエスト送信先メールアドレス
+
+                  - 指定されたメールアドレスはメールアドレスの形式チェックをすること
+
+              - ITEM_APPLICATION.…：コンテンツファイル非所持時の利用申請設定
+
+                  - この列のデータ行に値が存在するとき、コンテンツファイルがないことをチェックすること
             
               - PUBLISH\_STATUS：アイテムの公開／非公開設定
                 
@@ -1426,7 +1443,7 @@ DOIを指定したアイテムについて、指定された項目が各DOI付�
 <td>エラー</td>
 <td>Specified {} is invalid.</td>
 <td>指定された{}は不正です。</td>
-<td>FEEDBACK_MAIL, DOI, PUBLISH_STATUSが不正な形式で指定した場合</td>
+<td>FEEDBACK_MAIL, REQUEST_MAIL, DOI, PUBLISH_STATUSが不正な形式で指定した場合</td>
 </tr>
 <tr class="odd">
 <td>11</td>
@@ -1507,6 +1524,13 @@ DOIを指定したアイテムについて、指定された項目が各DOI付�
 <td>Specified {} does not match with existing index.</td>
 <td>指定された{}はシステムのものと一致していません。</td>
 <td>指定したPOS_INDEXはシステムのものと一致していない場合</td>
+</tr>
+<tr class="even">
+<td>22</td>
+<td>エラー</td>
+<td>If there is a info of content file, terms of use cannot be set</td>
+<td>コンテンツファイルがある場合、「利用申請」は設定できません。</td>
+<td>コンテンツファイルのアップロードとともに「利用申請」を設定している場合</td>
 </tr>
 </tbody>
 </table>
@@ -1900,6 +1924,58 @@ DOIを指定したアイテムについて、指定された項目が各DOI付�
 
   - インポートのtsvファイル内のメタデータにおける"\<br/\>"は、インポートの際に"\\n"に置換する
 
+- 「リクエスト送信先」の情報を保存するため、request_mail_listテーブルを追加する。  
+  カラムは以下の表のものとする。
+
+  | カラム名  | 説明                                                                  |
+  | --------- | --------------------------------------------------------------------- |
+  | created   | 作られた日時秒                                                        |
+  | updated   | 更新された日時秒                                                      |
+  | id        | 一意なID。主キー                                                      |
+  | item_id   | アイテムのID。Item_metadataテーブルのidカラムの外部キー。uuidとする。 |
+  | mail_list | emailとauthor_idを対応させた辞書をリスト型でもつ。                    |
+
+  - 「リクエスト送信先」の情報がインポートされたとき、その情報をrequest_mail_listテーブルに追加、編集、削除をする。
+
+  - インポート画面では、zipファイルを登録して「次へ」ボタンを押下したとき、ファイル内容のチェックを行っている。このとき、「リクエスト送信先」について以下の形式チェックを行う。
+    - 「リクエスト送信先」がメールアドレスとして不正な形式だった場合に、以下のエラーメッセージを表示する。
+      - 日本語：指定された{}が不正です。  
+        英語：Specified {} is invalid.  
+        ※{}にメールアドレスが入る。  
+        ※形式チェックとエラーメッセージは、フィードバックメールのチェックと共通のものを利用する。
+
+  - 「利用申請」の情報がインポートされたとき、その情報をapplication_itemテーブルに追加、編集、削除をする。なお、tsvファイルのapplication_item.*の情報は以下の表のように対応させ、json形式でitem_applicationカラムに保存するものとする。
+
+    | キー               | 値                                  |
+    | ------------------ | ----------------------------------- |
+    | “workflow”         | .item_application.workflow_id       |
+    | “terms”            | .item_application.terms             |
+    | “termsDescription” | .item_application.terms_description |
+
+  - インポート画面にてダウンロードされるテンプレートtsvファイルに    ".item_application.workflow",".item_application.terms",".item_application.terms_description"の３つの列を追加する。
+
+  - インポート画面では、zipファイルを登録して「次へ」ボタンを押下したとき、ファイル内容のチェックを行っている。このとき、「利用申請」について以下の形式チェックを行う。
+
+    - 「利用申請」の情報が入力されている場合に、コンテンツファイルがアップロードされている。
+
+      - コンテンツファイルがある場合、以下のエラーメッセージをチェック結果に表示する。
+
+        英語：「ERROR: If there is a info of content file, terms of use cannot be set」  
+        日本語：「エラー：コンテンツファイルがある場合、「利用申請」は設定できません。」
+
+    - インポートファイル内で指定されている「提供方法」のロールとワークフローがシステム内への存在
+
+      - 存在しない場合、以下のエラーメッセージをチェック結果に表示する
+
+        英語：「ERROR:The specified provinding method does not exist in the system」  
+        日本語：「エラー：指定する提供方法はシステムに存在しません。」
+
+    - インポートファイル内で指定されている「利用規約」がシステム内への存在
+
+      - 存在しない場合、以下のエラーメッセージをチェック結果に表示する。
+
+        英語：「ERROR:The specified provinding user policy does not exist in the system」  
+        日本語：「エラー：指定する利用規約はシステムに存在しません。」
 
 ## 更新履歴
 
