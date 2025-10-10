@@ -217,7 +217,7 @@
 
               - > 「region\_name」  
                 > 「Type」に「S3 Path」、「S3 Virtual Host」を選択する時表示する  
-                >  保存時に入力されていない場合、endpoint_urlを元に生成
+                > 「Type」に「S3 Path」、「S3 Virtual Host」を選択している場合、必須項目
 
               - > 「signature\_version」  
                 > 「Type」に「S3 Path」、「S3 Virtual Host」を選択する時表示する  
@@ -269,6 +269,9 @@
             
               - 「Name」のフォーマットが不正の場合、エラーメッセージを「Name」テキストボックスの下に表示する  
                 メッセージ：「Invalid location name.」
+
+              - 「uri」が「https://」から始まらない場合エラーメッセージを表示する  
+                メッセージ：「Invalid URL. It should start with https://」
         
           - 「保存してもう一つ追加」（Save and Add Another）ボタンを押すと、設定されたロケーション内容をロケーション一覧に追加させ、他のロケーションを追加設定可能とする  
             メッセージを画面上部に表示させる  
