@@ -1850,6 +1850,97 @@ DOIを指定したアイテムについて、指定された項目が各DOI付�
 
   - インポート処理に例外が発生してもESに存在しているアイテム情報が消えないように実装
 
+  /weko-search-ui/weko_search_ui/admin.py
+
+    -   ItemImportView:check(/admin/items/import/check method=\[post\])\
+        インポートアイテムのバリデーションを行う。
+
+        -   ログインユーザーの権限チェックを行う。
+
+        -   check_import_itemsを呼び出し、インポートファイルを1件ずつチェックする。
+
+        -   1件でもチェックがNGの場合、インポートをキャンセルする。
+
+-   /weko-search-ui/weko_search_ui/utils.py
+
+    -   check_import_items
+
+        -   インポートファイルのファイル名にセパレータが入っていた場合、"/"に置換し、ファイルの拡張子がcsvまたはtsvであるかチェックする。
+
+        -   インポートするアイテムが存在するレコードかチェックする。(handle_check_exist_record)
+
+        -   インポートするアイテムのメタデータのタイトルが設定されているかチェックする。(handle_item_title)
+
+        -   インポートするアイテムのメタデータの日付のフォーマットがYYYY-MM-DD,YYYY-MM,YYYYのいずれかであるかチェックする。(handle_check_date)
+
+        -   新規登録のアイテムIDは、データベースに登録する際、自動でIDが振られる為無視するようにNoneに設定する。(handle_check_id)
+
+        -   インデックスツリーが存在するか、インポート可能か、インデックスIDを指定しているかチェックを行う。(handle_check_and_prepare_index_tree)
+
+        -   公開状態が設定されているか、publicまたはprivateであるかチェックを行う。(handle_check_and_prepare_publish_status)
+
+        -   フィードバックメールのフォーマットとメールが存在するかチェックを行う。(handle_check_and_prepare_feedback_mail)
+
+        -   ファイルのコンテンツ、サムネイル、メタデータのファイルパス、拡張子が正しいかチェックを行う。(handle_check_file_metadata)
+
+        -   提供方法のロールとワークフローがシステムに存在するかチェックする。(handle_check_exist_provide)
+
+        -   利用規約がシステムに存在するかチェックする。(handle_check_exist_terms)
+
+        -   学位論文以外、以下のチェックを行う。
+
+            -   識別子変更モードでCNRIの登録を許可していた場合、CNRIが指定されているか、CNRIが290字以内か、フォーマットが正しいかチェックを行う。(handle_check_cnri)
+
+            -   アイテムの公開状態がpublishであるか、インデックスが公開状態、ハーベスト公開であるかチェックを行う。(handle_check_doi_indexes)
+
+            -   アイテムにdoiが指定されているとき、doi_raも指定されているか、インポート可能なタイプであるか、識別子変更モードでないときはアイテムが新規登録であることのチェックを行う。(handle_check_doi_ra)
+
+            -   識別子変更モードであるときdoi_raが設定されているときはdoiも設定されていること、doiが290字以内か、フォーマットが正しいかチェックを行う。(handle_check_doi)
+
+    -   handle_check_restricted_access_property
+
+        -   インポートファイルから読み込んだアイテムリスト内で、
+            check_terms_in_systemを呼び出し、falseが返却された場合、以下のエラーメッセージを返却する。\
+            英語：「ERROR:The specified terms does not exist in the
+            system」\
+            日本語：「エラー：指定する利用規約はシステムに存在しません。」
+
+        -   インポートファイルから読み込んだアイテムリスト内で、
+            check_terms_in_systemを呼び出し、falseが返却された場合、以下のエラーメッセージを返却する。\
+            英語：「ERROR:The specified provinding method does not exist
+            in the system」\
+            日本語：「エラー：指定する提供方法はシステムに存在しません。」
+
+    -   check_provide_in_system
+
+        -   提供方法(provide)のロール(role)とワークフロー(workflow)を取得する。
+
+        -   roleが取得できた場合、invenio_accounts.modelのUserクラスからaccounts_roleテーブルのrole一覧を取得する。上記で取得したロールが一覧に存在しない場合、
+            falseを返却する。
+
+        -   workflowが取得できた場合、weko_workflow.apiのweko_workflow/weko_workflow/api.pyのget_workflow_listを呼び、取得した一覧にworkflowが存在しない場合、falseを返却する。
+
+    -   check_terms_in_system
+
+        -   weko_admin.utilsのget_restricted_accessを呼び出しadmin_settingsテーブルから、restricted_accessの値を取得する。
+
+        -   取得件数が0件の場合、 falseを返却する。
+
+-   /weko-records-ui/weko_records_ui/permittions.py
+
+    -   check_file_download_permission\
+        コンテンツファイルがダウンロードできるかチェックする。
+
+        -   accessroleがopen_access(オープンアクセス)の場合、コンテンツの公開日はアイテム公開日に設定し、現在日時と比較して公開日を過ぎていた場合はダウンロード可能とする。
+
+        -   accessroleがopen_date(オープンアクセス日を指定する)の場合、コンテンツの公開日は、attribute_typeがfileの属性のdateに設定する。また、現在日時と比較してdateが公開日を過ぎている、且つログインユーザーがroleに設定されているroleを持つ場合はダウンロード可能とする。
+
+        -   accessroleがopen_login(ログインユーザーのみ)の場合、ログインユーザーがroleに設定されているroleを持つ場合はダウンロード可能とする。
+
+        -   accessroleがopen_no(公開しない)の場合、アイテムの登録ユーザーまたは管理者の場合、またはログインユーザーのEmailアドレスがシステムのユーザーに設定されている場合はダウンロード可能とする。
+
+        -   accessroleがopen_restricted(制限公開)の場合、コンテンツがダウンロード可能期間であればダウンロード可能とする。
+
 5\. tmpディレクトリ
 
   - 登録されたインポートファイルのチェックをする際に作成するテンポラリファイルは以下のように生成する
