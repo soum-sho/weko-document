@@ -4917,7 +4917,8 @@ Author IDの表示について説明します。
 </tr>
 <tr class="even">
 <td>［編集］</td>
-<td>クリックすると、Author IDの編集画面が表示されます。</td>
+<td>クリックすると、Author IDの編集画面が表示されます。<br>
+※コミュニティ管理者は、管理対象コミュニティに関連付けられた著者のみ「編集」ボタンが有効です。その他の著者のボタンは押せません。</td>
 </tr>
 </tbody>
 </table>
@@ -5113,6 +5114,18 @@ Author IDを追加する方法を説明します。
 </tbody>
 </table>
 
+105. コミュニティ情報を入力します。
+
+表 6-5［コミュニティ］の項目
+
+![](media/media/image461.png)
+
+| 項目                    | 説明                                                                                                               |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| ［コミュニティ］        | 著者を管理するコミュニティを選択します。                                                                           |
+| ［+コミュニティを追加］ | クリックするとコミュニティの入力欄が追加されます。                                                                 |
+| ［X］                   | クリックすると、コミュニティの入力欄が削除されます。<br>表示されている入力エリアが１つのみの場合、削除できません。 |
+
 105. 組織情報を入力します。
 
 ![グラフィカル ユーザー インターフェイス, アプリケーション 自動的に生成された説明](media/media/image192.png)
@@ -5224,6 +5237,10 @@ ID Prefixの表示について説明します。
 <td>ID PrefixのURLが表示されます。</td>
 </tr>
 <tr class="even">
+<td>［Community］</td>
+<td>ID Prefixの管理権限があるコミュニティが表示されます。</td>
+</tr>
+<tr class="odd">
 <td>［Control］</td>
 <td><p>コントロールのボタンが表示されます。</p>
 <p>コントロールのボタンは［Edit］、［Add］です。</p></td>
@@ -5299,6 +5316,10 @@ ID Prefixの表示について説明します。
 <td>URL<sup>※</sup></td>
 <td>著者IDのアクセス先URLを入力します。</td>
 </tr>
+<tr>
+<td>Community</td>
+<td>ID Prefixを管理するコミュニティを選択してください。</td>
+</tr>
 </tbody>
 </table>
 
@@ -5319,6 +5340,8 @@ URLについて
      ［Name］、［Scheme］は必須項目です。それらを入力しない場合、［+Add］をクリックすると、エラーメッセージ「Please enter the correct + 項目名」が表示されます。
      
      ［Scheme］は複数設定できません。設定されたSchemeを選択する場合、［+Add］をクリックすると、エラーメッセージ「Specified scheme is already exist.」が表示されます。
+
+     ［Community］はコミュニティ管理者の場合必須項目です。管理対象のコミュニティを選択しない場合、［+Add］をクリックすると、エラーメッセージ「You must include at least one managed community.」が表示されます。
      
 ##### 外部著者ID Prefixを編集する
 
@@ -5391,6 +5414,10 @@ URLについて
 <td>ID PrefixのURLが表示されます。</td>
 </tr>
 <tr class="even">
+<td>［Community］</td>
+<td>ID Prefixの管理権限があるコミュニティが表示されます。</td>
+</tr>
+<tr class="odd">
 <td>［Control］</td>
 <td><p>コントロールのボタンが表示されます。</p>
 <p>コントロールのボタンは［Edit］、［Add］です。</p></td>
@@ -5449,6 +5476,10 @@ URLについて
 <td>URL<sup>※</sup></td>
 <td>所属機関IDのアクセス先URLを入力します。</td>
 </tr>
+<tr>
+<td>Community</td>
+<td>ID Prefixを管理するコミュニティを選択してください。</td>
+</tr>
 </tbody>
 </table>
 
@@ -5469,6 +5500,8 @@ URLについて
     ［Name］、［Scheme］は必須項目です。それらを入力しない場合、［+Add］をクリックすると、エラーメッセージ「Please enter the correct + 項目名」が表示されます。
     
     ［Scheme］が複数設定できません。設定されたSchemeを選択する場合、［+Add］をクリックすると、エラーメッセージ「Specified scheme is already exist.」が表示されます。
+
+    ［Community］はコミュニティ管理者の場合必須項目です。管理対象のコミュニティを選択しない場合、［+Add］をクリックすると、エラーメッセージ「You must include at least one managed community.」が表示されます。
     
 ##### 組織ID Prefixを編集する
 
@@ -5674,6 +5707,13 @@ URLについて
 表示する: "Y"<br />
 表示しない: "N"</td>
 </tr>
+<tr>
+<td>21</td>
+<td>communityIds[0...n]</td>
+<td>コミュニティ ID</td>
+<td>Community ID</td>
+<td>著者の管理権限を持つコミュニティのIDを出力する</td>
+</tr>
 </tbody>
 </table>
 
@@ -5715,6 +5755,13 @@ URLについて
 <td>識別子を削除する場合に "D" と出力する<br />
     エクスポートの場合は全て空欄である。</td>
 </tr>
+<tr >
+<td>5</td>
+<td>community_ids</td>
+<td>コミュニティID</td>
+<td>Community ID</td>
+<td>識別子の管理権限を持つコミュニティのIDを出力する。</td>
+</tr>
 </tbody>
 </table>
 
@@ -5753,6 +5800,8 @@ URLについて
 ・エクスポート時に論理削除された著者情報はエクスポートされません。
 
 ・著者情報に紐づいた組織情報はエクスポートされません。
+
+・コミュニティ管理者の場合、管理対象のコミュニティに紐づかない著者はエクスポートされません。
 
 ### 著者情報を一括登録する
 
@@ -5969,6 +6018,13 @@ URLについて
 表示する: "Y"<br />
 表示しない: "N"</td>
 </tr>
+<tr>
+<td>21</td>
+<td>communityIds[0...n]</td>
+<td>コミュニティ ID</td>
+<td>Community ID</td>
+<td>著者の管理権限を持つコミュニティのIDを出力する</td>
+</tr>
 </tbody>
 </table>
 
@@ -6015,6 +6071,13 @@ URLについて
 <td>Delete Flag</td>
 <td>識別子を削除する場合に "D" と出力する<br />
     エクスポートの場合は全て空欄である。</td>
+</tr>
+<tr>
+<td>5</td>
+<td>communityIds[0...n]</td>
+<td>コミュニティ ID</td>
+<td>Community ID</td>
+<td>識別子の管理権限を持つコミュニティのIDを入力する</td>
 </tr>
 </tbody>
 </table>
@@ -6599,6 +6662,53 @@ URLについて
     <td>英語のメッセージが既存<br />
     日本語のメッセージを新規追加</td>
     </tr>
+    <tr>
+    <td>27</td>
+    <td>インポート(Import)</td>
+    <td>コミュニティIDに許可されていない記号や制御文字等を入力した</td>
+    <td>ERROR</td>
+    <td>無効なコミュニティID形式です。</td>
+    <td>Invalid community ID format.</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td>28</td>
+    <td>インポート(Import)</td>
+    <td>communityIdsでDBに存在しないコミュニティのIDを入力した</td>
+    <td>ERROR</td>
+    <td>指定されたコミュニティID「{1}」は存在しません。</td>
+    <td>Community ID(s) {1} does not exist.</td>
+    <td>{1}: コミュニティID</td>
+    </tr>
+    <tr>
+    <td>29</td>
+    <td>インポート(Import)</td>
+    <td>コミュニティ管理者で管理対象外のコミュニティのIDを入力した</br>
+    または、コミュニティ管理者で管理対象外のコミュニティの紐づけを解除した
+    </td>
+    <td>ERROR</td>
+    <td>著者IDに紐づく、コミュニティ「{1}」の管理権限がありません。</td>
+    <td>You do not have permission for this Author’s communities: {1}.</td>
+    <td>{1}: コミュニティID</td>
+    </tr>
+    <tr>
+    <td>30</td>
+    <td>インポート(Import)</td>
+    <td>コミュニティ管理者で管理対象外のコミュニティのみに紐づく著者のpk_idを入力した</td>
+    <td>ERROR</td>
+    <td>このレコードを操作することはできません。</td>
+    <td>You cannot manage this record.</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td>31</td>
+    <td>インポート(Import)</td>
+    <td>コミュニティ管理者でcommunityIdsが空欄</td>
+    <td>ERROR</td>
+    <td>少なくとも1つの管理対象コミュニティを含める必要があります。</td>
+    <td>You must include at least one managed community.</td>
+    <td></td>
+    </tr>
     </tbody>
     </table>
 
@@ -6804,6 +6914,53 @@ URLについて
     <td>ERROR</td>
     <td>著者DBで使用されているため、指定された識別子は削除できません。</td>
     <td>The specified scheme is used in the author ID.</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td>21</td>
+    <td>インポート(Import)</td>
+    <td>コミュニティIDに許可されていない記号や制御文字等を入力した</td>
+    <td>ERROR</td>
+    <td>無効なコミュニティID形式です。</td>
+    <td>Invalid community ID format.</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td>22</td>
+    <td>インポート(Import)</td>
+    <td>community_idsでDBに存在しないコミュニティのIDを入力した</td>
+    <td>ERROR</td>
+    <td>指定されたコミュニティID「{1}」は存在しません。</td>
+    <td>Community ID(s) {1} does not exist.</td>
+    <td>{1}: コミュニティID</td>
+    </tr>
+    <tr>
+    <td>23</td>
+    <td>インポート(Import)</td>
+    <td>コミュニティ管理者で管理対象外のコミュニティのIDを入力した</br>
+    または、コミュニティ管理者で管理対象外のコミュニティの紐づけを解除した
+    </td>
+    <td>ERROR</td>
+    <td>著者IDに紐づく、コミュニティ「{1}」の管理権限がありません。</td>
+    <td>You do not have permission for this Author’s communities: {1}.</td>
+    <td>{1}: コミュニティID</td>
+    </tr>
+    <tr>
+    <td>24</td>
+    <td>インポート(Import)</td>
+    <td>コミュニティ管理者で管理対象外のコミュニティのみに紐づく識別子のschemeを入力した</td>
+    <td>ERROR</td>
+    <td>このレコードを操作することはできません。</td>
+    <td>You cannot manage this record.</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td>25</td>
+    <td>インポート(Import)</td>
+    <td>コミュニティ管理者でcommunity_idsが空欄</td>
+    <td>ERROR</td>
+    <td>少なくとも1つの管理対象コミュニティを含める必要があります。</td>
+    <td>You must include at least one managed community.</td>
     <td></td>
     </tr>
     </table>
@@ -8851,6 +9008,19 @@ Locationを参照する方法を説明します。
 
 ![モニター画面に映るウェブサイトのスクリーンショット 中程度の精度で自動的に生成された説明](media/media/image325.png)
 
+※警告メッセージの表示
+一覧画面では、デフォルトに設定されたロケーションが 0件または2件以上 存在する場合に、画面上部に警告メッセージが表示されます。
+
+- 0件の場合
+
+  - 日本語：「デフォルトに設定されたロケーションが存在しません。いずれか1つのロケーションをデフォルトに設定してください。」
+  - 英語："No default location is set. Please configure one location as default."
+
+- 2件以上の場合
+
+  - 日本語：「複数のロケーションがデフォルトに設定されています。デフォルトのロケーションは1つのみ設定可能です。設定を修正してください。」
+  - 英語："Multiple locations are set as default. Only one default location can be configured. Please correct the settings."
+
 214. 行頭に表示されている目のアイコン（![iconeye](media/media/image111.png)）をクリックします。
      
      詳細が表示されます。
@@ -8875,7 +9045,7 @@ Locationを作成する方法を説明します。
 | URI        | LocationのURIを入力します。         |
 | Type       | 種別を選択します。                   |
 | Quota Size | 容量の上限値を入力します。               |
-| Default    | デフォルトで使用する場合、チェックします。       |
+| Default    | デフォルトで使用する場合、チェックします。  <br>※すでに他のロケーションがデフォルトに設定されている場合は、当項目はグレーアウト（非活性）となり選択できません。<br>※既存のデフォルトロケーションを解除した後に、新しいロケーションをデフォルトとして設定できます。|
 
 215. ［保存］をクリックします。
      
