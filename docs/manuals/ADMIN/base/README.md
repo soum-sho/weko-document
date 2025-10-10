@@ -2174,19 +2174,37 @@ SWORD APIの管理に関する操作手順を説明しています。
     
     削除確認用のダイアログが表示されます。![](media/media/image48.png)
     
-    【注意事項】
-    
-    ハーベスト用アイテムタイプは削除できません。［削除］をクリックした場合、ハーベスト用アイテムは削除できない旨のメッセージ「Cannot delete item type for harvesting.」が表示されます。
 
 35. ［継続］をクリックします。
     
     アイテムタイプが削除されます。
     
-    【注意事項】
-    
-    標準アイテムタイプのうち、登録されているアイテムに使用しているアイテムタイプは削除できません。［継続］をクリックすると、該当するアイテムが存在するため削除できない旨のメッセージが表示されます。
-    
-    ![](media/media/image49.png)
+    一括インポート機能でインポート中、あるいは予約済みのタスクが存在する場合、No.1のメッセージが表示される。
+
+    削除対象がハーベスト用のアイテムタイプの場合、No.2のメッセージが表示される。
+
+    削除対象のアイテムタイプで既に登録済みのアイテムが存在する場合、No.3のメッセージが表示される。
+
+    削除対象のアイテムタイプがワークフローに設定されている場合、No.4のメッセージが表示される。
+
+    削除対象のアイテムタイプがSWORD API設定のJSON-LDインポート機能で使用されている場合、No.5のメッセージが表示される。
+
+    アイテムタイプが見つからない等の予期せぬ状況が発生した場合は処理を中断され、No.6,7のメッセージが表示される。
+
+    上記のチェックをすべて通過した場合、アイテムタイプが削除され、No.8のメッセージが表示される。
+
+    表 2-5削除時のメッセージ
+
+| No. | 種別    | 英語                                                        | 日本語                                                         |
+|-----|---------|-------------------------------------------------------------|----------------------------------------------------------------|
+| 1   | ERROR   | Cannot delete item type. Import is in progress.              | アイテムをインポート中はアイテムタイプを削除できません。        |
+| 2   | ERROR   | Cannot delete item type. It is used for harvesting.          | ハーベスト用のアイテムタイプは削除できません。                  |
+| 3   | ERROR   | Cannot delete item type. Item of this type already exists.   | このアイテムタイプのアイテムが既に存在するため、アイテムタイプを削除できません。 |
+| 4   | ERROR   | Cannot delete item type. It is used in some workflows.       | ワークフローで使用されているため、アイテムタイプを削除できません。|
+| 5   | ERROR   | Cannot delete item type. It is used in SWORD API JSON-LD import settings. | SWORD API設定のJSON-LDインポート機能で使用されているため、アイテムタイプを削除できません。 |
+| 6   | ERROR   | Item type not found.                                         | アイテムタイプが見つかりません。                               |
+| 7   | ERROR   | Unexpected error. Failed to delete item type.                | アイテムタイプの削除に失敗しました。                           |
+| 8   | SUCCESS | Deleted Item type successfully.                              | アイテムタイプを削除しました。                                 |
 
 #### アイテムタイプを復元する
 
@@ -2710,6 +2728,22 @@ WEKO3システムは、JPCOAR, JPCOAR v1, JPCOAR v2, Dublin Core, DDI, lomのス
     ［利用規約に同意します］をクリックして［OK］をクリックします。  
     ファイルの読み込みとチェックが実行されて、［インポート］タブが表示されます。［インポート］タブには、読み込んだファイルのチェック結果が表示されます。  
     ![](media/media/image85.png)
+     
+    識別子変更モードが有効である場合、アイテムにDOIが指定されていると、そのDOIが登録済みDOIに存在するかをチェックします。
+
+    指定されたDOIと一致するレコードが登録済みDOIに存在する場合は、表3-2のNo.1のエラーメッセージが表示されます。
+    取り下げられたDOIが指定されている場合は、表3-2のNo.2のエラーメッセージが表示されます。
+    指定されたDOIがインポートファイル内で重複している場合は、表3-2のNo.3のエラーメッセージが表示されます。
+
+表 3-2DOI重複チェックのエラーメッセージ
+
+| No. | 種別  | 英語                                                                 | 日本語                                                         |
+|-----|-------|----------------------------------------------------------------------|----------------------------------------------------------------|
+| 1   | ERROR | Specified DOI has been used already for another item. Please specify another DOI. | 指定されたDOIは既に別のアイテムに付与されています。別のDOIを指定してください。 |
+| 2   | ERROR | Specified DOI was withdrawn. Please specify another DOI.              | 指定されたDOIは取り下げられました。別のDOIを指定してください。           |
+| 3   | ERROR | Specified DOI is duplicated with another import item. Please specify another DOI. | 指定されたDOIはインポートファイル内で重複しています。別のDOIを指定してください。 |
+
+
 
 3)  > ［チェック結果］が［Register］または［Update］であることを確認します。
     
@@ -2719,7 +2753,7 @@ WEKO3システムは、JPCOAR, JPCOAR v1, JPCOAR v2, Dublin Core, DDI, lomのス
 
 ![](media/media/image86.png)
 
-表 3‑2［インポート］タブの項目
+表 3‑3［インポート］タブの項目
 
 <table>
 <thead>
@@ -2788,7 +2822,7 @@ WEKO3システムは、JPCOAR, JPCOAR v1, JPCOAR v2, Dublin Core, DDI, lomのス
 
 ダウンロード時にエラーが発生する場合、エラーメッセージ「ダウンロードに失敗しました。」が表示されます。
 
-表 3‑3TSVフォーマット不正のバリデーションチェック
+表 3‑4TSVフォーマット不正のバリデーションチェック
 
 <table>
 <thead>
@@ -2946,7 +2980,7 @@ WEKO3システムは、JPCOAR, JPCOAR v1, JPCOAR v2, Dublin Core, DDI, lomのス
 </tbody>
 </table>
 
-表 3‑4メタデータ項目以外の不正のバリデーションチェック
+表 3‑5メタデータ項目以外の不正のバリデーションチェック
 
 <table>
 <thead>
@@ -3081,7 +3115,7 @@ WEKO3システムは、JPCOAR, JPCOAR v1, JPCOAR v2, Dublin Core, DDI, lomのス
 | エラー | \[公開日\]      | 'pubdate' is a required property.                                                                          | 'pubdate'は必須項目です。                                      | 'pubdate'が指定されていない場合                     |
 | エラー | \[サムネイルパス\]  | Please specify the image file(gif, jpg, jpe, jpeg, png, bmp) for the thumbnail.                            | サムネイルは画像ファイル（gif, jpg, jpe, jpeg, png, bmp）を指定してください   | 画像ファイル以外を指定する場合                          |
 
-表 3‑5メタデータ項目不正のバリデーションチェック
+表 3‑6メタデータ項目不正のバリデーションチェック
 
 | タイプ | 対象                               | 英語                                                                                                                                     | 日本語                                                              | 説明                                                            |
 | --- | -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | ------------------------------------------------------------- |
@@ -3104,12 +3138,25 @@ WEKO3システムは、JPCOAR, JPCOAR v1, JPCOAR v2, Dublin Core, DDI, lomのス
     新規で一括登録するアイテムに指定したDOI、CNRIの登録を行います。
     
     既存のアイテムに登録しているDOI、CNRIの変更を行います。
+
+    指定したDOIが別アイテムで用いられている場合、表3-7のNo.1のメッセージが表示されます。
+
+    指定したDOIが無効かされている場合、表3-7のNo.2のメッセージが表示されます。
     
-    個別のアイテム編集中に、一括登録を実施した場合、メッセージ日本語は［該当アイテムが編集中のため更新できません。］、英語は［Cannot update because the corresponding item is being edited. ］ が表示されます。
-    
-    個別のアイテム削除後に、一括登録を実施した場合、メッセージ日本語は［該当アイテムは削除済です。］、英語は［The corresponding item has been deleted. ］ が表示されます。
-    
+    個別のアイテム削除後に、一括登録を実施した場合、表3-7のNo.3のメッセージが表示されます
+
+    個別のアイテム編集中に、一括登録を実施した場合、表3-7のNo.4のメッセージが表示されます。
+
     ユーザのセッション有効時間を超過した場合でもインポート処理は実行されます。
+
+表 3‑7インポート結果エラーメッセージ
+
+| No. | 英語                                                                 | 日本語                                               |
+|-----|----------------------------------------------------------------------|------------------------------------------------------|
+| 1   | This DOI has been already grant for another item. Please specify another DOI. | このDOIは既に別のアイテムに付与されています。別のDOIを指定してください。 |
+| 2   | This DOI was withdrawn. Please input another DOI.                    | このDOIは取り下げられました。別のDOIを指定してください。           |
+| 3   | The corresponding item has been deleted.                             | 該当アイテムは削除済です。                                 |
+| 4   | Cannot update because the corresponding item is being edited.        | 該当アイテムが編集中のため更新できません。                      |
 
 <!-- end list -->
 
@@ -3127,8 +3174,8 @@ WEKO3システムは、JPCOAR, JPCOAR v1, JPCOAR v2, Dublin Core, DDI, lomのス
 
 ![](media/media/image87.png)
 
-［インポート］タブの項目は、「表 3-2［インポート］タブの項目」の説明に参照します。  
-インポートファイルのバリデーションチェックは、「表 3-3 TSVフォーマット不正のバリデーションチェック」、「表 3-4 メタデータ項目以外の不正のバリデーションチェック」、「表 3-5 メタデータ項目不正のバリデーションチェック」の説明に参照します。
+［インポート］タブの項目は、「表 3-3［インポート］タブの項目」の説明に参照します。  
+インポートファイルのバリデーションチェックは、「表 3-4 TSVフォーマット不正のバリデーションチェック」、「表 3-5 メタデータ項目以外の不正のバリデーションチェック」、「表 3-6 メタデータ項目不正のバリデーションチェック」の説明に参照します。
 
 3)  > ［インポート］をクリックします。
     
@@ -3147,7 +3194,7 @@ WEKO3システムは、JPCOAR, JPCOAR v1, JPCOAR v2, Dublin Core, DDI, lomのス
     
     ![](media/media/image88.png)
 
-表 3‑6［結果］タブの項目
+表 3‑8［結果］タブの項目
 
 <table>
 <thead>
@@ -3182,12 +3229,12 @@ WEKO3システムは、JPCOAR, JPCOAR v1, JPCOAR v2, Dublin Core, DDI, lomのス
 <td>各アイテムのアイテムIDが表示されます。</td>
 </tr>
 <tr class="even">
-<td>アクション</td>
-<td>各アイテムのワークフローのアクションが表示されます。</td>
+<td>ステータス</td>
+<td>アイテムのワークフローのステータスが表示されます。</td>
 </tr>
 <tr class="odd">
-<td>ワークフローステータス</td>
-<td>アイテムのワークフローのステータスが表示されます。</td>
+<td>インポート結果</td>
+<td>アイテムのインポート結果が表示されます</td>
 </tr>
 </tbody>
 </table>
@@ -4906,7 +4953,8 @@ Author IDの表示について説明します。
 </tr>
 <tr class="even">
 <td>［編集］</td>
-<td>クリックすると、Author IDの編集画面が表示されます。</td>
+<td>クリックすると、Author IDの編集画面が表示されます。<br>
+※コミュニティ管理者は、管理対象コミュニティに関連付けられた著者のみ「編集」ボタンが有効です。その他の著者のボタンは押せません。</td>
 </tr>
 </tbody>
 </table>
@@ -5102,6 +5150,18 @@ Author IDを追加する方法を説明します。
 </tbody>
 </table>
 
+105. コミュニティ情報を入力します。
+
+表 6-5［コミュニティ］の項目
+
+![](media/media/image474.png)
+
+| 項目                    | 説明                                                                                                               |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| ［コミュニティ］        | 著者を管理するコミュニティを選択します。                                                                           |
+| ［+コミュニティを追加］ | クリックするとコミュニティの入力欄が追加されます。                                                                 |
+| ［X］                   | クリックすると、コミュニティの入力欄が削除されます。<br>表示されている入力エリアが１つのみの場合、削除できません。 |
+
 105. 組織情報を入力します。
 
 ![グラフィカル ユーザー インターフェイス, アプリケーション 自動的に生成された説明](media/media/image192.png)
@@ -5213,6 +5273,10 @@ ID Prefixの表示について説明します。
 <td>ID PrefixのURLが表示されます。</td>
 </tr>
 <tr class="even">
+<td>［Community］</td>
+<td>ID Prefixの管理権限があるコミュニティが表示されます。</td>
+</tr>
+<tr class="odd">
 <td>［Control］</td>
 <td><p>コントロールのボタンが表示されます。</p>
 <p>コントロールのボタンは［Edit］、［Add］です。</p></td>
@@ -5288,6 +5352,10 @@ ID Prefixの表示について説明します。
 <td>URL<sup>※</sup></td>
 <td>著者IDのアクセス先URLを入力します。</td>
 </tr>
+<tr>
+<td>Community</td>
+<td>ID Prefixを管理するコミュニティを選択してください。</td>
+</tr>
 </tbody>
 </table>
 
@@ -5308,6 +5376,8 @@ URLについて
      ［Name］、［Scheme］は必須項目です。それらを入力しない場合、［+Add］をクリックすると、エラーメッセージ「Please enter the correct + 項目名」が表示されます。
      
      ［Scheme］は複数設定できません。設定されたSchemeを選択する場合、［+Add］をクリックすると、エラーメッセージ「Specified scheme is already exist.」が表示されます。
+
+     ［Community］はコミュニティ管理者の場合必須項目です。管理対象のコミュニティを選択しない場合、［+Add］をクリックすると、エラーメッセージ「You must include at least one managed community.」が表示されます。
      
 ##### 外部著者ID Prefixを編集する
 
@@ -5380,6 +5450,10 @@ URLについて
 <td>ID PrefixのURLが表示されます。</td>
 </tr>
 <tr class="even">
+<td>［Community］</td>
+<td>ID Prefixの管理権限があるコミュニティが表示されます。</td>
+</tr>
+<tr class="odd">
 <td>［Control］</td>
 <td><p>コントロールのボタンが表示されます。</p>
 <p>コントロールのボタンは［Edit］、［Add］です。</p></td>
@@ -5438,6 +5512,10 @@ URLについて
 <td>URL<sup>※</sup></td>
 <td>所属機関IDのアクセス先URLを入力します。</td>
 </tr>
+<tr>
+<td>Community</td>
+<td>ID Prefixを管理するコミュニティを選択してください。</td>
+</tr>
 </tbody>
 </table>
 
@@ -5458,6 +5536,8 @@ URLについて
     ［Name］、［Scheme］は必須項目です。それらを入力しない場合、［+Add］をクリックすると、エラーメッセージ「Please enter the correct + 項目名」が表示されます。
     
     ［Scheme］が複数設定できません。設定されたSchemeを選択する場合、［+Add］をクリックすると、エラーメッセージ「Specified scheme is already exist.」が表示されます。
+
+    ［Community］はコミュニティ管理者の場合必須項目です。管理対象のコミュニティを選択しない場合、［+Add］をクリックすると、エラーメッセージ「You must include at least one managed community.」が表示されます。
     
 ##### 組織ID Prefixを編集する
 
@@ -5663,6 +5743,13 @@ URLについて
 表示する: "Y"<br />
 表示しない: "N"</td>
 </tr>
+<tr>
+<td>21</td>
+<td>communityIds[0...n]</td>
+<td>コミュニティ ID</td>
+<td>Community ID</td>
+<td>著者の管理権限を持つコミュニティのIDを出力する</td>
+</tr>
 </tbody>
 </table>
 
@@ -5704,6 +5791,13 @@ URLについて
 <td>識別子を削除する場合に "D" と出力する<br />
     エクスポートの場合は全て空欄である。</td>
 </tr>
+<tr >
+<td>5</td>
+<td>community_ids</td>
+<td>コミュニティID</td>
+<td>Community ID</td>
+<td>識別子の管理権限を持つコミュニティのIDを出力する。</td>
+</tr>
 </tbody>
 </table>
 
@@ -5742,6 +5836,8 @@ URLについて
 ・エクスポート時に論理削除された著者情報はエクスポートされません。
 
 ・著者情報に紐づいた組織情報はエクスポートされません。
+
+・コミュニティ管理者の場合、管理対象のコミュニティに紐づかない著者はエクスポートされません。
 
 ### 著者情報を一括登録する
 
@@ -5958,6 +6054,13 @@ URLについて
 表示する: "Y"<br />
 表示しない: "N"</td>
 </tr>
+<tr>
+<td>21</td>
+<td>communityIds[0...n]</td>
+<td>コミュニティ ID</td>
+<td>Community ID</td>
+<td>著者の管理権限を持つコミュニティのIDを出力する</td>
+</tr>
 </tbody>
 </table>
 
@@ -6004,6 +6107,13 @@ URLについて
 <td>Delete Flag</td>
 <td>識別子を削除する場合に "D" と出力する<br />
     エクスポートの場合は全て空欄である。</td>
+</tr>
+<tr>
+<td>5</td>
+<td>communityIds[0...n]</td>
+<td>コミュニティ ID</td>
+<td>Community ID</td>
+<td>識別子の管理権限を持つコミュニティのIDを入力する</td>
 </tr>
 </tbody>
 </table>
@@ -6588,6 +6698,53 @@ URLについて
     <td>英語のメッセージが既存<br />
     日本語のメッセージを新規追加</td>
     </tr>
+    <tr>
+    <td>27</td>
+    <td>インポート(Import)</td>
+    <td>コミュニティIDに許可されていない記号や制御文字等を入力した</td>
+    <td>ERROR</td>
+    <td>無効なコミュニティID形式です。</td>
+    <td>Invalid community ID format.</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td>28</td>
+    <td>インポート(Import)</td>
+    <td>communityIdsでDBに存在しないコミュニティのIDを入力した</td>
+    <td>ERROR</td>
+    <td>指定されたコミュニティID「{1}」は存在しません。</td>
+    <td>Community ID(s) {1} does not exist.</td>
+    <td>{1}: コミュニティID</td>
+    </tr>
+    <tr>
+    <td>29</td>
+    <td>インポート(Import)</td>
+    <td>コミュニティ管理者で管理対象外のコミュニティのIDを入力した</br>
+    または、コミュニティ管理者で管理対象外のコミュニティの紐づけを解除した
+    </td>
+    <td>ERROR</td>
+    <td>著者IDに紐づく、コミュニティ「{1}」の管理権限がありません。</td>
+    <td>You do not have permission for this Author’s communities: {1}.</td>
+    <td>{1}: コミュニティID</td>
+    </tr>
+    <tr>
+    <td>30</td>
+    <td>インポート(Import)</td>
+    <td>コミュニティ管理者で管理対象外のコミュニティのみに紐づく著者のpk_idを入力した</td>
+    <td>ERROR</td>
+    <td>このレコードを操作することはできません。</td>
+    <td>You cannot manage this record.</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td>31</td>
+    <td>インポート(Import)</td>
+    <td>コミュニティ管理者でcommunityIdsが空欄</td>
+    <td>ERROR</td>
+    <td>少なくとも1つの管理対象コミュニティを含める必要があります。</td>
+    <td>You must include at least one managed community.</td>
+    <td></td>
+    </tr>
     </tbody>
     </table>
 
@@ -6793,6 +6950,53 @@ URLについて
     <td>ERROR</td>
     <td>著者DBで使用されているため、指定された識別子は削除できません。</td>
     <td>The specified scheme is used in the author ID.</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td>21</td>
+    <td>インポート(Import)</td>
+    <td>コミュニティIDに許可されていない記号や制御文字等を入力した</td>
+    <td>ERROR</td>
+    <td>無効なコミュニティID形式です。</td>
+    <td>Invalid community ID format.</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td>22</td>
+    <td>インポート(Import)</td>
+    <td>community_idsでDBに存在しないコミュニティのIDを入力した</td>
+    <td>ERROR</td>
+    <td>指定されたコミュニティID「{1}」は存在しません。</td>
+    <td>Community ID(s) {1} does not exist.</td>
+    <td>{1}: コミュニティID</td>
+    </tr>
+    <tr>
+    <td>23</td>
+    <td>インポート(Import)</td>
+    <td>コミュニティ管理者で管理対象外のコミュニティのIDを入力した</br>
+    または、コミュニティ管理者で管理対象外のコミュニティの紐づけを解除した
+    </td>
+    <td>ERROR</td>
+    <td>著者IDに紐づく、コミュニティ「{1}」の管理権限がありません。</td>
+    <td>You do not have permission for this Author’s communities: {1}.</td>
+    <td>{1}: コミュニティID</td>
+    </tr>
+    <tr>
+    <td>24</td>
+    <td>インポート(Import)</td>
+    <td>コミュニティ管理者で管理対象外のコミュニティのみに紐づく識別子のschemeを入力した</td>
+    <td>ERROR</td>
+    <td>このレコードを操作することはできません。</td>
+    <td>You cannot manage this record.</td>
+    <td></td>
+    </tr>
+    <tr>
+    <td>25</td>
+    <td>インポート(Import)</td>
+    <td>コミュニティ管理者でcommunity_idsが空欄</td>
+    <td>ERROR</td>
+    <td>少なくとも1つの管理対象コミュニティを含める必要があります。</td>
+    <td>You must include at least one managed community.</td>
     <td></td>
     </tr>
     </table>
@@ -8637,7 +8841,7 @@ SWORD APIを利用してアイテムを連携するための設定を行いま�
 ### JSON-LD用の設定を作成する
 
 事前に作成したOAuth2のアプリケーション、マッピング定義を利用して直接登録/ワークフロー登録どちらかの登録方式を指定します。  
-また、連携実行時にメタデータ補完を行う場合の優先順位を指定します。
+また、連携実行時にDOIを使用したメタデータ補完を行う場合の優先順位を指定します。
 
 1. ［SWORD API］をクリックして、［JSON-LD］をクリックします。
 
@@ -8858,6 +9062,19 @@ Locationを参照する方法を説明します。
 
 ![モニター画面に映るウェブサイトのスクリーンショット 中程度の精度で自動的に生成された説明](media/media/image325.png)
 
+※警告メッセージの表示
+一覧画面では、デフォルトに設定されたロケーションが 0件または2件以上 存在する場合に、画面上部に警告メッセージが表示されます。
+
+- 0件の場合
+
+  - 日本語：「デフォルトに設定されたロケーションが存在しません。いずれか1つのロケーションをデフォルトに設定してください。」
+  - 英語："No default location is set. Please configure one location as default."
+
+- 2件以上の場合
+
+  - 日本語：「複数のロケーションがデフォルトに設定されています。デフォルトのロケーションは1つのみ設定可能です。設定を修正してください。」
+  - 英語："Multiple locations are set as default. Only one default location can be configured. Please correct the settings."
+
 214. 行頭に表示されている目のアイコン（![iconeye](media/media/image111.png)）をクリックします。
      
      詳細が表示されます。
@@ -8882,7 +9099,7 @@ Locationを作成する方法を説明します。
 | URI        | LocationのURIを入力します。         |
 | Type       | 種別を選択します。                   |
 | Quota Size | 容量の上限値を入力します。               |
-| Default    | デフォルトで使用する場合、チェックします。       |
+| Default    | デフォルトで使用する場合、チェックします。  <br>※すでに他のロケーションがデフォルトに設定されている場合は、当項目はグレーアウト（非活性）となり選択できません。<br>※既存のデフォルトロケーションを解除した後に、新しいロケーションをデフォルトとして設定できます。|
 
 215. ［保存］をクリックします。
      
