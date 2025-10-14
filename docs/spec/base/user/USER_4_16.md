@@ -1,4 +1,4 @@
-### Item Registration：アイテム未登録時の制限公開機能
+### Item Registration：コンテンツ未登録時の制限公開機能
 
 - 目的・用途
 
