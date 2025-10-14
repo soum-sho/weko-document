@@ -169,11 +169,8 @@
 ⑪表/タイトル
 
   - アイテムのタイトルを以下のルールで表示する。
-    
       - システムの言語属性に合わせたタイトルを表示する
-    
       - 一致するものがない場合は英語表記で表示する
-    
       - 画面の横幅に応じて表示する文字数をトリミング（末尾を「…」に置換）する
 
 ⑫表/メタデータ取得DOI
@@ -184,10 +181,13 @@
 
 ⑬表/チェック結果
 
+  - 入力したDOIをもとにWEB APIからメタデータ補完を行う。
+      - prefix/suffixの形式で入力する。
+
+⑬表/チェック結果
+
   - TSVファイルの設定内容について、チェックした結果を以下の形式（()は英語表記）で表示する。
-    
       - 新規登録→「登録(Registre)」
-    
       - 更新→「更新(Update)」
     
       - エラー→「エラー(ERROR)：<エラーメッセージ>」
@@ -241,7 +241,8 @@
 
 ## インポートファイル／TSVファイルについて
 
-### 1.1 インポートファイル
+#### 3.1 インポートファイル
+### 3.1 インポートファイル
 
   - エクスポート（一括出力）したファイルを流用できる
 
@@ -269,7 +270,7 @@
   - 「/recid_n」は変更可
   - アイテムタイプのTSVファイルは複数指定可能
 
-### 1.2 アイテムタイプごとのTSVファイル
+### 3.2 アイテムタイプごとのTSVファイル
 
 当該ファイルは以下で共通のレイアウトとしている。
     
@@ -277,7 +278,7 @@
 - インポートファイルに含めるアイテムタイプTSVファイル
 - エクスポート（一括出力）ファイルに含まれるアイテムタイプTSVファイル
 
-#### (1) ヘッダ行
+##### (1) ヘッダ行
 
 ヘッダ行は先頭が「#」とする。
 
@@ -319,9 +320,9 @@
 | .publish_status   | .PUBLISH_STATUS      | アイテムの公開／非公開を指定する。public/privateのいずれかを設定する。必須項目。                                                          |
 | .feedback_mail[0] | .FEEDBACK_MAIL[0]    | フィードバックメールの送信先メールアドレスを指定する。複数指定可。                                                                        |
 | .request_mail[0]  | .REQUEST_MAIL[0]     | リクエストメールの送信先メールアドレスを指定する。複数指定可。                                                                            |
-| .item_application.workflow | .ITEM_APPLICATION.WORKFLOW | コンテンツファイルがない場合の利用申請のワークフローIDを指定する。|
+| .item_application.workflow | .ITEM_APPLICATION<br>.WORKFLOW | コンテンツファイルがない場合の利用申請のワークフローIDを指定する。                                                     |
 | .item_application.terms | .ITEM_APPLICATION.TERMS |コンテンツファイルがない場合の利用規約IDを指定する。この列のデータ行にterm_freeが入力された場合、利用規約を自由入力として.item_application.terms_descriptionが表示される。 |
-| .item_application.terms_description | .ITEM_APPLICATION.TERMS_DESCRIPTION | コンテンツファイルがない場合の利用規約（自由入力）を指定する。 |
+| .item_application<br>.terms_description | .ITEM_APPLICATION<br>.TERMS_DESCRIPTION | コンテンツファイルがない場合の利用規約（自由入力）を指定する。                                   |
 | .cnri             | .CNRI                | CNRIハンドルサーバを使用する場合(※2)に設定できる。CNRIは「prefix/suffix」の形式で設定される。通常モードの時は自動採番(※3)される。識別子変更モードの時に「prefix」または「prefix/」を指定すると自動採番となる。 |
 | .doi_ra           | .DOI_RA              | DOIの種類を指定する。JaLC/Crossref/DataCite(※4)/NDL JaLC (※5)のいずれかを設定する。                                                     |
 | .doi              | .DOI                 | DOIを「prefix/suffix」の形式で設定する。通常モードの時は自動採番(※3)される。識別子変更モードの時は手入力で変更可能。                     |
@@ -416,6 +417,8 @@ DOI付与後は変更不可</td>
 </tr>
 </tbody>
 </table>
+
+##### (3) アイテムタイプ項目
 
 基本はアイテムタイプに定義されている項目（プロパティ）に対して、TSVファイル内で設定されている内容を登録する。  
 次の項目は項目の設定以外の処理を行っている。
@@ -1156,9 +1159,9 @@ DOIを指定したアイテムについて、指定された項目が各DOI付�
        ┗ 著者が複数あった場合、一つでも一致する著者があれば同一判定とし警告のメッセージを表示する
 
 
-## ダウンロードファイルについて
+### 4. ダウンロードファイルについて
 
-### 1. テンプレートファイル
+#### 4.1 テンプレートファイル
 
   - Select（選択）画面でダウンロードできる。アイテムタイプ（Item Type）セレクタ―で選択したアイテムタイプについて、ヘッダ行のみ出力したインポートに使用するTSVファイル。
 
@@ -1178,17 +1181,18 @@ DOIを指定したアイテムについて、指定された項目が各DOI付�
 > 
 > \# Allow Multiple Allow Multiple Required Allow Multiple Allow Multiple Required Required …
 
-### 2. インポート前チェック結果ファイル
+#### 4.2 インポート前チェック結果ファイル
 
   - Import（インポート）画面でダウンロードできる。同画面の表に表示されているチェック結果をTSV形式で出力したファイル。
 
   - ファイル名は「Check\_ダウンロード日付.tsv」で、2.2⑧～⑫の項目を出力。
 
-> ◆出力イメージ
-> 
-> \#No. Item Type Item ID Title Check Result
+ ◆出力イメージ
 
-### 3. インポート実行結果ファイル
+>\#No. Item Type Item ID Title Check Result
+
+
+#### 4.3 インポート実行結果ファイル
 
   - Result（結果）画面でダウンロードできる。同画面の表に表示されているインポート実行結果をTSV形式で出力したファイル。
 
@@ -1196,184 +1200,111 @@ DOIを指定したアイテムについて、指定された項目が各DOI付�
 
   - TSV形式で文字コードはBOM無しUTF-8、改行コードはLF
 
-> ◆出力イメージ
-> 
-> \#No. Start Date End Date Item Id Action WorkFlow Status
+ ◆出力イメージ
 
-### 4. 「インポート」（Import）タブで一括登録のアイテムを確認・登録する
+>\#No. Start Date End Date Item Id Action WorkFlow Status
+
+
+#### 4.4. 「インポート」（Import）タブで一括登録のアイテムを確認・登録する
 
   - インポート」（Import）タブ  
     読み込んだzipファイルの内容を表示し、一括登録して良いかの確認を促す  
     表示項目は以下の通りである
-    
       - 「識別子 変更モード」で登録する旨のメッセージを表示する
-        
           - ［Import］ボタンの上に赤字で以下のメッセージを表示する  
             メッセージ：  
             日本語：「 識別子で登録します」  
             英語：「Register with \[Change Identifier Mode\].」
-        
           - 「Import」タブから「Selectタブ」に遷移した場合、「識別子変更モード」チェックボックスはチェックありで非活性となっている
-    
       - 「サマリー」(Summary)  
         読み込んだファイルのアイテム情報について、以下の件数を表示する
-        
           - 総計(Total)：読み込んだファイルのアイテム数
-        
           - 新規登録アイテム(New Item)：読み込んだファイルのアイテムの内、新規登録となるアイテム数
-        
           - 更新アイテム(Update Item)：読み込んだファイルのアイテムの内、更新のアイテム数
-        
           - チェックエラー(Result Error)：バリデートチェックでバリデートエラーとなったアイテム数
-    
       - 詳細情報
-        
           - 「No.」  
             読み込んだファイルのアイテムの通し番号を表示する
-        
           - 「アイテムタイプ」（Item Type）  
             読み込んだファイルのアイテムについて、登録されるアイテムタイプ名を表示する
-        
           - 「アイテムID」（Item Id）  
             読み込んだファイルのアイテムについて、新規登録／更新によって表示する内容を変更する
-            
               - 新規：””表示なし
-            
               - 更新：画面上にアイテムIDを表示する
-        
           - 「タイトル」（Title）  
             読み込んだファイルのアイテム名を表示する
-            
               - タイトル名はシステムの言語属性に合わせたtitleを表示する
-            
               - システムの言語属性に合うtitleが無い場合は英語表記で表示する
-            
               - タイトルが長い場合は、横スクロールにならないようにタイトルをトリミングする
-                
                   - タイトルを表示上限文字数まで表示して、その直後に「...」をつける
-        
           - 「メタデータ取得DOI」
-
               - DOIを入力できるテキストボックスを表示する
-
               - DOIが入力されている場合、インポート開始時にそのアイテムには<b>[DOIを使用したメタデータ補完機能](../user/USER_4_6.md#3-web-apiによるdoiを使用したメタデータ補完機能)</b>を適用する
-
           - 「チェック結果」（Check Result）  
             読み込んだファイルの各アイテムについて、インポートが可能かバリデートチェックを実施する  
             エリアに表示する内容は以下の通りである
-            
               - エラーが無く、新規のアイテムの場合：「登録」（Register）と表示する
-            
               - エラーが無く、アイテムの「.edit\_mode」が「Upgrade」の場合：「バージョンの変更」（Upgrade Version）と表示する
-            
               - エラーが無く、アイテムの「.edit\_mode」が「Keep」の場合：「バージョンの維持」（Keep Version）と表示する
-            
               - バリデーションエラーがある場合：「エラー: XXXXX」（Error: XXXXX）とエラー内容を表示する
-            
               - バリデーションワーニングがある場合：「警告: XXXXX」（Warning: XXXXX）とワーニング内容を表示する
-    
       - インポートファイルのバリデーションチェックは以下とする
-        
           - Bagit形式の仕様に従っていること
-        
           - メタデータの必須項目が入力されていること
-        
           - メタデータの入力内容が、入力制約に合致していること
-            
               - DOI付与：DOI\_RA の設定に従い、資源タイプ、必須、いずれか必須のチェックを行うこと  
                 <https://redmine.devops.rcos.nii.ac.jp/attachments/download/6107/JPCOAR_JaLC_Guideline_appendix_v1.pdf>
-            
               - dc:titleのxml:langは必須としない。
-            
               - 日付項目：ISO-8601で規定する3 形式（YYYY-MM-DD、YYYY-MM、YYYY）のチェックを行うこと
-        
           - 存在するインデックスツリーであること
-        
           - 新規登録の場合、既に登録されているDOIが割当されないこと
-        
           - 更新の場合、アイテムがWEKO上に存在し、論理削除されていないこと
-        
           - 更新の場合、更新前のアイテムタイプが変更後のアイテムタイプと一致していること
-        
           - WEKOに登録されていないアイテムタイプがインポートファイルに含まれる場合はエラーとすること
-        
           - TSVファイルの項目のバリデーションチェックは以下とする
-            
               - POS\_INDEX\[n\]：インデックス名
-                
                   - インデックス名が指定されていること
-                
                   - 指定したインデックス名が存在していること
-            
               - FEEDBACK\_MAIL：フィードバックメール送信先メールアドレス
-                
                   - 指定されたメールアドレスはメールアドレスの形式チェックをすること
-
               - REQUEST\_MAIL：リクエスト送信先メールアドレス
-
                   - 指定されたメールアドレスはメールアドレスの形式チェックをすること
-
               - ITEM_APPLICATION.…：コンテンツファイル非所持時の利用申請設定
-
                   - この列のデータ行に値が存在するとき、コンテンツファイルがないことをチェックすること
-            
               - PUBLISH\_STATUS：アイテムの公開／非公開設定
-                
                   - 指定されたPUBLISH\_STATUSがprivate, publicのいずれかであること
-            
               - CNRI：CNRIハンドル
-                
                   - 「 識別子 変更モード」を指定している場合  
                     ・CNRIの値が空白になること
-                
                   - 「 識別子 変更モード」を指定していない場合  
                     ・新規アイテム登録の場合、CNRIが指定されること  
                     ・既存アイテムへの更新の場合、指定されたCNRIが登録内容と同一であること
-            
               - DOI\_RA：DOI付与の種類
-                
                   - DOIが指定されている場合、DOI\_RAが指定していることは必須である
-                
                   - DOI\_RAが空白になること
-                
                   - 指定されたDOI\_RAがJaLC, Crossref, DataCite, NDL JaLC のいずれかであること
-                
                   - 「 識別子 変更モード」を指定している場合  
                     ・指定した形式に応じてメタデータの項目チェックを行うこと  
                     ・既存アイテムへの更新の場合、指定された内容が登録内容と同一であること
-                
                   - 「 識別子 変更モード」を指定していない場合  
                     ・新規アイテム登録の場合、 DOIが指定されていること  
                     ・既存アイテムへの更新の場合、指定された内容が登録内容と同一であること
-            
               - DOI ：DOI
-                
                   - 「 識別子 変更モード」を指定している場合  
                     ・DOIが空白になること
-                
                   - 「 識別子 変更モード」を指定していない場合  
                     ・新規アイテム登録の場合、 DOIが指定されていること  
                     ・既存アイテムへの更新の場合、指定された内容が登録内容と同一であること  
                     ・指定されたDOIがすでに登録されているDOIと重複しないこと
-        
           - 環境変数で設定した格納先が下記の状況の場合エラーメッセージを出力する。あわせて、エラーログにも出力する
-            
               - 格納先のパスが無かった場合
-            
               - 格納先の書き込み権限が無かった場合
-            
               - 格納先の容量が不足している場合
-        
-          - 一括登録の実行時に他端末から実行した場合エラーメッセージを出力する。
-            
+          - 一括登録の実行時に他端末から実行した場合エラーメッセージを出力する。エラーメッセージが200文字を超える場合は以降の文字を省略する。
               - 一括登録を実行中に他の端末が【Administration \> アイテム管理（Items） \> （Import）画面を開いた場合
-            
               - 一括登録を実行している端末が【Administration \> アイテム管理（Items） \> インポート（Import）画面を開いた場合（他のブラウザで開いたとき，"Result"タブから再度"Import"タブに遷移したとき等）
-            
               - 個別のアイテム編集中に、一括登録を実施した場合
-            
               - 個別のアイテム削除後に、一括登録を実施した場合
-    
       - バリデーションのエラーメッセージ及びワーニングメッセージは以下の通りである
 
 <table>
@@ -1576,7 +1507,7 @@ DOIを指定したアイテムについて、指定された項目が各DOI付�
     - 既存のアイテムを更新するときに値（必須項目以外）を空欄にしてインポート更新をした場合、空欄となったメタデータは削除として更新される
     - 「インポート」（Import）ボタン押下後、結果タブの画面に遷移する
 
-### 5. 「結果」（Result）タブで一括登録の結果を表示する
+#### 4.5. 「結果」（Result）タブで一括登録の結果を表示する
 
 - 「結果」（Result）タブ  
   最後に実施したアイテム一括登録の状況をリスト形式で確認する  
@@ -1615,6 +1546,7 @@ DOIを指定したアイテムについて、指定された項目が各DOI付�
 - エラーメッセージ
 エラー発生時は、登録処理がロールバックされ、以下のエラーメッセージを表示する
 
+
 | No. | 条件                                                  | error_id           | 英語                                                                          | 日本語                                                                   |
 | --- | ----------------------------------------------------- | ------------------ | ----------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
 |  1  | 指定したDOIが既存のアイテムと重複する                 | is_duplicated_doi  | This DOI has been already grant for another item. Please specify another DOI. | このDOIは既に別のアイテムに付与されています。別のDOIを指定してください。 |
@@ -1628,31 +1560,20 @@ DOIを指定したアイテムについて、指定された項目が各DOI付�
   - インポートのtsvファイルでファイル情報が無いにもかかわらず、「ファイル情報 \[1\] 」や「ファイル情報 \[2\] 」のヘッダがインポートファイルの中に存在している（ファイル情報 \[0\] は存在している）場合であっても、エラーとならないように対応
 
   - DOIの自動採番ルールは以下の通り
-    
       - 識別子変更モード
-    
       - DOIの自動採番は行わない
-        
           - インポートファイルにdoiやprefixが含まれている場合はエラーメッセージを表示する。
-            
               - DOIが空欄の場合  
                 　「Please specify DOI prefix/suffix.」
-            
               - インポートファイルにdoiやprefixが含まれている場合　(「prefix」もしくは「prefix/」を指定した場合）  
                 　「DOI suffixを設定してください。」／「Please specify DOI suffix.」
-    
       - Not 識別子変更モード
-        
           - 以下の条件をすべて満たしたときにDOIを付与する
-            
               - Admin \> Setting \> Identifier でprefixの設定があること
-            
               - DOI：空欄であること
-            
               - DOI\_RA：JaLC, Crossref, DataCite, NDL JalC のいずれかであること
 
   - 「Not 識別子変更モード」で、既存アイテム(DOI付与無し)に自由記述でDOIをインポートしようとした際にエラーメッセージを出す
-    
       - 「指定された{DOI}が登録済みの{DOI}と異なっています」
 
   - DOIの付与はPID付与の制約条件表 ( JPCOAR\_JaLC\_Guideline\_appendix\_v1.pdf ) に従って、「必須」と「いずれか必須」の条件をもとにDOI付与可否を決定している。  
@@ -1663,7 +1584,6 @@ DOIを指定したアイテムについて、指定された項目が各DOI付�
     また、更新時に資源タイプ（dc:type）の変更は同じコンテンツ種類内でのみ許可される。それ以外の資源タイプに変更した場合、インポートタブのチェック処理で「DOI付与済みアイテムの資源タイプの変更はできません。」とエラーメッセージが表示される。
 
   - 制限公開用プロパティもインポートすることができる
-    
       - 制限公開用プロパティ: 利用規約情報、アクセス(制限公開)、データタイプ、提供方法（ワークフロー、ロール）
 
   - インポートしたアイテムは、操作アカウントによって作成されたものとして扱われる。
@@ -1678,7 +1598,7 @@ DOIを指定したアイテムについて、指定された項目が各DOI付�
 
 ## 処理概要
 
-1 処理に関するエトセトラ
+### 1 処理に関するエトセトラ
 
   - アイテムタイプ項目のチェックに使用しているライブラリ
 
@@ -1700,7 +1620,7 @@ DOIを指定したアイテムについて、指定された項目が各DOI付�
 
   - ※インポート処理完了後に、celeryタスクの処理で、作業用のテンポラリディレクトリを削除する
 
-2\. tmpディレクトリ
+### 2. tmpディレクトリ
 
   - 登録されたインポートファイルのチェックをする際に作成するテンポラリファイルは以下のように生成する
     
@@ -1710,175 +1630,136 @@ DOIを指定したアイテムについて、指定された項目が各DOI付�
     
       - /home/invenio/.virtualenvs/invenio/var/instance/data/tmp/weko\_import\_YYYYMMDDhhmmss
 
-3\. 設定
+### 3. 設定
 
   - 一括登録画面のテンプレートを設定する
-    
       - パス：<https://github.com/RCOSDP/weko/blob/v0.9.22/modules/weko-search-ui/weko_search_ui/config.py#L87>
-    
-      - 設定キー：WEKO\_ITEM\_ADMIN\_IMPORT\_TEMPLATE
-    
+      - 設定キー：WEKO_ITEM_ADMIN_IMPORT_TEMPLATE
       - 現在の設定値：
-
-> WEKO\_ITEM\_ADMIN\_IMPORT\_TEMPLATE = 'weko\_search\_ui/admin/import.html'
+        ```
+        WEKO_ITEM_ADMIN_IMPORT_TEMPLATE = 'weko_search_ui/admin/import.html'
+        ```
 
   - 「インポート」（Import）タブ にてダウンロードファイルに表示する項目を設定する
-    
       - パス：<https://github.com/RCOSDP/weko/blob/v0.9.22/modules/weko-search-ui/weko_search_ui/config.py#L512>
-    
-      - 設定キー：WEKO\_IMPORT\_CHECK\_LIST\_NAME
-    
+      - 設定キー：WEKO_IMPORT_CHECK_LIST_NAME
       - 現在の設定値：
-
-> WEKO\_IMPORT\_CHECK\_LIST\_NAME = \["No", "Item Type", "Item Id", "Title", "Check result"\]
-
+        ```
+        WEKO_IMPORT_CHECK_LIST_NAME = ["No", "Item Type", "Item Id", "Title", "Check result"]
+        ```
   - 「結果」（Result）タブにてダウンロードファイルに表示する項目を設定する
-    
       - パス：<https://github.com/RCOSDP/weko/blob/v0.9.22/modules/weko-search-ui/weko_search_ui/config.py#L514>
-    
-      - 設定キー：WEKO\_IMPORT\_LIST\_NAME
-    
+      - 設定キー：WEKO_IMPORT_LIST_NAME
       - 現在の設定値：
-
-> WEKO\_IMPORT\_LIST\_NAME = \[
-> 
-> "No",
-> 
-> "Start Date",
-> 
-> "End Date",
-> 
-> "Item Id",
-> 
-> "Action",
-> 
-> "Work Flow ",
-> 
-> \]
-
+        ```
+        WEKO_IMPORT_LIST_NAME = [
+            "No",
+            "Start Date",
+            "End Date",
+            "Item Id",
+            "Action",
+            "Work Flow ",
+        ]
+        ```
   - メール形式（フィードバックメール）を設定する
-    
       - パス：<https://github.com/RCOSDP/weko/blob/v0.9.22/modules/weko-search-ui/weko_search_ui/config.py#L524>
-    
-      - 設定キー：WEKO\_IMPORT\_EMAIL\_PATTERN
-    
+      - 設定キー：WEKO_IMPORT_EMAIL_PATTERN
       - 現在の設定値：
-
-> WEKO\_IMPORT\_EMAIL\_PATTERN = r"(^\[a-zA-Z0-9\_.+-\]+@\[a-zA-Z0-9-\]+\\.\[a-zA-Z0-9-.\]+$)"
+        ```
+        WEKO_IMPORT_EMAIL_PATTERN = r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)"
+        ```
 
   - tsvファイルに正当となる公開ステータスを設定する
-    
       - パス：<https://github.com/RCOSDP/weko/blob/v0.9.22/modules/weko-search-ui/weko_search_ui/config.py#L525>
-    
-      - 設定キー：WEKO\_IMPORT\_PUBLISH\_STATUS
-    
+      - 設定キー：WEKO_IMPORT_PUBLISH_STATUS
       - 現在の設定値：
+        ```
+        WEKO_IMPORT_PUBLISH_STATUS = ['public', 'private']
+        ```
 
-> WEKO\_IMPORT\_PUBLISH\_STATUS = \['public', 'private'\]
-
-  - tsvファイルに正当となるDOI\_RAの値を設定する
-    
+  - tsvファイルに正当となるDOI_RAの値を設定する
       - パス：<https://github.com/RCOSDP/weko/blob/v0.9.22/modules/weko-search-ui/weko_search_ui/config.py#L526>
-    
-      - 設定キー：WEKO\_IMPORT\_DOI\_TYPE
-    
+      - 設定キー：WEKO_IMPORT_DOI_TYPE
       - 現在の設定値：
-
-> WEKO\_IMPORT\_DOI\_TYPE = \["JaLC", "Crossref", "DataCite", "NDL JaLC" \]
+        ```
+        WEKO_IMPORT_DOI_TYPE = ["JaLC", "Crossref", "DataCite", "NDL JaLC" ]
+        ```
 
   - 日付(ISO-8601)プロパティのサブアイテムキーを設定する  
     日付形式のバリデーションチェックに使用する
-    
       - パス：<https://github.com/RCOSDP/weko/blob/v0.9.22/modules/weko-search-ui/weko_search_ui/config.py#L528>
-    
-      - 設定キー：WEKO\_IMPORT\_SUBITEM\_DATE\_ISO
-    
+      - 設定キー：WEKO_IMPORT_SUBITEM_DATE_ISO
       - 現在の設定値：
-
-> WEKO\_IMPORT\_SUBITEM\_DATE\_ISO = "subitem\_1582683677698"
+        ```
+        WEKO_IMPORT_SUBITEM_DATE_ISO = "subitem_1582683677698"
+        ```
 
   - 免責事項表示の対応言語を設定する
-    
       - パス：<https://github.com/RCOSDP/weko/blob/v0.9.22/modules/weko-search-ui/weko_search_ui/config.py#L532>
-    
-      - 設定キー：WEKO\_ADMIN\_IMPORT\_CHANGE\_IDENTIFIER\_MODE\_FILE\_LANGUAGES
-    
+      - 設定キー：WEKO_ADMIN_IMPORT_CHANGE_IDENTIFIER_MODE_FILE_LANGUAGES
       - 現在の設定値：
-
-> WEKO\_ADMIN\_IMPORT\_CHANGE\_IDENTIFIER\_MODE\_FILE\_LANGUAGES = \['en', 'ja'\]
+        ```
+        WEKO_ADMIN_IMPORT_CHANGE_IDENTIFIER_MODE_FILE_LANGUAGES = ['en', 'ja']
+        ```
 
   - 免責事項ファイルの配置先を設定する
-    
       - パス：<https://github.com/RCOSDP/weko/blob/v0.9.22/modules/weko-search-ui/weko_search_ui/config.py#L534>
-    
-      - 設定キー：WEKO\_ADMIN\_IMPORT\_CHANGE\_IDENTIFIER\_MODE\_FILE\_LOCATION
-    
+      - 設定キー：WEKO_ADMIN_IMPORT_CHANGE_IDENTIFIER_MODE_FILE_LOCATION
       - 現在の設定値：
-
-> WEKO\_ADMIN\_IMPORT\_CHANGE\_IDENTIFIER\_MODE\_FILE\_LOCATION = (
-> 
-> "/code/modules/weko-search-ui/weko\_search\_ui/static/change\_identifier\_mode/"
-> 
-> )
+        ```
+        WEKO_ADMIN_IMPORT_CHANGE_IDENTIFIER_MODE_FILE_LOCATION = "/code/modules/weko-search-ui/weko_search_ui/static/change_identifier_mode/"
+        ```
 
   - 免責事項ファイルのプレフィックスを設定する
-    
       - パス：<https://github.com/RCOSDP/weko/blob/v0.9.22/modules/weko-search-ui/weko_search_ui/config.py#L538>
-    
-      - 設定キー：WEKO\_ADMIN\_IMPORT\_CHANGE\_IDENTIFIER\_MODE\_FIRST\_FILE\_NAME
-    
+      - 設定キー：WEKO_ADMIN_IMPORT_CHANGE_IDENTIFIER_MODE_FIRST_FILE_NAME
       - 現在の設定値：
-
-> WEKO\_ADMIN\_IMPORT\_CHANGE\_IDENTIFIER\_MODE\_FIRST\_FILE\_NAME = "change\_identifier\_mode"
+        ```
+        WEKO_ADMIN_IMPORT_CHANGE_IDENTIFIER_MODE_FIRST_FILE_NAME = "change_identifier_mode"
+        ```
 
   - 免責事項ファイルの拡張子を設定する
-    
       - パス：<https://github.com/RCOSDP/weko/blob/v0.9.22/modules/weko-search-ui/weko_search_ui/config.py#L540>
-    
-      - 設定キー：WEKO\_ADMIN\_IMPORT\_CHANGE\_IDENTIFIER\_MODE\_FILE\_EXTENSION
-    
+      - 設定キー：WEKO_ADMIN_IMPORT_CHANGE_IDENTIFIER_MODE_FILE_EXTENSION
       - 現在の設定値：
+        ```
+        WEKO_ADMIN_IMPORT_CHANGE_IDENTIFIER_MODE_FILE_EXTENSION = ".txt"
+        ```
 
-> WEKO\_ADMIN\_IMPORT\_CHANGE\_IDENTIFIER\_MODE\_FILE\_EXTENSION = ".txt"
-
-  - POS\_INDEXの区切り文字を設定する
-    
-      - パス：modules/weko-items-ui/weko\_items\_ui/config.py
-    
-      - 設定キー：WEKO\_ITEMS\_UI\_INDEX\_PATH\_SPLIT
-    
+  - POS_INDEXの区切り文字を設定する
+      - パス：modules/weko-items-ui/weko_items_ui/config.py
+      - 設定キー：WEKO_ITEMS_UI_INDEX_PATH_SPLIT
       - 現在の設定値：
-
-> WEKO\_ITEMS\_UI\_INDEX\_PATH\_SPLIT = '///'
+        ```
+        WEKO_ITEMS_UI_INDEX_PATH_SPLIT = '///'
+        ```
 
   - インポート実行時のセッション
-    
-      - パス：modules/ weko-admin/weko\_admin/config.py
-    
-      - 設定キー：WEKO\_ADMIN\_IMPORT\_PAGE\_LIFETIME
-    
+      - パス：modules/ weko-admin/weko_admin/config.py
+      - 設定キー：WEKO_ADMIN_IMPORT_PAGE_LIFETIME
       - 現在の設定値：
+        ```
+        WEKO_ADMIN_IMPORT_PAGE_LIFETIME = 43200
+        ```
 
-> WEKO\_ADMIN\_IMPORT\_PAGE\_LIFETIME = 43200
+### 4. 実装方法
 
-4\. 実装方法
+- 対応しているモジュール：weko_search_ui
 
-  - 対応しているモジュール：weko\_search\_ui
+- depositの「owners」が空欄になっていた場合でも"list index out of range"のエラーが発生しないようにエラーハンドリング処理を追加
 
-  - depositの「owners」が空欄になっていた場合でも"list index out of range"のエラーが発生しないようにエラーハンドリング処理を追加
+- インポート処理に例外が発生してもESに存在しているアイテム情報が消えないように実装
 
-  - インポート処理に例外が発生してもESに存在しているアイテム情報が消えないように実装
+- /weko-search-ui/weko_search_ui/admin.py
 
-  /weko-search-ui/weko_search_ui/admin.py
+  -   ItemImportView:check(/admin/items/import/check method=\[post\])\
+      インポートアイテムのバリデーションを行う。
 
-    -   ItemImportView:check(/admin/items/import/check method=\[post\])\
-        インポートアイテムのバリデーションを行う。
+      -   ログインユーザーの権限チェックを行う。
 
-        -   ログインユーザーの権限チェックを行う。
+      -   check_import_itemsを呼び出し、インポートファイルを1件ずつチェックする。
 
-        -   check_import_itemsを呼び出し、インポートファイルを1件ずつチェックする。
-
-        -   1件でもチェックがNGの場合、インポートをキャンセルする。
+      -   1件でもチェックがNGの場合、インポートをキャンセルする。
 
 -   /weko-search-ui/weko_search_ui/utils.py
 
@@ -1960,7 +1841,7 @@ DOIを指定したアイテムについて、指定された項目が各DOI付�
 
         -   accessroleがopen_restricted(制限公開)の場合、コンテンツがダウンロード可能期間であればダウンロード可能とする。
 
-5\. tmpディレクトリ
+### 5\. tmpディレクトリ
 
   - 登録されたインポートファイルのチェックをする際に作成するテンポラリファイルは以下のように生成する
     
@@ -1973,7 +1854,8 @@ DOIを指定したアイテムについて、指定された項目が各DOI付�
   - テンポラリファイルの格納先は環境変数(docker-compose.yml) で設定できるようにする  
     <https://docs.python.org/3/library/tempfile.html#tempfile.gettempdir>
 
-1. 排他処理
+
+### 6. 排他処理
 
 インポート処理中「cache::import_start_time」キーに現在時間を格納する。キーは/admin/items/import/check_import_is_availableを呼び出すことでインポート処理の有無を確認しキーを削除する。
 
@@ -1991,7 +1873,7 @@ DOIを指定したアイテムについて、指定された項目が各DOI付�
     
       - 一括登録のチェックタイミング：メタデータがなくて、tsvファイルに指定されたデータを変換しチェックする。
 
-その他補足
+### その他補足
 
 （Wikiより）
 
