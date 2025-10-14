@@ -3503,7 +3503,7 @@ Registration\]画面で表示されるファイル情報の入力エリア順と
 
 図 5‑44［出版タイプ］プルダウンリスト
 
-![](media/media/image302.png)
+![](media/media/image352.png)
 
 図 5‑45 [OAポリシー情報取得] 
 
