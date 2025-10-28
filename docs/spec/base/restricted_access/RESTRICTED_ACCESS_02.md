@@ -73,7 +73,7 @@
 
   - 利用申請③：ワークフロー終了後の挙動
 
-      - アイテム詳細画面の「申請」ボタンから起動したワークフローが「作業済み(Done)」となった際にダウンロード用のURL(以下、ワンタイムURL)をメールで通知する。リンクの有効期限とダウンロード回数は【Administration \> Setting \> Restricted Access画面】での「コンテンツファイルのダウンロード」(Content File Download)エリアで設定される
+      - WEKO_ADMIN_RESTRICTED_ACCESS_DISPLAY_FLAG が True かつアイテム詳細画面の「申請」ボタンから起動したワークフローが「作業済み(Done)」となった際にダウンロード用のURL(以下、ワンタイムURL)をメールで通知する。リンクの有効期限とダウンロード回数は【Administration \> Setting \> Restricted Access画面】での「コンテンツファイルのダウンロード」(Content File Download)エリアで設定される
 
       - ワンタイムURLへアクセスした際、その時点でまだ有効なURLであればダウンロードが開始する
 
@@ -106,6 +106,8 @@
                   - ファイルあるいはアイテムが削除された場合
 
                   - システムのアップデートによりURL情報を保存するデータベースに変更が生じた場合
+
+                  - WEKO_ADMIN_RESTRICTED_ACCESS_DISPLAY_FLAG が False の場合
 
       - ワンタイムURLが使用されたとき、ファイルダウンロードに関するログ情報を保存する。ログ情報はダウンロードURL利用記録テーブル(file_url_ddownload_log)に格納される
 
