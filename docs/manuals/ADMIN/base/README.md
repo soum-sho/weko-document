@@ -1555,13 +1555,21 @@ SWORD APIの管理に関する操作手順を説明しています。
 </tr>
 <tr class="odd">
 <td></td>
+<td>メールテンプレート</td>
+<td>〇</td>
+<td>〇</td>
+<td>×</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
 <td>WebAPIアカウント</td>
 <td>〇</td>
 <td>×</td>
 <td>×</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>ファイルプレビュー</td>
 <td>〇</td>
@@ -1569,7 +1577,7 @@ SWORD APIの管理に関する操作手順を説明しています。
 <td>×</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>Shibboleth</td>
 <td>〇</td>
@@ -1577,7 +1585,7 @@ SWORD APIの管理に関する操作手順を説明しています。
 <td>×</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>制限公開</td>
 <td>〇</td>
@@ -1585,7 +1593,7 @@ SWORD APIの管理に関する操作手順を説明しています。
 <td>×</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td>その他</td>
 <td>〇</td>
@@ -1593,7 +1601,7 @@ SWORD APIの管理に関する操作手順を説明しています。
 <td>×</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>ユーザアカウント管理</td>
 <td>〇</td>
 <td>〇</td>
@@ -1617,7 +1625,7 @@ SWORD APIの管理に関する操作手順を説明しています。
 <td>×</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>メンテナンス</td>
 <td>-</td>
 <td>-</td>
@@ -1625,12 +1633,28 @@ SWORD APIの管理に関する操作手順を説明しています。
 <td></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td>Elasticsearchインデックス</td>
 <td>〇</td>
 <td>×</td>
 <td>×</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>アドバンスド</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>18.アドバンスドメニュー</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>プロフィール設定編集</td>
+<td>〇</td>
+<td>〇</td>
+<td>〇</td>
 <td></td>
 </tr>
 </tbody>
