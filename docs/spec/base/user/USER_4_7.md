@@ -193,5 +193,12 @@ Item Registrationの一部として、画面上の設定エリアで代理投稿
 <td>353ba1deb094af5056a58bb40f07596b8e95a562</td>
 <td>初版作成</td>
 </tr>
+<tr class="even">
+<td><blockquote>
+<p>2025/10/31</p>
+</blockquote></td>
+<td>160a811eed2c61492558905db34fa0619da6b18f</td>
+<td>設定値による代理投稿者の制御を記載</td>
+</tr>
 </tbody>
 </table>

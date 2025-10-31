@@ -889,5 +889,12 @@
 <td>7733de131da9ad59ab591b2df1c70ddefcfcad98</td>
 <td>v1.0.7対応</td>
 </tr>
+<tr class="odd">
+<td><blockquote>
+<p>2025/10/31</p>
+</blockquote></td>
+<td>160a811eed2c61492558905db34fa0619da6b18f</td>
+<td>設定値による機能制御を記載</td>
+</tr>
 </tbody>
 </table>
