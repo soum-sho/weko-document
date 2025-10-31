@@ -391,5 +391,12 @@ E-mail：\[restricted\_site\_mail\]*
 <td>edd6d1f14e0f8344cec7552ed8a02bd2bccf68b7</td>
 <td>メールテンプレート拡張機能を追加</td>
 </tr>
+<tr class="odd">
+<td><blockquote>
+<p>2025/10/31</p>
+</blockquote></td>
+<td>160a811eed2c61492558905db34fa0619da6b18f</td>
+<td>設定値による表示制御を記載</td>
+</tr>
 </tbody>
 </table>

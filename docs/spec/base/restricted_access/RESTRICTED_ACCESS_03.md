@@ -168,11 +168,16 @@
 </thead>
 <tbody>
 <tr class="odd">
+<td>2025/10/31</td>
+<td>160a811eed2c61492558905db34fa0619da6b18f</td>
+<td>設定値による表示制御を記載</td>
+</tr>
+<tr class="even">
 <td>2024/01/19</td>
 <td></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><blockquote>
 <p>2023/08/31</p>
 </blockquote></td>

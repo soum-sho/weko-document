@@ -632,16 +632,21 @@
 </thead>
 <tbody>
 <tr class="odd">
+<td>2025/10/31</td>
+<td><strong>160a811eed2c61492558905db34fa0619da6b18f</strong></td>
+<td>各機能の表示・有効の条件を追加</td>
+</tr>
+<tr class="even">
 <td>2024/07/12</td>
 <td><strong>a27f536b5e375ada10a651ba1f13a589c9243ca1</strong></td>
 <td>コンテンツ未登録アイテムの利用申請設定、各種制限公開機能の有効化、無効化設定機能追加</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>2024/01/19</td>
 <td><strong>8c312e8cb1db9c6479b86d1443a38720079838b0</strong></td>
 <td>シークレットURL機能追加</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><blockquote>
 <p>2023/08/31</p>
 </blockquote></td>
