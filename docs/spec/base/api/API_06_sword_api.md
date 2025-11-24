@@ -747,7 +747,7 @@ DELETE /sword/deposit/\<recid\>
    - アイテムの登録が完了していない場合は、アクティビティのURLをステータスドキュメントに含めて返却する。
    - 一連の登録処理に問題がありエラーが発生した場合は、エラードキュメントを返却する。
 
-### アイテム状態取得機能：GET /sword/deposit/\<recid\>
+### アイテム状態取得機能：GET /sword/deposit/&lt;recid&gt;
 
 - リクエストをチェックする
     - Authorizationヘッダーに記載されたOAuth認証情報を使用しWEKOにログインする
@@ -756,7 +756,9 @@ DELETE /sword/deposit/\<recid\>
 - 取得したアイテム情報からステータスドキュメントを生成する
 - ステータスドキュメントを返却する
 
-### アイテム更新機能：PUT /sword/deposit/\<recid\>
+### アイテム更新機能：PUT /sword/deposit/&lt;recid&gt;
+
+- 更新の場合は、アイテムIDとアイテムのURLが必要である。詳細は[使用語彙](../admin/ADMIN_2_5.html#usedvocabraries)を参照。
 
 ほとんどの処理はアイテム状態取得機能と同様であるが、以下の点が異なる。
 
