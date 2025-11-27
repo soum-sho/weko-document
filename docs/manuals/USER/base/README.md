@@ -3351,6 +3351,8 @@ Registration\]画面で表示されるファイル情報の入力エリア順と
 
 ![グラフィカル ユーザー インターフェイス, アプリケーション 自動的に生成された説明](media/media/image183.png)
 
+![グラフィカル ユーザー インターフェイス, アプリケーション 自動的に生成された説明](media/media/image353.png)
+
 図 5‑36［著者追加］画面
 
 表 5-16［著者追加］画面の項目と説明
@@ -3386,77 +3388,101 @@ Registration\]画面で表示されるファイル情報の入力エリア順と
 </tr>
 <tr class="odd">
 <td>5</td>
-<td>［E-mail］テキストボックス</td>
-<td>E-mailを入力します。</td>
+<td>［E-Mail］テキストボックス</td>
+<td>E-Mailを入力します。</td>
 </tr>
 <tr class="even">
 <td>6</td>
-<td>［所属機関識別子］プルダウンリスト</td>
-<td>所属機関識別子のスキーマ名をプルダウンリストから選択します。「図5-40 ［所属機関識別子］プルダウンリスト」を参照してください。</td>
+<td>［コミュニティ］テキストボックス</td>
+<td>著者を管理するコミュニティを選択します。</td>
 </tr>
 <tr class="odd">
 <td>7</td>
-<td>［所属機関識別子］テキストボックス</td>
-<td>著者が所属する機関の識別子を入力します。</td>
+<td>［+著者項目を追加］リンク</td>
+<td>クリックすると、氏名欄が追加されます。</td>
 </tr>
 <tr class="even">
 <td>8</td>
-<td>［所属機関名］テキストボックス</td>
-<td>所属機関名を入力します。</td>
-</tr>
-<tr class="odd">
-<td><blockquote>
-<p>9</p>
-</blockquote></td>
-<td><blockquote>
-<p>［+著者項目を追加］リンク</p>
-</blockquote></td>
-<td><blockquote>
-<p>クリックすると、氏名欄が追加されます。</p>
-</blockquote></td>
-</tr>
-<tr class="even">
-<td>10</td>
 <td>［+著者IDを追加］リンク</td>
 <td>クリックすると、著者ID欄が追加されます。</td>
 </tr>
 <tr class="odd">
+<td>9</td>
+<td>［+E-Mailを追加］リンク</td>
+<td>クリックすると、E-Mail欄が追加されます。</td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td>［+コミュニティを追加］リンク</td>
+<td>クリックするとコミュニティの入力欄が追加されます。</td>
+</tr>
+<tr class="odd">
 <td>11</td>
-<td>［+e-mailを追加］リンク</td>
-<td>クリックすると、e-mail欄が追加されます。</td>
-</tr>
-<tr class="even">
-<td>12</td>
-<td>［+所属機関識別子を追加］リンク</td>
-<td>クリックすると、所属機関識別子欄が追加されます。</td>
-</tr>
-<tr class="odd">
-<td>13</td>
-<td>［+所属機関名を追加］リンク</td>
-<td>クリックすると、所属機関名欄が追加されます。</td>
-</tr>
-<tr class="even">
-<td>14</td>
-<td>［+所属情報を追加］リンク</td>
-<td>クリックすると、所属情報欄が追加されます。</td>
-</tr>
-<tr class="odd">
-<td>15</td>
 <td>［<img src="media/media/image184.png" style="width:0.35417in;height:0.25in" alt="icon050170" />］ボタン</td>
 <td>クリックすると、著者が追加されず［作成者検索］画面に遷移します。</td>
 </tr>
 <tr class="even">
+<td>12</td>
+<td>［所属機関識別子］プルダウンリスト</td>
+<td>所属機関識別子のスキーマ名をプルダウンリストから選択します。「図5-40 ［所属機関識別子］プルダウンリスト」を参照してください。</td>
+</tr>
+<tr class="odd">
+<td>13</td>
+<td>［所属機関識別子］テキストボックス</td>
+<td>著者が所属する機関の識別子を入力します。</td>
+</tr>
+<tr class="even">
+<td>14</td>
+<td>［所属機関名］テキストボックス</td>
+<td>所属機関名を入力します。</td>
+</tr>
+<tr class="odd">
+<td>15</td>
+<td>［所属機関名］プルダウンリスト</td>
+<td>所属機関名の言語をプルダウンリストから選択します。</td>
+</tr>
+<tr class="even">
 <td>16</td>
+<td>［所属期間］開始日デートピッカー</td>
+<td>機関の所属開始日をカレンダーから選択します。</td>
+</tr>
+<tr class="odd">
+<td>17</td>
+<td>［所属期間］終了日デートピッカー</td>
+<td>機関の所属終了日をカレンダーから選択します。</td>
+</tr>
+<tr class="even">
+<td>18</td>
+<td>［+所属機関識別子を追加］リンク</td>
+<td>クリックすると、所属機関識別子欄が追加されます。</td>
+</tr>
+<tr class="odd">
+<td>19</td>
+<td>［+所属機関名を追加］リンク</td>
+<td>クリックすると、所属機関名欄が追加されます。</td>
+</tr>
+<tr class="even">
+<td>20</td>
+<td>［+所属期間を追加］リンク</td>
+<td>クリックすると、所属期間欄が追加されます。</td>
+</tr>
+<tr class="odd">
+<td>21</td>
+<td>［+所属情報を追加］リンク</td>
+<td>クリックすると、所属情報欄が追加されます。</td>
+</tr>
+<tr class="even">
+<td>22</td>
 <td>［<img src="media/media/image185.png" style="width:0.38542in;height:0.25in" alt="icon050180" />］ボタン</td>
 <td>クリックすると、［作成者検索］画面に遷移します。</td>
 </tr>
 <tr class="odd">
-<td>17</td>
+<td>23</td>
 <td>［<img src="media/media/image186.png" style="width:0.38542in;height:0.25in" alt="icon050190" />］ボタン</td>
 <td>クリックすると、著者が追加され［作成者検索］画面に遷移します。</td>
 </tr>
 <tr class="even">
-<td>18</td>
+<td>24</td>
 <td>［<img src="media/media/image182.png" style="width:0.47674in;height:0.22844in" />］ボタン</td>
 <td>クリックすると、［著者追加］画面が閉じ、［作成者検索］画面に遷移します。</td>
 </tr>
