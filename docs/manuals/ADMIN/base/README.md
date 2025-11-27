@@ -5624,40 +5624,33 @@ URLについて
 <tr  >
 <td>1</td>
 <td>pk_id</td>
-<td >著者ID</td>
-<td >Author ID</td>
-<td >このリポジトリ内でのpk_idを出力する</td>
+<td>WEKO ID</td>
+<td>WEKO ID</td>
+<td>WEKO3の著者ID( pk_id author_link)を出力する</td>
 </tr>
 <tr >
 <td>2</td>
-<td>weko_id</td>
-<td>WEKO ID</td>
-<td>WEKO ID</td>
-<td>WEKO IDを出力する</td>
-</tr>
-<tr >
-<td>3</td>
 <td>authorNameInfo[0...n].familyName</td>
 <td>姓</td>
 <td>Family Name</td>
 <td>著者の姓を出力する</td>
 </tr>
 <tr >
-<td>4</td>
+<td>3</td>
 <td>authorNameInfo[0...n].firstName</td>
 <td>名</td>
 <td>Given name</td>
 <td>著者の名を出力する</td>
 </tr>
 <tr >
-<td>5</td>
+<td>4</td>
 <td>authorNameInfo[0...n].language</td>
 <td>言語</td>
 <td>Language</td>
 <td>著者の言語を出力する</td>
 </tr>
 <tr >
-<td>6</td>
+<td>5</td>
 <td>authorNameInfo[0...n].nameFormat</td>
 <td>フォーマット</td>
 <td>name Format</td>
@@ -5665,7 +5658,7 @@ URLについて
 ※現状(SP67時点)は「familyNmAndNm」固定</td>
 </tr>
 <tr >
-<td>7</td>
+<td>6</td>
 <td>authorNameInfo[0...n].nameShowFlg</td>
 <td>姓名・言語 表示／非表示</td>
 <td>Name Display</td>
@@ -5674,21 +5667,21 @@ URLについて
 表示しない: "N"</td>
 </tr>
 <tr >
-<td>8</td>
+<td>7</td>
 <td>authorIdInfo[0...n].idType</td>
 <td>外部著者ID 識別子</td>
 <td>Identifier Scheme</td>
 <td>外部著者IDの識別子を出力する</td>
 </tr>
 <tr >
-<td>9</td>
+<td>8</td>
 <td>authorIdInfo[0...n].authorId</td>
 <td>外部著者ID URI</td>
 <td>Identifier URI</td>
 <td>外部著者IDの値を出力する</td>
 </tr>
 <tr >
-<td>10</td>
+<td>9</td>
 <td>authorIdInfo[0...n].authorIdShowFlg</td>
 <td>外部著者ID 表示／非表示</td>
 <td>Identifier Display</td>
@@ -5697,14 +5690,14 @@ URLについて
 表示しない: "N"</td>
 </tr>
 <tr >
-<td>11</td>
+<td>10</td>
 <td>emailInfo[0...n].email</td>
 <td>メールアドレス</td>
 <td>Mail Address</td>
 <td>著者のメールアドレスを出力する</td>
 </tr>
 <tr >
-<td>12</td>
+<td>11</td>
 <td>is_deleted</td>
 <td>削除フラグ</td>
 <td>Delete Flag</td>
@@ -5712,21 +5705,21 @@ URLについて
 ※論理削除された著者情報は出力しないため、全件エクスポートではすべて空欄となる</td>
 </tr>
 <tr  >
-<td>13</td>
+<td>12</td>
 <td>authorAffiliationInfo[0...n].affiliationId[0...n].idtype</td>
 <td>外部所属機関ID 識別子</td>
 <td>Affiliation Identifier Scheme</td>
 <td>外部所属機関IDの識別子を出力する</td>
 </tr>
 <tr  >
-<td>14</td>
+<td>13</td>
 <td>authorAffiliationInfo[0...n].affiliationId[0...n].uri</td>
 <td>外部所属機関ID URI</td>
 <td>Affiliation Identifier URI</td>
 <td>外部所属機関IDの値を出力する</td>
 </tr>
 <tr  >
-<td>15</td>
+<td>14</td>
 <td>authorAffiliationInfo[0...n].authorIdShowFlg</td>
 <td>外部所属機関ID 表示／非表示</td>
 <td>Affiliation Identifier Display</td>
@@ -5735,21 +5728,21 @@ URLについて
 表示しない: "N"</td>
 </tr>
 <tr  >
-<td>16</td>
+<td>15</td>
 <td>authorAffiliationInfo[0...n].affiliationNameInfo[0...n].affiliationName</td>
 <td>外部所属機関名</td>
 <td>Affiliation Name</td>
 <td>外部所属機関名を出力する</td>
 </tr>
 <tr  >
-<td>17</td>
+<td>16</td>
 <td>authorAffiliationInfo[0...n].affiliationNameInfo[0...n].language</td>
 <td>言語</td>
 <td>Language</td>
 <td>外部所属機関名の言語を出力する</td>
 </tr>
 <tr  >
-<td>18</td>
+<td>17</td>
 <td>authorAffiliationInfo[0...n].affiliationNameInfo[0...n].nameShowFlg</td>
 <td>外部所属機関名・言語 表示／非表示</td>
 <td>Affiliation Name Display</td>
@@ -5758,7 +5751,7 @@ URLについて
 表示しない: "N"</td>
 </tr>
 <tr  >
-<td>19</td>
+<td>18</td>
 <td>authorAffiliationInfo[0...n].affiliationPeriod[0...n].period</td>
 <td>外部所属機関 所属期間</td>
 <td>Affiliation Period</td>
@@ -5767,7 +5760,7 @@ URLについて
 所属開始・終了："20250127-20250317"</td>
 </tr>
 <tr  >
-<td>20</td>
+<td>19</td>
 <td>authorAffiliationInfo[0...n].affiliationPeriod[0...n].nameShowFlg</td>
 <td>外部所属機関 所属期間 表示/非表示</td>
 <td>Affiliation Period Display</td>
@@ -5776,7 +5769,7 @@ URLについて
 表示しない: "N"</td>
 </tr>
 <tr>
-<td>21</td>
+<td>20</td>
 <td>communityIds[0...n]</td>
 <td>コミュニティ ID</td>
 <td>Community ID</td>
@@ -5935,40 +5928,34 @@ URLについて
 <tr  >
 <td>1</td>
 <td>pk_id</td>
-<td >著者ID</td>
-<td >Author ID</td>
-<td >このリポジトリ内でのpk_idを出力する</td>
+<td>WEKO ID</td>
+<td>WEKO ID</td>
+<td><p>WEKO3の著者ID( pk_id author_link)を入力する。</p>
+<p>著者の編集をする際は必須項目となります。</p></td>
 </tr>
 <tr >
 <td>2</td>
-<td>weko_id</td>
-<td>WEKO ID</td>
-<td>WEKO ID</td>
-<td>WEKO IDを出力する</td>
-</tr>
-<tr >
-<td>3</td>
 <td>authorNameInfo[0...n].familyName</td>
 <td>姓</td>
 <td>Family Name</td>
 <td>著者の姓を出力する</td>
 </tr>
 <tr >
-<td>4</td>
+<td>3</td>
 <td>authorNameInfo[0...n].firstName</td>
 <td>名</td>
 <td>Given name</td>
 <td>著者の名を出力する</td>
 </tr>
 <tr >
-<td>5</td>
+<td>4</td>
 <td>authorNameInfo[0...n].language</td>
 <td>言語</td>
 <td>Language</td>
 <td>著者の言語を出力する</td>
 </tr>
 <tr >
-<td>6</td>
+<td>5</td>
 <td>authorNameInfo[0...n].nameFormat</td>
 <td>フォーマット</td>
 <td>name Format</td>
@@ -5976,7 +5963,7 @@ URLについて
 ※現状(SP67時点)は「familyNmAndNm」固定</td>
 </tr>
 <tr >
-<td>7</td>
+<td>6</td>
 <td>authorNameInfo[0...n].nameShowFlg</td>
 <td>姓名・言語 表示／非表示</td>
 <td>Name Display</td>
@@ -5985,21 +5972,21 @@ URLについて
 表示しない: "N"</td>
 </tr>
 <tr >
-<td>8</td>
+<td>7</td>
 <td>authorIdInfo[0...n].idType</td>
 <td>外部著者ID 識別子</td>
 <td>Identifier Scheme</td>
 <td>外部著者IDの識別子を出力する</td>
 </tr>
 <tr >
-<td>9</td>
+<td>8</td>
 <td>authorIdInfo[0...n].authorId</td>
 <td>外部著者ID URI</td>
 <td>Identifier URI</td>
 <td>外部著者IDの値を出力する</td>
 </tr>
 <tr >
-<td>10</td>
+<td>9</td>
 <td>authorIdInfo[0...n].authorIdShowFlg</td>
 <td>外部著者ID 表示／非表示</td>
 <td>Identifier Display</td>
@@ -6008,14 +5995,14 @@ URLについて
 表示しない: "N"</td>
 </tr>
 <tr >
-<td>11</td>
+<td>10</td>
 <td>emailInfo[0...n].email</td>
 <td>メールアドレス</td>
 <td>Mail Address</td>
 <td>著者のメールアドレスを出力する</td>
 </tr>
 <tr >
-<td>12</td>
+<td>11</td>
 <td>is_deleted</td>
 <td>削除フラグ</td>
 <td>Delete Flag</td>
@@ -6023,21 +6010,21 @@ URLについて
 ※論理削除された著者情報は出力しないため、全件エクスポートではすべて空欄となる</td>
 </tr>
 <tr  >
-<td>13</td>
+<td>12</td>
 <td>authorAffiliationInfo[0...n].affiliationId[0...n].idtype</td>
 <td>外部所属機関ID 識別子</td>
 <td>Affiliation Identifier Scheme</td>
 <td>外部所属機関IDの識別子を出力する</td>
 </tr>
 <tr  >
-<td>14</td>
+<td>13</td>
 <td>authorAffiliationInfo[0...n].affiliationId[0...n].uri</td>
 <td>外部所属機関ID URI</td>
 <td>Affiliation Identifier URI</td>
 <td>外部所属機関IDの値を出力する</td>
 </tr>
 <tr  >
-<td>15</td>
+<td>14</td>
 <td>authorAffiliationInfo[0...n].authorIdShowFlg</td>
 <td>外部所属機関ID 表示／非表示</td>
 <td>Affiliation Identifier Display</td>
@@ -6046,21 +6033,21 @@ URLについて
 表示しない: "N"</td>
 </tr>
 <tr  >
-<td>16</td>
+<td>15</td>
 <td>authorAffiliationInfo[0...n].affiliationNameInfo[0...n].affiliationName</td>
 <td>外部所属機関名</td>
 <td>Affiliation Name</td>
 <td>外部所属機関名を出力する</td>
 </tr>
 <tr  >
-<td>17</td>
+<td>16</td>
 <td>authorAffiliationInfo[0...n].affiliationNameInfo[0...n].language</td>
 <td>言語</td>
 <td>Language</td>
 <td>外部所属機関名の言語を出力する</td>
 </tr>
 <tr  >
-<td>18</td>
+<td>17</td>
 <td>authorAffiliationInfo[0...n].affiliationNameInfo[0...n].nameShowFlg</td>
 <td>外部所属機関名・言語 表示／非表示</td>
 <td>Affiliation Name Display</td>
@@ -6069,7 +6056,7 @@ URLについて
 表示しない: "N"</td>
 </tr>
 <tr  >
-<td>19</td>
+<td>18</td>
 <td>authorAffiliationInfo[0...n].affiliationPeriod[0...n].period</td>
 <td>外部所属機関 所属期間</td>
 <td>Affiliation Period</td>
@@ -6078,7 +6065,7 @@ URLについて
 所属開始・終了："20250127-20250317"</td>
 </tr>
 <tr  >
-<td>20</td>
+<td>19</td>
 <td>authorAffiliationInfo[0...n].affiliationPeriod[0...n].nameShowFlg</td>
 <td>外部所属機関 所属期間 表示/非表示</td>
 <td>Affiliation Period Display</td>
@@ -6087,7 +6074,7 @@ URLについて
 表示しない: "N"</td>
 </tr>
 <tr>
-<td>21</td>
+<td>20</td>
 <td>communityIds[0...n]</td>
 <td>コミュニティ ID</td>
 <td>Community ID</td>
@@ -6219,27 +6206,23 @@ URLについて
     </tr>
     <tr >
     <td>2</td>
-    <td>Current WEKO ID</td>
-    <td>上書きする著者のインポート前のWEKO著者IDを表示する。</td>
+    <td>WEKO ID</td>
+    <td><p>読み込んだファイルのWEKO著者IDが表示されます。</p>
+    <p>新規登録の場合は空欄となります。</p></td>
     </tr>
     <tr >
     <td>3</td>
-    <td>New WEKO ID</td>
-    <td>tsvから読み込んだ著者のインポート後のWEKO著者IDを表示する。</td>
-    </tr>
-    <tr >
-    <td>4</td>
     <td>Full_Name</td>
     <td>読み込んだ著者の姓と名を表示する。<br />
     姓と名の間はカンマ＋スペース「姓, 名」で表示する。</td>
     </tr>
     <tr >
-    <td>5</td>
+    <td>4</td>
     <td>Mail Address</td>
     <td>読み込んだ著者のメールアドレスを表示する。</td>
     </tr>
     <tr >
-    <td>6</td>
+    <td>5</td>
     <td>チェック結果(Check Result)</td>
     <td><p>読み込んだファイルの各著者について、インポートが可能かバリデーションチェックを実施する。<br />
     ・エラーが無く、新規の著者の場合：「登録(Register)」と表示する<br />
@@ -6373,22 +6356,18 @@ URLについて
     </tr>
     <tr >
     <td>4</td>
-    <td>Previous WEKO ID</td>
-    <td>上書きする著者のインポート前のWEKO著者IDを表示する。</td>
+    <td>WEKO ID</td>
+    <td><p>読み込んだファイルのWEKO著者IDが表示されます。</p>
+    <p>新規登録の場合は空欄となります。</p></td>
     </tr>
     <tr >
     <td>5</td>
-    <td>New WEKO ID</td>
-    <td>tsvから読み込んだ著者のインポート後のWEKO著者IDを表示する。</td>
-    </tr>
-    <tr >
-    <td>6</td>
     <td>Full_name</td>
     <td>読み込んだ著者の姓と名を表示する。<br />
     姓と名の間はカンマ＋スペース「姓, 名」で表示する。</td>
     </tr>
     <tr >
-    <td>7</td>
+    <td>6</td>
     <td>ステータス(Status)</td>
     <td>登録した結果を表示する。<br />
     ・「Register Success」：新規登録が完了した場合に表示<br />
@@ -6543,8 +6522,7 @@ URLについて
     <tr >
     <td>8</td>
     <td>インポート(Import)</td>
-    <td >WEKO_IDが入力されていない状態<br />
-    または著者情報、機関情報で他の情報を入力されたが、idTypeとauthorIdのいずれかを入力されていない状態</td>
+    <td >著者情報、機関情報で他の情報を入力されたが、idTypeとauthorIdのいずれかを入力されていない状態</td>
     <td>ERROR</td>
     <td>{}は必須項目です。</td>
     <td>{} is required item.</td>
@@ -6552,15 +6530,6 @@ URLについて
     </tr>
     <tr >
     <td>9</td>
-    <td>インポート(Import)</td>
-    <td >WEKO_IDが半角数字でない状態</td>
-    <td>ERROR</td>
-    <td>WEKO_IDは半角数字のみです。</td>
-    <td>WEKO ID is Half-width digits only.</td>
-    <td></td>
-    </tr>
-    <tr >
-    <td>10</td>
     <td>インポート(Import)</td>
     <td >#4 著者が一意に定まらない(存在しないAuthor ID (author_link))<br />
     #5 削除対象の著者がDBに存在しない</td>
@@ -6570,16 +6539,7 @@ URLについて
     <td></td>
     </tr>
     <tr >
-    <td>11</td>
-    <td>インポート(Import)</td>
-    <td>WEKO IDが既に存在する。(既存のWEKO ID)</td>
-    <td>ERROR</td>
-    <td>指定されたWEKO IDが既に存在しています。</td>
-    <td>Specified WEKO ID already exist.</td>
-    <td></td>
-    </tr>
-    <tr >
-    <td>12</td>
+    <td>10</td>
     <td>インポート(Import)</td>
     <td >#6 言語の指定でDBに存在しない言語を入力する<br />
     #8 ヘッダ項目#7の姓名・言語 表示／非表示で"Y","N"以外を入力する<br />
@@ -6594,7 +6554,7 @@ URLについて
     {2}: 言語の一覧、"Y","N"</td>
     </tr>
     <tr >
-    <td>13</td>
+    <td>11</td>
     <td>インポート(Import)</td>
     <td >#10 ヘッダ項目#20の削除フラグで"D"以外を入力する<br />
     #13 姓名のフォーマットの値が「familyNmAndNm」以外の値</td>
@@ -6605,7 +6565,7 @@ URLについて
     {2}: "D"、"familyNmAndNm"</td>
     </tr>
     <tr >
-    <td>14</td>
+    <td>12</td>
     <td>インポート(Import)</td>
     <td>ID PrefixでDBに存在しない識別子を入力する</td>
     <td>ERROR</td>
@@ -6614,7 +6574,7 @@ URLについて
     <td>{1}:外部著者ID 識別子</td>
     </tr>
     <tr  >
-    <td>15</td>
+    <td>13</td>
     <td>インポート(Import)</td>
     <td>Affiliation IDでDBに存在しない識別子を入力する</td>
     <td>ERROR</td>
@@ -6623,7 +6583,7 @@ URLについて
     <td>{1}:外部所属機関ID 識別子</td>
     </tr>
     <tr >
-    <td>16</td>
+    <td>14</td>
     <td>インポート(Import)</td>
     <td>TSVファイルの中に重複するデータがある</td>
     <td>ERROR</td>
@@ -6632,7 +6592,7 @@ URLについて
     <td>各レコードがマルチタスクで実行されているので、後勝ちで2番目のデータを上書きするのが難しい(重複する場合にどのレコードで更新されるか定まらない)。WARNING→ERRORに変更し、2つ目以降は更新されないようにする</td>
     </tr>
     <tr >
-    <td>17</td>
+    <td>15</td>
     <td>インポート(Import)</td>
     <td>外部著者識別子がDBに存在している</td>
     <td>WARNING</td>
@@ -6643,7 +6603,7 @@ URLについて
     <td>{1}:外部著者識別子</td>
     </tr>
     <tr  >
-    <td>18</td>
+    <td>16</td>
     <td>インポート(Import)</td>
     <td>外部所属機関所属期間が日付の形式になっていない</td>
     <td>ERROR</td>
@@ -6656,7 +6616,7 @@ URLについて
     <td>{1}:外部所属期間</td>
     </tr>
     <tr >
-    <td>19</td>
+    <td>17</td>
     <td>インポート(Import)</td>
     <td>所属期間終了日が開始日より早い</td>
     <td>ERROR</td>
@@ -6665,7 +6625,7 @@ URLについて
     <td></td>
     </tr>
     <tr >
-    <td>20</td>
+    <td>18</td>
     <td>選択/インポート/結果<br />
     (Select/Import/Result)</td>
     <td>サーバ内部エラー（ネットワークの問題、予期しない例外など）が発生した</td>
@@ -6675,7 +6635,7 @@ URLについて
     <td></td>
     </tr>
     <tr >
-    <td>21</td>
+    <td>19</td>
     <td>結果(Result)</td>
     <td>登録成功</td>
     <td>INFO</td>
@@ -6684,7 +6644,7 @@ URLについて
     <td></td>
     </tr>
     <tr >
-    <td>22</td>
+    <td>20</td>
     <td>結果(Result)</td>
     <td>更新成功</td>
     <td>INFO</td>
@@ -6693,7 +6653,7 @@ URLについて
     <td></td>
     </tr>
     <tr >
-    <td>23</td>
+    <td>21</td>
     <td>結果(Result)</td>
     <td>削除成功</td>
     <td>INFO</td>
@@ -6702,7 +6662,7 @@ URLについて
     <td></td>
     </tr>
     <tr >
-    <td>24</td>
+    <td>22</td>
     <td>結果(Result)</td>
     <td>エラーが発生したため、インポートに失敗した</td>
     <td>ERROR</td>
@@ -6711,7 +6671,7 @@ URLについて
     <td></td>
     </tr>
     <tr >
-    <td>25</td>
+    <td>23</td>
     <td>インポート(Import)</td>
     <td>削除済みの著者について、tsvに該当の著者情報を指定して更新した</td>
     <td>WARNING</td>
@@ -6720,7 +6680,7 @@ URLについて
     <td></td>
     </tr>
     <tr >
-    <td>26</td>
+    <td>24</td>
     <td>インポート/結果<br />
     (Import/Result)</td>
     <td>アイテムに紐づいている著者を削除した</td>
@@ -6731,7 +6691,7 @@ URLについて
     日本語のメッセージを新規追加</td>
     </tr>
     <tr>
-    <td>27</td>
+    <td>25</td>
     <td>インポート(Import)</td>
     <td>コミュニティIDに許可されていない記号や制御文字等を入力した</td>
     <td>ERROR</td>
@@ -6740,7 +6700,7 @@ URLについて
     <td></td>
     </tr>
     <tr>
-    <td>28</td>
+    <td>26</td>
     <td>インポート(Import)</td>
     <td>communityIdsでDBに存在しないコミュニティのIDを入力した</td>
     <td>ERROR</td>
@@ -6749,7 +6709,7 @@ URLについて
     <td>{1}: コミュニティID</td>
     </tr>
     <tr>
-    <td>29</td>
+    <td>27</td>
     <td>インポート(Import)</td>
     <td>コミュニティ管理者で管理対象外のコミュニティのIDを入力した</br>
     または、コミュニティ管理者で管理対象外のコミュニティの紐づけを解除した
@@ -6760,7 +6720,7 @@ URLについて
     <td>{1}: コミュニティID</td>
     </tr>
     <tr>
-    <td>30</td>
+    <td>28</td>
     <td>インポート(Import)</td>
     <td>コミュニティ管理者で管理対象外のコミュニティのみに紐づく著者のpk_idを入力した</td>
     <td>ERROR</td>
@@ -6769,7 +6729,7 @@ URLについて
     <td></td>
     </tr>
     <tr>
-    <td>31</td>
+    <td>29</td>
     <td>インポート(Import)</td>
     <td>コミュニティ管理者でcommunityIdsが空欄</td>
     <td>ERROR</td>

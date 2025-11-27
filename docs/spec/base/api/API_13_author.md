@@ -590,7 +590,6 @@ POST /api/{version}/authors
 
 5. 著者情報を確認する
     - `authorIdInfo.idType`、`authorNameInfo.language`、`affiliationInfo.identifierInfo.affiliationIdType`、`affiliationInfo.affiliationNameInfo.affiliationNameLang`の値が選択肢に無い値の場合、400エラーを返す。
-    - `authorIdInfo.idType`が`WEKO`の場合、`authorId`に半角数字以外の文字が含まれている場合または既に存在する値は場合は400エラーにする。入力された値が既に使用されている場合のエラーメッセージは「`The value is already in use as WEKO ID`」とする。
     - `authorIdInfo`について、`idType`と`authorId`の片方のみが送られた場合は400エラーを返す。
     - `authorNameInfo`について、`firstName`または`familyName`が指定されたとき、`language`が指定されていなければ400エラーを返す。
     - `identifierInfo`について、`affiliationIdType`と`affiliationId`の片方のみが送られた場合は400エラーを返す。
@@ -606,7 +605,7 @@ POST /api/{version}/authors
      - 管理対象外コミュニティのIDを指定した場合
 
 6. 著者情報を登録する
-    - `authorIdInfo.idType`が`WEKO`の`authorIdInfo.authorId`が指定されていない場合、既存のWEKO IDの最大値+1の数字を`authorIdInfo.authorId`として登録する。
+    - `authorIdInfo.idType`が`WEKO`の`authorIdInfo.authorId`に既存のWEKO IDの最大値+1の数字を`authorIdInfo.authorId`として登録する。
     - `authorIdInfo.idType`、`affiliationInfo.identifierInfo.affiliationIdType`は与えられた値で検索しIDを引っ張ってくる。
     - DBとElasticsearchに著者情報を登録する。
     - エラーが発生した場合は、ロールバックして500エラーを返す。
@@ -741,7 +740,6 @@ PUT /api/{version}/authors/{identifier}
     |authorIdShowFlg|boolean|✕|true|［著者DBから入力］機能で、外部著者IDを自動入力するかどうか。|
 
     ※ idTypeとauthorIdの片方のみが送られた場合はエラーにする
-    ※ WEKO IDは必須
 
     **authorNameInfo**
 
@@ -951,7 +949,6 @@ PUT /api/{version}/authors/{identifier}
 
 6. 著者情報を確認する
     - `authorIdInfo.idType`、`authorNameInfo.language`、`affiliationInfo.identifierInfo.affiliationIdType`、`affiliationInfo.affiliationNameInfo.affiliationNameLang`の値が選択肢に無い値の場合、400エラーを返す。
-    - `authorIdInfo.idType`が`WEKO`の場合、`authorId`に半角数字以外の文字が含まれている場合または既に存在する値は場合は400エラーにする。入力された値が既に使用されている場合のエラーメッセージは「`The value is already in use as WEKO ID`」とする。
     - `authorIdInfo`について、`idType`と`authorId`の片方のみが送られた場合は400エラーを返す。
     - `authorNameInfo`について、`firstName`または`familyName`が指定されたとき、`language`が指定されていなければ400エラーを返す。
     - `identifierInfo`について、`affiliationIdType`と`affiliationId`の片方のみが送られた場合は400エラーを返す。
@@ -976,7 +973,6 @@ PUT /api/{version}/authors/{identifier}
 8. 著者情報の更新をアイテムのメタデータに反映する
     - pk_idでauthor_linkを検索し、著者名以外の著者情報の変更をアイテムのメタデータに反映する。
     - `force_change`がTrueの場合は、著者名の変更もアイテムのメタデータに反映する。
-    - WEKO IDに変更がある場合、"weko_link"のweko_idを更新する。
 
 9.  レスポンスを返す
     - 変更した著者情報の内容をjson形式にエンコードしたものをレスポンスボディに入れ、レスポンスコード200を返す。
@@ -1068,3 +1064,4 @@ DELETE /api/{version}/authors/{identifier}
 | ---- | ---- | ---- |
 |2025/2/17||初版作成|
 |2025/5/30||REST対応|
+| 2025/11/27|-|WEKO ID対応|

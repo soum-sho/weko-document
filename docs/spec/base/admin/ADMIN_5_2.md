@@ -99,40 +99,33 @@ tsvファイルのダウンロードURLにアクセスすることでtsvファ�
     <tr  >
     <td>1</td>
     <td>pk_id</td>
-    <td >著者ID</td>
-    <td >Author ID</td>
-    <td >このリポジトリ内でのpk_idを出力する</td>
+    <td >WEKO ID</td>
+    <td >WEKO ID</td>
+    <td >WEKO3の著者ID(author_link)を出力する</td>
     </tr>
     <tr >
     <td>2</td>
-    <td>weko_id</td>
-    <td>WEKO ID</td>
-    <td>WEKO ID</td>
-    <td>WEKO IDを出力する</td>
-    </tr>
-    <tr >
-    <td>3</td>
     <td>authorNameInfo[0...n].familyName</td>
     <td>姓</td>
     <td>Family Name</td>
     <td>著者の姓を出力する</td>
     </tr>
     <tr >
-    <td>4</td>
+    <td>3</td>
     <td>authorNameInfo[0...n].firstName</td>
     <td>名</td>
     <td>Given name</td>
     <td>著者の名を出力する</td>
     </tr>
     <tr >
-    <td>5</td>
+    <td>4</td>
     <td>authorNameInfo[0...n].language</td>
     <td>言語</td>
     <td>Language</td>
     <td>著者の言語を出力する</td>
     </tr>
     <tr >
-    <td>6</td>
+    <td>5</td>
     <td>authorNameInfo[0...n].nameFormat</td>
     <td>フォーマット</td>
     <td>name Format</td>
@@ -140,7 +133,7 @@ tsvファイルのダウンロードURLにアクセスすることでtsvファ�
     ※現状(SP67時点)は「familyNmAndNm」固定</td>
     </tr>
     <tr >
-    <td>7</td>
+    <td>6</td>
     <td>authorNameInfo[0...n].nameShowFlg</td>
     <td>姓名・言語 表示／非表示</td>
     <td>Name Display</td>
@@ -149,21 +142,21 @@ tsvファイルのダウンロードURLにアクセスすることでtsvファ�
     表示しない: "N"</td>
     </tr>
     <tr >
-    <td>8</td>
+    <td>7</td>
     <td>authorIdInfo[0...n].idType</td>
     <td>外部著者ID 識別子</td>
     <td>Identifier Scheme</td>
     <td>外部著者IDの識別子を出力する</td>
     </tr>
     <tr >
-    <td>9</td>
+    <td>8</td>
     <td>authorIdInfo[0...n].authorId</td>
     <td>外部著者ID URI</td>
     <td>Identifier URI</td>
     <td>外部著者IDの値を出力する</td>
     </tr>
     <tr >
-    <td>10</td>
+    <td>9</td>
     <td>authorIdInfo[0...n].authorIdShowFlg</td>
     <td>外部著者ID 表示／非表示</td>
     <td>Identifier Display</td>
@@ -172,14 +165,14 @@ tsvファイルのダウンロードURLにアクセスすることでtsvファ�
     表示しない: "N"</td>
     </tr>
     <tr >
-    <td>11</td>
+    <td>10</td>
     <td>emailInfo[0...n].email</td>
     <td>メールアドレス</td>
     <td>Mail Address</td>
     <td>著者のメールアドレスを出力する</td>
     </tr>
     <tr >
-    <td>12</td>
+    <td>11</td>
     <td>is_deleted</td>
     <td>削除フラグ</td>
     <td>Delete Flag</td>
@@ -187,21 +180,21 @@ tsvファイルのダウンロードURLにアクセスすることでtsvファ�
     ※論理削除された著者情報は出力しないため、全件エクスポートではすべて空欄となる</td>
     </tr>
     <tr  >
-    <td>13</td>
+    <td>12</td>
     <td>authorAffiliationInfo[0...n].affiliationId[0...n].idtype</td>
     <td>外部所属機関ID 識別子</td>
     <td>Affiliation Identifier Scheme</td>
     <td>外部所属機関IDの識別子を出力する</td>
     </tr>
     <tr  >
-    <td>14</td>
+    <td>13</td>
     <td>authorAffiliationInfo[0...n].affiliationId[0...n].uri</td>
     <td>外部所属機関ID URI</td>
     <td>Affiliation Identifier URI</td>
     <td>外部所属機関IDの値を出力する</td>
     </tr>
     <tr  >
-    <td>15</td>
+    <td>14</td>
     <td>authorAffiliationInfo[0...n].authorIdShowFlg</td>
     <td>外部所属機関ID 表示／非表示</td>
     <td>Affiliation Identifier Display</td>
@@ -210,21 +203,21 @@ tsvファイルのダウンロードURLにアクセスすることでtsvファ�
     表示しない: "N"</td>
     </tr>
     <tr  >
-    <td>16</td>
+    <td>15</td>
     <td>authorAffiliationInfo[0...n].affiliationNameInfo[0...n].affiliationName</td>
     <td>外部所属機関名</td>
     <td>Affiliation Name</td>
     <td>外部所属機関名を出力する</td>
     </tr>
     <tr  >
-    <td>17</td>
+    <td>16</td>
     <td>authorAffiliationInfo[0...n].affiliationNameInfo[0...n].language</td>
     <td>言語</td>
     <td>Language</td>
     <td>外部所属機関名の言語を出力する</td>
     </tr>
     <tr  >
-    <td>18</td>
+    <td>17</td>
     <td>authorAffiliationInfo[0...n].affiliationNameInfo[0...n].nameShowFlg</td>
     <td>外部所属機関名・言語 表示／非表示</td>
     <td>Affiliation Name Display</td>
@@ -233,7 +226,7 @@ tsvファイルのダウンロードURLにアクセスすることでtsvファ�
     表示しない: "N"</td>
     </tr>
     <tr  >
-    <td>19</td>
+    <td>18</td>
     <td>authorAffiliationInfo[0...n].affiliationPeriod[0...n].period</td>
     <td>外部所属機関 所属期間</td>
     <td>Affiliation Period</td>
@@ -242,7 +235,7 @@ tsvファイルのダウンロードURLにアクセスすることでtsvファ�
     所属開始・終了："20250127-20250317"</td>
     </tr>
     <tr  >
-    <td>20</td>
+    <td>19</td>
     <td>authorAffiliationInfo[0...n].affiliationPeriod[0...n].nameShowFlg</td>
     <td>外部所属機関 所属期間 表示/非表示</td>
     <td>Affiliation Period Display</td>
@@ -251,7 +244,7 @@ tsvファイルのダウンロードURLにアクセスすることでtsvファ�
     表示しない: "N"</td>
     </tr>
     <tr>
-    <td>21</td>
+    <td>20</td>
     <td>communityIds[0...n]</td>
     <td>コミュニティID</td>
     <td>Community ID</td>
@@ -263,7 +256,7 @@ tsvファイルのダウンロードURLにアクセスすることでtsvファ�
 　【補足】  
 　　・同じ項目名を複数持つ場合は、各項目名の後ろに\[0\],\[1\],…,\[N\]と記載された状態で出力される。  
 　　　※1つ目の項目名には \[0\] が記載されている。  
-　　・Author ID, WEKO ID, Delete Flagは繰り返し記載することはできない。
+　　・WEKO ID, Delete Flagは繰り返し記載することはできない。
 
   - 著者識別子、機関識別子のtsvファイルの構成は以下の通り
       > テーブル情報
@@ -551,3 +544,4 @@ tsvファイルのダウンロードURLにアクセスすることでtsvファ�
 |:---:|:---:|:---:|
 |> 2023/08/31|353ba1deb094af5056a58bb40f07596b8e95a562|初版作成|
 |> 2025/03/27|-|v1.1.0対応|
+|> 2025/11/27|-|WEKO ID対応|
