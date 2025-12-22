@@ -236,7 +236,11 @@ WEKO3へログイン後、[WorkFlow]タブを押下することで、アクテ�
 
   - 代理登録機能
 
-      - アクティビティのItem RegistrationアクションにあるContributorエリアに"Other User"としてユーザ名またはEmailを設定しておけば、設定されたユーザは、該当アイテムに「編集」ボタンが表示されて、アイテムの編集をすることが可能
+      - アクティビティのItem RegistrationアクションにあるContributorエリアに"Other User"としてユーザ名またはEmailを設定しておけば、設定されたユーザは以下の条件に合致する場合のみ該当アイテムに「編集」ボタンが表示されて、アイテムの編集をすることが可能
+
+          - WEKO_ITEMS_UI_PROXY_POSTING が True の場合、設定されたすべてのユーザ
+
+          - WEKO_ITEMS_UI_PROXY_POSTING が False の場合、設定されたユーザの末尾のユーザ
 
   - ゲストユーザーがアクティビティ一覧のURLを直接入力してアクセスしようとした際はログイン画面に移動する
 
