@@ -39,6 +39,9 @@ Item Registrationの一部として、画面上の入力欄でメタデータを
         - modules/weko-theme/weko_theme/static/js/weko_theme/search_detail.js
         - modules/weko-theme/weko_theme/static/js/weko_theme/top_page.js
 
+- 「作成者」、「寄与者」、「権利者情報」の識別子Schemeの選択肢は ID Prefix から自動で取得する （v2.0.0）
+- 「作成者」、「寄与者」の所属機関識別子Schemeの選択肢は Affiliation ID から自動で取得する （v2.0.0）
+
 - 作成者プロパティへの著者情報の入力
     - 「著者DBから入力」（From author DB）ボタンを押下すると、著者DBの検索ウィンドウが表示される
     - 「検索」ボタンを押すと、【Administration > 著者DB管理（Author Management） > 編集（Edit）】で登録された著者DB一覧を表示する
@@ -241,6 +244,7 @@ Item Registrationの一部として、画面上の入力欄でメタデータを
 
 | 日付     | GitHubコミットID                       |更新内容|
 | -------- | -------------------------------------- | ------ |
+|2025/12/08|0ecc4cc7112aa59c2bc52f97fe3c3836aec5fd206|v2.0.0|
 |2025/10/10|                                        |v2.0.0  |
 |2025/03/13|94a0d70019b3dbf7ed6c01692b75a3dbad640db6|v1.1.0  |
 |2025/01/01|09c6391d2ed1bae053fee9f8dfc98e95e1e1b87f|v1.0.7a2|
