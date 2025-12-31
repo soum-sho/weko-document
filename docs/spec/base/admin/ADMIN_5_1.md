@@ -197,11 +197,8 @@
               - 外部著者IDテキストボックス：外部著者IDを入力する。  
                 クリーンビルド環境の場合、初期に表示される選択肢は「ORCID, CiNii, KAKEN2,ROR」とする。
             
-              - 「ID Prefix」画面にはリスト上に "WEKO" が存在する(WEKO3で著者を一意に決定するWEKO著者ID)が、「著者ID」のプルダウンのリストには表示されず、初期で固定されている。
-                "WEKO"は著者追加画面表示時に自動付番(初期値のWEKO著者IDはmax(WEKO ID)＋1)される。
-
-              - 外部著者識別子がWEKOの外部著者IDテキストボックスは必須項目とする。
-              - 外部著者識別子がWEKOの外部著者IDテキストボックスは半角数字のみとする。
+              - 「ID Prefix」画面にはリスト上に "WEKO" が存在する(WEKO3で著者を一意に決定するWEKO著者ID)が、「著者ID」のプルダウンのリストには表示されない。
+                "WEKO"は著者登録時に自動付番(初期値のWEKO著者IDは1, 以降は2, 3, ...と付番されている max(authors.id)＋１)される。
             
               - \[確認（Confirm）\]ボタンを押すと、選択された外部著者IDに応じたランディングページが表示される。
                 
@@ -321,13 +318,7 @@
                 - 所属開始日が所属終了日より後の日の場合、  
                     「所属終了日は所属開始日より後の日にして下さい。
                     (Please set end date to be after start date.)」と表示される。
-            - 保存ボタンを押下時にWEKO IDが以下の場合でエラーを起こす
-                - 入力されていない場合、「WEKO IDの値を設定してください。（Please set WEKO ID.）」と表示する。
-                - 入力されたWEKO IDの値が既に使われている場合、  
-                「そのWEKO IDは既に使われています。（The value is already in use as WEKO ID）」と表示する。
 
-                - 入力された値が半角数字でない場合、  
-                    「WEKO IDは半角数字のみです。(The WEKO ID must be numeric characters only.)」と表示する。
           - 問題なく保存できれば、Author IDの一覧画面に遷移する。
 
           - 姓、名から姓名の情報（fullName）が生成される。
@@ -457,8 +448,7 @@
 
 2\. 実装方法
 
-  - nameIdentifiersでnameIdentifierScheme=WEKOを利用してWEKOIDと紐づいているpk_idを取得し  
-    当該アイテムに属性(author\_link)を追加する。  
+  - nameIdentifiersでnameIdentifierScheme=WEKOを利用して当該アイテムに属性(author\_link)を追加する。  
     著者情報のアイテム件数（Item Count）は以下のようにクエリを作成し、"author\_link"毎に著者情報をカウントする。
 
 > "size": 0,
@@ -532,8 +522,7 @@
 
   - > **氏名→言語入力欄に「ja-Kana」**
 
-  - > **著者ID→ID選択欄に「WEKO」(ただし、2項目目以降の追加時は「WEKO」は表示されない。)**
-    > **初期値はWEKO IDのmax+1**
+  - > **著者ID→ID選択欄に「ORCID」(ただし、2項目目以降の追加時は「WEKO」が入力される。著者IDが「WEKO」のものは編集できないため、追加したテキストボックスは自動的に非活性となる。)**
 
   - > **所属機関識別子→機関識別子選択欄に「ISNI」。所属機関名の言語選択欄に「ja」**
 
@@ -560,3 +549,4 @@
 |> 2023/08/31|353ba1deb094af5056a58bb40f07596b8e95a562|初版作成|
 |> 2024/07/01|7733de131da9ad59ab591b2df1c70ddefcfcad98|v1.0.7対応|
 |> 2025/03/27|-|v1.1.0対応|
+|> 2025/11/27|-|WEKO ID対応|
