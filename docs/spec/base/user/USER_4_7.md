@@ -54,20 +54,15 @@ Item Registrationの一部として、画面上の設定エリアで代理投稿
   - デフォルトは\[This user\]とする（アイテム登録者のみをContributorとする）
 
   - 他のユーザから選択する場合は、\[Other user\]を選択する  
-    選択すると、Owner・Contributor の Username テキストおよび Email テキスト、ゴミ箱アイコン、Newボタンが表示される。
+    選択すると、Username テキストおよび Email テキスト、ゴミ箱アイコン、Newボタンが表示される。
 
-    - WEKO_ITEMS_UI_PROXY_POSTING が False の場合、Ownerの Username テキストと Email テキストのみ活性化し、New ボタンが非活性となる。
+    - WEKO_ITEMS_UI_PROXY_POSTING が False の場合、末尾のユーザの Username テキストと Email テキストのみ活性化し、ゴミ箱アイコンとNew ボタンが非表示となる。
 
     - \[Other user\]で未登録の場合：初期表示は、Username テキストと Email テキストは空欄である。
 
-    - \[Other user\]で登録済みの場合：初期表示は、Username テキストと Email テキストに登録済みのユーザー名とEmailアドレスが表示される。登録済みのユーザーと、Newボタン押下で追加される行はラジオボタンで選択できる。  
-    ラジオボタンのON・OFFで以下のように表示が切り替わる。
+    - \[Other user\]で登録済みの場合：初期表示は、Username テキストと Email テキストに登録済みのユーザー名とEmailアドレスが表示される。
 
-      - ラジオボタンON：Username ラベルは Owner へ変更される。Contributor から Owner になる。ゴミ箱アイコンが非表示になる。
-
-      - ラジオボタンOFF：Username ラベルは Contributor へ変更される。Owner 　から Contributor になる。ゴミ箱アイコンが表示になる。
-
-    - Newボタン押下：Username ラベルは Username、Username テキストと Email テキストは空欄で1行追加する。  
+    - Newボタン押下：Username テキストと Email テキストは空欄で1行追加する。  
     追加できる行に上限はない。
 
     - ゴミ箱アイコン押下：2行以上存在する場合、1行削除する。
@@ -75,10 +70,6 @@ Item Registrationの一部として、画面上の設定エリアで代理投稿
       - 1行のみ存在し、ゴミ箱アイコンを押下した場合、以下のエラーメッセージを表示し、削除をキャンセルする。  
       英語：「At least 1 user is required.」  
       日本語：「ユーザーは1名以上必要です。」
-
-      - 削除対象のユーザーのログイン状態をチェックする。ログインしている場合、以下のエラーメッセージを表示し、削除をキャンセルする。  
-      英語：「Logged-in user cannot be deleted.」  
-      日本語：「ログインユーザーは削除できません。」
 
   - Username または Email に任意の文字列を入力すると、インクリメンタルサーチでヒットするユーザが候補一覧に自動表示される
     
@@ -88,22 +79,7 @@ Item Registrationの一部として、画面上の設定エリアで代理投稿
 
   - 「Username」及び「Email」を手動入力することもできる
   
-  - 「保存」ボタンを押したときに、以下のチェックを行う
-
-      - \[Other user\]のユーザーで Owner が選択されていない場合、以下のエラーメッセージを表示し、保存をキャンセルする。  
-      メッセージ：  
-      「Be sure to select an owner.」
-
-      - Owner の Email テキストが空白である場合、以下のエラーメッセージを表示し、保存をキャンセルする。  
-      メッセージ：  
-      「\[owner email address is blank.\]」
-
-      - WEKO_ITEMS_UI_PROXY_POSTING がTrue かつ\[Other user\]のユーザーの中にログインしているユーザーが存在しない場合、以下のエラーメッセージを表示し、保存をキャンセルする。  
-      メッセージ：  
-      英語：「Logged-in user cannot be deleted」  
-      日本語：「ログインユーザーは削除できません。」
-  
-  - ［次へ（Next）］ボタンを押したときに、以下のチェックを行う
+  - ［保存］ボタン、［次へ（Next）］ボタンを押したときに、以下のチェックを行う
     
       - 入力したUsernameが存在しない、または\[Other user\]を選択してユーザ設定エリアに何も入力していない場合は、指定されたユーザが存在しない旨メッセージを表示し、入力確定できない  
         メッセージ：  
@@ -115,17 +91,12 @@ Item Registrationの一部として、画面上の設定エリアで代理投稿
         「An error ocurred while processing the input data\!  
         Cannot read properties of null (reading 'username')」
     
-      - WEKO_ITEMS_UI_PROXY_POSTING が False かつ入力ユーザがアイテム登録ユーザーであれば、メッセージを表示する  
+      - 入力ユーザがアイテム登録ユーザーであれば、メッセージを表示する  
         メッセージ：「You cannot specify yourself in "Other user" setting.」
-
-      - \[Other user\]のユーザーで Owner が選択されていない場合、以下のエラーメッセージを表示し、保存をキャンセルする。  
-      メッセージ：  
-      「Be sure to select an owner.」
-
-       - WEKO_ITEMS_UI_PROXY_POSTING がTrue かつ\[Other user\]のユーザーの中にログインしているユーザーが存在しない場合、以下のエラーメッセージを表示し、保存をキャンセルする。  
-       メッセージ：  
-       英語：「Logged-in user cannot be deleted」  
-       日本語：「ログインユーザーは削除できません。」
+      
+      - WEKO_ITEMS_UI_PROXY_POSTING が True で、入力されたメールアドレスに重複がある場合、重複している旨のメッセージを表示し、入力確定できない  
+        メッセージ：  
+        「Duplicate email addresses found:」
 
   - Contributorとして指定されたユーザは、アイテム登録者と同様に該当アイテムの登録(編集)権限が付与される      
  
