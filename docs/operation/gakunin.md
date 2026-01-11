@@ -2,9 +2,7 @@
 
 ## 概要
 
-本手順書ではWEKO3における学認ログイン設定およびOrthrosログイン設定手順を説明する。​
-
-テストフェデレーションでの手順となるが、基本的な流れは本フェデレーションでの手順と同じである。
+本手順書ではWEKO3における学認テストフェデレーション設定およびOrthrosログイン設定手順を説明する。​
 
 1. Shibboleth-SPの設定
 2. 学認SP登録申請
@@ -355,6 +353,7 @@ instance.cfg：
 WEKO_ACCOUNTS_GAKUNIN_MAP_BASE_URL = 'https://cg.gakunin.jp'
 WEKO_ACCOUNTS_WAYF_URL ="https://ds.gakunin.nii.ac.jp/WAYF" 
 WEKO_ACCOUNTS_WAYF_ADDITIONAL_IDPS = [{"name":"Orthros","entityID":"https://orthros.gakunin.nii.ac.jp/idp"}]
+```
 
 ## Orthros登録
 
