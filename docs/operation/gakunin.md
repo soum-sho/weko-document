@@ -343,11 +343,17 @@ fastcgi_param NO_CHECK_WEKOSOCIETYAFFILIATION TRUE;
 
 とする。
 
-instance.cfgは
+instance.cfgは以下の様に設定する。
 
-本番フェデレーションにする場合は、shobboleth2.xml設定の他、
+```
+WEKO_ACCOUNTS_SHIB_LOGIN_ENABLED = True
+WEKO_ACCOUNTS_SHIB_IDP_LOGIN_ENABLED = False
+WEKO_ACCOUNTS_SHIB_DP_LOGIN_DIRECTLY_ENABLED = True
+WEKO_ACCOUNTS_SHIB_INST_LOGIN_DIRECTLY_ENABLED = False
+WEKO_ACCOUNTS_SHIB_BIND_GAKUNIN_MAP_GROUPS = True
+```
 
-instance.cfg：
+本番フェデレーションにする場合は、shobboleth2.xml設定の他、以下instance.cfgの変更も行う。
 
 ```
 WEKO_ACCOUNTS_GAKUNIN_MAP_BASE_URL = 'https://cg.gakunin.jp'
