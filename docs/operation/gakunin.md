@@ -4,16 +4,82 @@
 
 本手順書ではWEKO3における学認テストフェデレーション設定およびOrthrosログイン設定手順を説明する。​
 
-1. Shibboleth-SPの設定
-2. 学認SP登録申請
-3. mAP登録申請
-4. Orthros登録申請
+1. 学認SP設定
+2. mAP設定
+3. Orthros設定
 
-## Shibboleth-SPの設定
+## nginx設定
 
-学認SP登録申請はリポジトリ単位で行う。
+/etc/nginx/conf.d/weko.conf 
 
-### 自己署名証明書の作成
+location ~ /secure/　を以下のように書き換える。
+
+```
+location ~ /secure/ {
+    #include shib_clear_headers;
+    more_clear_input_headers 'Shib-Session-ID' 'Shib-Session-Index' 'Remote-User' 'eppn' 'mail' 'isMemberOf' 'DisplayName';
+    shib_request /shibauthorizer;
+    shib_request_use_headers on;
+    include fastcgi_params;
+    #include shib_fastcgi_params;
+
+    shib_request_set $shib_shib_session_id $upstream_http_variable_shib_session_id;
+    fastcgi_param Shib-Session-ID $shib_shib_session_id;
+
+    shib_request_set $shib_shib_session_index $upstream_http_variable_shib_session_index;
+    fastcgi_param Shib-Session-Index $shib_shib_session_index;
+
+    shib_request_set $shib_remote_user $upstream_http_variable_remote_user;
+    fastcgi_param Remote-User $shib_remote_user;
+
+    #shib_request_set $shib_mail $upstream_http_variable_mail;
+    #fastcgi_param mail $shib_mail;
+
+    shib_request_set $shib_mail $upstream_http_variable_eppn;
+    fastcgi_param mail $shib_mail;
+
+    shib_request_set $shib_isMemberOf $upstream_http_variable_isMemberOf;
+    fastcgi_param isMemberOf $shib_isMemberOf;
+
+    shib_request_set $shib_displayname $upstream_http_variable_displayname;
+    fastcgi_param DisplayName $shib_displayname;
+
+    #shib_request_set $shib_persistent_id $upstream_http_variable_persistent_id;
+    #fastcgi_param eppn $shib_persistent_id;
+
+    shib_request_set $shib_eppn $upstream_http_variable_eppn;
+    fastcgi_param eppn $shib_eppn;
+
+    fastcgi_split_path_info ^(.+\.py)(.*)$;
+
+    fastcgi_pass unix:/usr/lib/systemd/system/fcgiwrap.socket;
+    fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+
+    root /usr/share/nginx/html;
+    fastcgi_param NO_CHECK_WEKOSOCIETYAFFILIATION TRUE;
+}
+```
+
+とくに
+
+$shib_eppn, $shib_mail, $shib_isMemberOf 
+
+の設定箇所を確認する。
+
+$shib_mail は学認IdPからの属性をeppnのみにするため、
+$upstream_http_variable_eppn を格納している。
+
+nginxを再起動する。
+
+```
+supervisorctl restart nginx
+```
+
+## 学認SP設定
+
+### Shibboleth-SPのための証明書の準備
+
+#### 自己署名証明書の作成
 
 学認では、Shibbolethサーバの署名用証明書、暗号化用証明書として自己署名証明書を利用する運用は許されている。証明書の有効期間の問題もあるため、ここでは自己署名証明書を作成する。
 
@@ -25,7 +91,7 @@ openssl req -x509 -sha256 -nodes -days 3650 -newkey rsa:4096 -subj /CN=${FQDN} -
 作成した証明書をshibboleth2.xmlで読み込めるように設定する。
 
 ```
-~snip~
+※「</ApplicationDefaults>」の直前に行を挿入してください。
     <CredentialResolver type="Chaining">
       <CredentialResolver type="File" use="signing" 
             key="shib.key" certificate="shib.crt"/>
@@ -49,7 +115,7 @@ shibd: started
 
 ※ログの出力先がPOD内となっていることは課題
 
-### 自己署名証明書を公開​
+#### 自己署名証明書の公開​
 
 学認で自己署名証明書を利用する場合は、申請時に公開されている必要がある。
 
@@ -78,7 +144,7 @@ nginxを再起動し、以下URLから自己署名証明書をダウンロード
 
 https://${FQDN}/cert/self-signed.crt
 
-## 学認SP登録申請
+#### 学認SP登録申請
 
 https://office.gakunin.nii.ac.jp/TestFed/ にアクセスし、テストフェデレーションへの新規SP申請を行う。
 
@@ -114,12 +180,77 @@ https://${FQDN}/Shibboleth.sso/DS
 
 申請ボタンをクリックし、申請が承認されるまで待つ。
 
-### 学認SP登録後​
+#### 学認SP登録の確認​
 
-申請状況は学認申請システムから確認できる。
+申請状況は[学認申請システム](https://office.gakunin.nii.ac.jp/TestFed/ )から確認できる。
 
 ![承認済みSP一覧](pics/gakunin_test_image004.png)
 
+
+#### IdPの設定(DS利用する場合は不要)
+
+/etc/shibboleth/shibboleth2.xml ファイルを以下のようにする。
+IdPエンティティIDは機関のIdPで置き換える。
+
+```
+~snip~
+<Sessions lifetime="28800" timeout="3600" relayState="ss:mem" checkAddress="false" handlerSSL="false" cookieProps="http">                                                                                               <SSO entityID="IdPエンティティID" discoveryProtocol="SAMLDS" discoveryURL="test-ds.gakunin.nii.ac.jp/WAYF">
+              SAML2
+            </SSO>
+~snip~
+```
+
+#### DSサーバの参照設定(IdP直接ログインの場合は設定不要)
+
+/etc/shibboleth/shibboleth2.xml ファイルを以下のようにする。
+
+```
+※「</Sessions>」の直前に行を挿入する。
+            <!-- JSON feed of discovery information. -->
+            <Handler type="DiscoveryFeed" Location="/DiscoFeed"/>
+            <SessionInitiator type="Chaining" Location="/DS" isDefault="true" id="DS">
+                <SessionInitiator type="SAML2" template="bindingTemplate.html"/>
+                <SessionInitiator type="Shib1"/>
+                <SessionInitiator type="SAMLDS" URL="https://test-ds.gakunin.nii.ac.jp/WAYF"/>
+            </SessionInitiator>
+        </Sessions>
+   (省略)
+```
+
+#### メタデータの自動更新設定
+
+証明書を格納するディレクトリを作成する。 
+
+```
+# mkdir /etc/shibboleth/cert
+```
+
+https://www.gakunin.jp/join/test/rule
+
+からフェデレーションメタデータ署名用の証明書をダウンロードして、/etc/shibboleth/cert に格納する。
+
+/etc/shibboleth/shibboleth2.xml ファイルを以下のようにする。
+
+```
+    <MetadataProvider type="XML" validate="true" url="https://metadata.gakunin.nii.ac.jp/gakunin-test-metadata.xml" backingFilePath="federation-metadata.xml" maxRefreshDelay="7200">
+      <MetadataFilter type="RequireValidUntil" maxValidityInterval="1296000"/>
+      <MetadataFilter type="Signature" certificate="/etc/shibboleth/cert/gakunin-test-signer-2020.cer" verifyBackup="false"/>
+      <DiscoveryFilter type="Blacklist" matcher="EntityAttributes" trimTags="true" attributeName="http://macedir.org/entity-category" attributeNameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" attributeValue="http://refeds.org/category/hide-from-discovery"/>
+      <TransportOption provider="CURL" option="64">1</TransportOption>
+      <TransportOption provider="CURL" option="81">2</TransportOption>
+      <TransportOption provider="CURL" option="10065">/etc/ssl/certs/ca-certificates.crt</TransportOption>
+    </MetadataProvider>
+```
+
+shibdを再起動し、問題なく動作することを確認する。
+
+```
+$ kubectl exec -n weko3 -it ${POD} -c nginx -- bash
+groups: cannot find name for group ID 1000
+root@${POD}:/tmp# supervisorctl restart shibd
+shibd: stopped
+shibd: started
+```
 
 ## mAP登録​申請
 
@@ -137,12 +268,28 @@ GakuNin Cloud Gateway登録のみでは、SPに関する設定は何もできな
 ### SP管理者の登録
 
 画面下の[問い合わせ先](https://cg.gakunin.jp/collectors/cg-inquiry.html)フォームからSP管理者の登録を行う。
+
 ![問い合わせ先フォーム](pics/gakunin_test_image006.png)
 
-問合せフォームには、
-SP管理者登録を行いたい旨を、SPのentity IDおよびSP管理者のeppnを一緒に記入し、送信する。
+問合せフォーム経由で「SP管理者の登録」
 
-しばらくすると、SP管理者の登録が完了した連絡がメールでくる。
+件名は以下の様にする。
+
+```
+SP管理者登録申請
+```
+
+内容は以下の様にする。
+```
+entityID: https://FQDN/shibboleth-sp
+SP管理者：
+SP管理者のEPPN
+```
+
+SP管理者登録を行いたい旨を、SPのentity IDおよびSP管理者のeppnを一緒に記入し、送信する。
+SP管理者はSPの運用担当者である必要がある。
+
+数日すると、SP管理者の登録が完了した連絡がメールでくる。
 
 ```
 XX様
@@ -231,6 +378,48 @@ FriendlyName="isMemberOf"/>
 
 メール内容に従ってshibboleth-spの設定を行う。
 
+## Shibboleth-SP：mAP設定
+
+Shibboleth-SPに対してmAP接続のための設定を行う。
+基本的には学認クラウドゲートウェイサービスサポートからの指示内容に従う。
+Shibbolethの設定ファイルはXMLであるため、
+環境によってはNamespaceが異なる場合もあるため、その場合は適宜補う。
+
+### metadataファイルの設置
+
+メタデータファイルを設置するためのディレクトリを作成する。
+
+```
+mkdir /etc/shibboleth/metadata
+```
+
+学認クラウドゲートウェイサービスサポートから
+送られてきたsptestcgidp-metadata.xmlを作成したディレクトリに
+コピーする。
+
+/etc/shibboleth/shibboleth2.xml ファイルを以下のようにする。
+
+```
+※学認フェデレーションのMetadataProviderの次に設定する。
+<MetadataProvider type="XML" 
+path="/etc/shibboleth/metadata/sptestcgidp-metadata.xml"/>
+```
+
+### SimpleAggregationの追加
+
+/etc/shibboleth/shibboleth2.xml ファイルを以下のようにする。
+
+```
+※「AttributeExtractor」の次に挿入する。
+
+    <!-- mAPからisMemberOfを取得するための設定-->
+    <AttributeResolver type="SimpleAggregation" attributeId="eppn"
+format="urn:oid:1.3.6.1.4.1.5923.1.1.1.6">
+      <Entity>https://sptest.cg.gakunin.jp/idp/shibboleth</Entity>
+      <saml2:Attribute xmlns:saml2="urn:oasis:names:tc:SAML:2.0:assertion" Name="urn:oid:1.3.6.1.4.1.5923.1.5.1.1" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="isMemberOf"/>
+    </AttributeResolver>
+```
+
 ### SPコネクタ作成​
 
 下記サイト説明を参考にSPコネクタを作成する。
@@ -251,7 +440,13 @@ jc_weko3_ir_rcos_nii_ac_jp
 
 ### グループの作成​
 
-WEKO3の設定に従ってグループを作成する。
+[https://sptest.cg.gakunin.jp/map/mygroups/view](https://sptest.cg.gakunin.jp/)にアクセスし、
+グループを作成する。
+
+グループIDおよびグループ名の命名規則は
+
+SPコネクタ名_ロール識別子となる。
+ロール識別子はWEKO3の設定「WEKO_ACCOUNTS_GAKUNIN_GROUP_PATTERN_DICT」で定義されている。
 
 ```
 WEKO_ACCOUNTS_GAKUNIN_GROUP_PATTERN_DICT = {
@@ -266,21 +461,68 @@ WEKO_ACCOUNTS_GAKUNIN_GROUP_PATTERN_DICT = {
 }
 ```
 
-システム管理者グループ「jc_roles_sysadm」が定義されていなければ作成する。
+例えば、上記の場合、リポジトリ管理者のロール識別子は「repoadm」となる。
+システム管理者のグループIDは「sysadm_group」で定義されている「jc_roles_sysadm」が利用される。
 
-リポジトリ管理者用のグループを作成する。
+#### システム管理者グループの作成（1度限り）
 
-```
-SPコネクタ名_roles_repoadm 
-```
+システム管理者グループ「jc_roles_sysadm」はリポジトリ共通のグループである。
+グループ作成済みであればこの作業はスキップする。
 
-グループメンバにシステム管理者を管理者として追加する。
-（※トラブル対応目的）
+![mAP作成済みの場合](./pics/gakunin_test_image009.png)
 
-システム管理者：
-- xxxx
+そうでない場合は、以下設定どおりに入力し、グループを作成する。
 
-機関のリポジトリ管理者1名を管理者として追加する。
+|設定名|設定値|
+|---|---|
+|グループの公開・非公開|非公開|
+|メンバー参加条件|管理者からの招待のみ参加できる|
+|グループメンバーの公開・非公開|グループ入会者のみに公開|
+|グループ名 必須|jc_roles_sysadm|
+|グループID 必須|jc_roles_sysadm|
+|紹介文 必須|JAIRO Cloudのシステム管理者|
+
+「作成」ボタンをクリックする。
+
+グループ「jc_roles_sysadm」が作成される。
+
+
+#### リポジトリ用グループの作成
+
+[https://sptest.cg.gakunin.jp/map/mygroups/view](https://sptest.cg.gakunin.jp/)にアクセスし、
+下記条件のグループを作成する。
+
+##### リポジトリ管理者
+
+|設定名|設定値|
+|---|---|
+|グループの公開・非公開|非公開|
+|メンバー参加条件|管理者からの招待のみ参加できる|
+|グループメンバーの公開・非公開|グループ入会者のみに公開|
+|グループ名 必須|SPコネクタ名_roles_repoadm|
+|グループID 必須|SPコネクタ名_roles_repoadm|
+|紹介文 必須|JAIRO Cloudのシステム管理者|
+
+「作成」ボタンをクリックする。
+
+グループ「SPコネクタ名_roles_repoadm」が作成される。
+
+
+##### コントリビュータ
+
+|設定名|設定値|
+|---|---|
+|グループの公開・非公開|非公開|
+|メンバー参加条件|管理者からの招待のみ参加できる|
+|グループメンバーの公開・非公開|グループ入会者のみに公開|
+|グループ名 必須|SPコネクタ名_roles_contributor|
+|グループID 必須|SPコネクタ名_roles_contributor|
+|紹介文 必須|JAIRO Cloudのシステム管理者|
+
+「作成」ボタンをクリックする。
+
+グループ「SPコネクタ名_roles_contributor」が作成される。
+
 
 ### SPコネクタへのグループ追加
 
@@ -290,7 +532,11 @@ SPコネクタ管理者画面にアクセスする。
 
 グループ接続->新たなグループを接続を選択する。
 
-先ほど作成したグループ「SPコネクタ名_roles_repoadm」およびjc_roles_sysadmをSPコネクタに接続する。
+先ほど作成したグループ「SPコネクタ名_roles_repoadm」「SPコネクタ名_roles_contributor」およびjc_roles_sysadmをSPコネクタに接続する。
+
+グループメンバにシステム管理者を管理者として追加する。
+（※トラブル対応目的）
+グループメンバに機関のリポジトリ管理者1名を管理者として追加する。
 
 ## 機関側​の設定
 
@@ -310,48 +556,44 @@ SPコネクタ管理者画面にアクセスする。
 |WEKO_ACCOUNTS_SHIB_INST_LOGIN_DIRECTLY_ENABLED|UMS直接切り替えられるか|True|
 |WEKO_ACCOUNTS_SHIB_BIND_GAKUNIN_MAP_GROUPS|学認グループを有効化|False|
 |GROUP_INFO_REDIS_DB|グループ情報を格納するRedisのDB番号|4|
+|WEKO_ACCOUNTS_IDP_ENTITY_ID|SPのエンティティID||
+|WEKO_ACCOUNTS_SSO_ATTRIBUTE_MAP|環境属性値のマッピング|{                                                  'SHIB_ATTR_EPPN': (False, 'shib_eppn'),'SHIB_ATTR_ROLE_AUTHORITY_NAME': (False, 'shib_role_authority_name'),'SHIB_ATTR_SITE_USER_WITHIN_IP_RANGE_FLAG': (False, 'shib_ip_range_flag'),'SHIB_ATTR_MAIL': (False, 'shib_mail'),'SHIB_ATTR_USER_NAME': (False, 'shib_user_name'),"SHIB_ATTR_IS_MEMBER_OF": (False, 'shib_is_member_of'),"SHIB_ATTR_ORGANIZATION": (False, 'shib_organization'),}|     
 
-学認対応にするには、
+### DS非利用
 
-weko.conf:
-
-location ~ /secure/ の
-
-```
-shib_request_set $shib_persistent_id $upstream_http_variable_persistent_id;
-fastcgi_param eppn $shib_persistent_id;
-```
-
-をコメントアウトし、以下をアンコメントする。
-
-```
-shib_request_set $shib_eppn $upstream_http_variable_eppn;
-fastcgi_param eppn $shib_eppn;
-```
-
-また
-
-```
-fastcgi_param NO_CHECK_WEKOSOCIETYAFFILIATION FALSE;
-```
-
-を
-
-```
-fastcgi_param NO_CHECK_WEKOSOCIETYAFFILIATION TRUE;
-```
-
-とする。
-
-instance.cfgは以下の様に設定する。
+学認対応（DS非利用）にするには、instance.cfgは以下の様に設定する。
 
 ```
 WEKO_ACCOUNTS_SHIB_LOGIN_ENABLED = True
-WEKO_ACCOUNTS_SHIB_IDP_LOGIN_ENABLED = False
-WEKO_ACCOUNTS_SHIB_DP_LOGIN_DIRECTLY_ENABLED = True
-WEKO_ACCOUNTS_SHIB_INST_LOGIN_DIRECTLY_ENABLED = False
+WEKO_ACCOUNTS_SHIB_IDP_LOGIN_ENABLED = True
+WEKO_ACCOUNTS_SHIB_DP_LOGIN_DIRECTLY_ENABLED = False
+WEKO_ACCOUNTS_SHIB_INST_LOGIN_DIRECTLY_ENABLED = True
 WEKO_ACCOUNTS_SHIB_BIND_GAKUNIN_MAP_GROUPS = True
 ```
+
+```
+WEKO_ACCOUNTS_IDP_ENTITY_ID=学認SPのエンティティID
+```
+
+```
+WEKO_ACCOUNTS_SSO_ATTRIBUTE_MAP = {
+    'eppn': (False, 'shib_eppn'),
+    'HTTP_WEKOSOCIETYAFFILIATION': (False, 'shib_role_authority_name'),
+    'SHIB_ATTR_SITE_USER_WITHIN_IP_RANGE_FLAG': (False, 'shib_ip_range_flag'),
+    'mail': (False, 'shib_mail'),
+    'HTTP_WEKOID': (False, 'shib_user_name'),
+    "isMemberOf": (False, 'shib_is_member_of'),
+    "o": (False, 'shib_organization'),
+}
+```
+
+```
+WEKO_ACCOUNTS_GAKUNIN_DEFAULT_GROUP_MAPPING = {
+ "学認SPのエンティティID": ["jc_weko3_ir_rcos_nii_ac_jp_roles_contributor"]
+}
+```
+
+### 本番フェデレーション利用時
 
 本番フェデレーションにする場合は、shobboleth2.xml設定の他、以下instance.cfgの変更も行う。
 
@@ -360,6 +602,22 @@ WEKO_ACCOUNTS_GAKUNIN_MAP_BASE_URL = 'https://cg.gakunin.jp'
 WEKO_ACCOUNTS_WAYF_URL ="https://ds.gakunin.nii.ac.jp/WAYF" 
 WEKO_ACCOUNTS_WAYF_ADDITIONAL_IDPS = [{"name":"Orthros","entityID":"https://orthros.gakunin.nii.ac.jp/idp"}]
 ```
+
+
+
+```
+WEKO_ACCOUNTS_SSO_ATTRIBUTE_MAP = {
+    'eppn': (False, 'shib_eppn'),
+    'HTTP_WEKOSOCIETYAFFILIATION': (False, 'shib_role_authority_name'),
+    'SHIB_ATTR_SITE_USER_WITHIN_IP_RANGE_FLAG': (False, 'shib_ip_range_flag'),
+    'mail': (False, 'shib_mail'),
+    'HTTP_WEKOID': (False, 'shib_user_name'),
+    "isMemberOf": (False, 'shib_is_member_of'),
+    "o": (False, 'shib_organization'),
+}
+```
+
+
 
 ## Orthros登録
 
