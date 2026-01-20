@@ -194,9 +194,9 @@ IdPエンティティIDは機関のIdPで置き換える。
 
 ```
 ~snip~
-<Sessions lifetime="28800" timeout="3600" relayState="ss:mem" checkAddress="false" handlerSSL="false" cookieProps="http">                                                                                               <SSO entityID="IdPエンティティID" discoveryProtocol="SAMLDS" discoveryURL="test-ds.gakunin.nii.ac.jp/WAYF">
-              SAML2
-            </SSO>
+<Sessions lifetime="28800" timeout="3600" relayState="ss:mem" checkAddress="false" handlerSSL="false" cookieProps="http">                                                                                   <SSO entityID="IdPエンティティID" discoveryProtocol="SAMLDS" discoveryURL="test-ds.gakunin.nii.ac.jp/WAYF">
+    SAML2
+  </SSO>
 ~snip~
 ```
 
