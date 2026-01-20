@@ -603,22 +603,6 @@ WEKO_ACCOUNTS_WAYF_URL ="https://ds.gakunin.nii.ac.jp/WAYF"
 WEKO_ACCOUNTS_WAYF_ADDITIONAL_IDPS = [{"name":"Orthros","entityID":"https://orthros.gakunin.nii.ac.jp/idp"}]
 ```
 
-
-
-```
-WEKO_ACCOUNTS_SSO_ATTRIBUTE_MAP = {
-    'eppn': (False, 'shib_eppn'),
-    'HTTP_WEKOSOCIETYAFFILIATION': (False, 'shib_role_authority_name'),
-    'SHIB_ATTR_SITE_USER_WITHIN_IP_RANGE_FLAG': (False, 'shib_ip_range_flag'),
-    'mail': (False, 'shib_mail'),
-    'HTTP_WEKOID': (False, 'shib_user_name'),
-    "isMemberOf": (False, 'shib_is_member_of'),
-    "o": (False, 'shib_organization'),
-}
-```
-
-
-
 ## Orthros登録
 
 以下サイトを参照しながら登録する。
