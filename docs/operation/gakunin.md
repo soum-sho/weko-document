@@ -443,7 +443,19 @@ supervisorctl restart shibd
 
 [SPコネクタの作成](https://nii-auth.atlassian.net/wiki/spaces/gakuninmappublic/pages/44532218)
 
-SPコネクタ名は「jc_」をプレフィックスとして、FQDNの「-」[.]を「_」に置き換えたものとする。
+[学認クラウドゲートウェイサービス（テスト環境）](https://sptest.cg.gakunin.jp)にSP管理者としてログインする。
+
+SP管理者の場合は、「SPコネクタの作成」リンクが表示される。
+
+![学認クラウドゲートウェイサービス：グループ機能](./gakunin_test_image010.png)
+
+「SPコネクタの作成」をクリックする。
+
+![SPコネクタの作成](./gakunin_test_image011.png)
+
+
+
+SPコネクタ名とSPコネクタIDは「jc_」をプレフィックスとして、FQDNの「-」[.]を「_」に置き換えたものとする。
 
 例：
 
@@ -453,7 +465,30 @@ https://weko3.ir.rcos.nii.ac.jp
 jc_weko3_ir_rcos_nii_ac_jp
 ```
 
-[SPコネクタ設定イメージ](pics/gakunin_test_image007.png)
+設定は以下のように行う。
+
+|設定名|設定値|
+|---|---|
+|SPコネクタ名|上記ルールに従ったもの|
+|SPコネクタID|上記ルールに従ったもの|
+|紹介文|${FQDN}のSPコネクタです。|
+|SPタイプ|APタイプ|
+|サービスアイコン|デフォルトのまま|
+|対象SP|SPのエンティティIDを選択する|
+|- サービス名 |${FQDN}|
+|- サービスのリンク|https://${FQDN}|
+|- New Group API||
+|- 入会時情報反映オプション|手動ログアウト案内|
+|利用属性|グループID (Shibboleth属性及びAPIでの利用)にチェック|
+|詳細設定|(まだ検討の余地はある。API利用で必須なのは何か。)|
+|Q1 作成するSPコネクタは、検索対象にしますか？|する|
+|Q2 作成するSPコネクタの管理者を公開しますか？|公開します|
+|Q3 グループがSPコネクタと接続することを承認しますか？|管理者の承認を必要とします|
+|Q4 SPへ渡す情報は、SPコネクタのみの情報にしますか？　グループ情報も渡しますか？|両方を渡します|
+
+作成ボタンをクリックする。
+
+![SPコネクタ設定イメージ](pics/gakunin_test_image007.png)
 
 #### ロールグループを作成する​
 
@@ -462,7 +497,7 @@ jc_weko3_ir_rcos_nii_ac_jp
 
 グループIDおよびグループ名の命名規則は
 
-SPコネクタ名_ロール識別子となる。
+SPコネクタID_ロール識別子となる。
 ロール識別子はWEKO3の設定「WEKO_ACCOUNTS_GAKUNIN_GROUP_PATTERN_DICT」で定義されている。
 
 ```
@@ -506,7 +541,11 @@ WEKO_ACCOUNTS_GAKUNIN_GROUP_PATTERN_DICT = {
 ##### リポジトリ用グループを作成する
 
 [https://sptest.cg.gakunin.jp/map/mygroups/view](https://sptest.cg.gakunin.jp/)にアクセスし、
+[グループの作成](https://sptest.cg.gakunin.jp/map/groups/create)をクリックする。
+
 下記条件のグループを作成する。
+
+![グループの作成画面](./pics/gakunin_test_image012.png)
 
 ###### リポジトリ管理者グループを作成する
 
@@ -540,15 +579,18 @@ WEKO_ACCOUNTS_GAKUNIN_GROUP_PATTERN_DICT = {
 
 #### SPコネクタへグループを追加する
 
-SPコネクタ管理者画面にアクセスする。
+[Myグループ](https://sptest.cg.gakunin.jp/map/mygroups/view)に戻り、
+当該SPコネクタをクリックし、SPコネクタ管理者画面にアクセスする。
 
 ![SPコネクタ管理者画面](pics/gakunin_test_image008.png)
 
 グループ接続->新たなグループを接続を選択する。
 
+![グループ接続画面](pics/gakunin_test_image013.png)
+
 先ほど作成したグループ「SPコネクタ名_roles_repoadm」「SPコネクタ名_roles_contributor」およびjc_roles_sysadmをSPコネクタに接続する。
 
-グループメンバにシステム管理者を管理者として追加する。
+作成したグループメンバにシステム管理者を追加する。
 （※トラブル対応目的）
 
 グループ管理者には以下メイルがくるので、確認し、承認する。
