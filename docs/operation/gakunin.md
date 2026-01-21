@@ -387,7 +387,7 @@ FriendlyName="isMemberOf"/>
 お世話になっております。XXXと申します。
 下記アドレスについてsptest.cg.gakunin.jp への接続をご許可いただけないでしょうか。
 
-1XXX.XXX.XXX.XXX
+XXX.XXX.XXX.XXX
 
 以上、宜しくお願い致します。
 ```
