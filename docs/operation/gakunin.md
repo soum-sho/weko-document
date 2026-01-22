@@ -384,7 +384,8 @@ FriendlyName="isMemberOf"/>
 内容：
 ご担当者様
 
-お世話になっております。XXXと申します。
+お世話になっております。XXXXと申します。
+学認クラウドゲートウェイサービスのグループ機能の検証を行いたく、
 下記アドレスについてsptest.cg.gakunin.jp への接続をご許可いただけないでしょうか。
 
 XXX.XXX.XXX.XXX
@@ -747,17 +748,48 @@ Shibbolethのメッセージ等をデバグログに出力する場合は、shib
 以下の項目を追加する。
 
 ```
+# set overall behavior
+log4j.rootCategory=DEBUG, shibd_log, warn_log
+~snip~
 log4j.category.Shibboleth.SSO=DEBUG
 log4j.category.OpenSAML.MessageDecoder=DEBUG
 log4j.category.OpenSAML.MessageEncoder=DEBUG
 log4j.category.OpenSAML.SecurityPolicyRule=DEBUG
+~snip~
 ```
 
 変更後、shibdを再起動する。
 
+
+### isMemberOfが取得できない
+
+shibd.log に以下のエラーが出ている場合は、
+sptest.cg.gakunin.jp との接続に失敗している。
+
 ```
-2026-01-20 10:23:09|Shibboleth-TRANSACTION.AuthnRequest|||https://core-stg.orthros.gakunin.nii.ac.jp/idp||||||urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect||||||
-2026-01-20 10:23:46|Shibboleth-TRANSACTION.Login|268c5223-11b3-4ff1-a29c-d037eed2986d@openidp.nii.ac.jp|_2ce9e48c7499ef2739b413e417afdc5d|https://core-stg.orthros.gakunin.nii.ac.jp/idp|_c4e88db2-91b7-41a8-9653-5bce02523d65|https://www.gakunin.jp/profile/AAL1|2026-01-20T10:23:45|eppn(1),isMemberOf(2),mail(1),persistent-id(1)|ymNAsladvIDBDNW6U5oxbkWjfm4dZLpXJhD4ozxi3Eg=|urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST||urn:oasis:names:tc:SAML:2.0:status:Success|||Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36|136.187.177.15
+2026-01-21 08:11:32 DEBUG XMLTooling.SOAPTransport.CURL [2] [default]: sending SOAP message to https://sptest.cg.gakunin.jp:8443/idp/profile/SAML2/SOAP/AttributeQuery
+2026-01-21 08:11:32 DEBUG XMLTooling.libcurl [2] [default]:   Trying AAA.BBB.CCC.DDD:8443...
+
+2026-01-21 08:11:32 DEBUG XMLTooling.libcurl [2] [default]: TCP_NODELAY set
+
+2026-01-21 08:11:37 DEBUG XMLTooling.libcurl [2] [default]: After 4941ms connect time, move on!
+
+2026-01-21 08:11:37 DEBUG XMLTooling.libcurl [2] [default]: connect to AAA.BBB.CCC.DDD port 8443 failed: Connection timed outAAA.BBB.CCC.DDD
+
+2026-01-21 08:11:37 DEBUG XMLTooling.libcurl [2] [default]:   Trying AAA.BBB.CCC.DDD:8443...
+
+2026-01-21 08:11:37 DEBUG XMLTooling.libcurl [2] [default]: TCP_NODELAY set
+
+2026-01-21 08:11:40 DEBUG XMLTooling.libcurl [2] [default]: After 2470ms connect time, move on!
+
+2026-01-21 08:11:40 DEBUG XMLTooling.libcurl [2] [default]: connect to AAA.BBB.CCC.DDD port 8443 failed: Connection timed out
+
+2026-01-21 08:11:40 DEBUG XMLTooling.libcurl [2] [default]: Failed to connect to sptest.cg.gakunin.jp port 8443: Connection timed out
+
+2026-01-21 08:11:40 DEBUG XMLTooling.libcurl [2] [default]: Closing connection 0
+
+2026-01-21 08:11:40 ERROR Shibboleth.AttributeResolver.SimpleAggregation [2] [default]: exception during SAML query to https://sptest.cg.gakunin.jp:8443/idp/profile/SAML2/SOAP/AttributeQuery: CURLSOAPTransport failed while contacting SOAP endpoint (https://sptest.cg.gakunin.jp:8443/idp/profile/SAML2/SOAP/AttributeQuery): Failed to connect to sptest.cg.gakunin.jp port 8443: Connection timed out
+2026-01-21 08:11:40 ERROR Shibboleth.AttributeResolver.SimpleAggregation [2] [default]: unable to obtain a SAML response from attribute authority (https://sptest.cg.gakunin.jp/idp/shibboleth)
 ```
 
 ### 【補足】Shibboleth-IdP​の設定
@@ -791,12 +823,12 @@ WEKO_ACCOUNTS_GAKUNIN_MAP_BASE_URL = 'https://cg.gakunin.jp'
 リポジトリ管理者の管理は、機関側で行うこと、
 変更はGakuNin mAPで行うことになることを伝える。
 
-### 1. 環境を構築する。
+### 2. 環境を構築する。
 
-機関からの情報を受け取り、
-上記に従って環境構築を実施する。
+機関からの情報を受け取り、上記に従って環境構築を実施する。
 
-手動で登録ユーザを追加したいという場合は、WEKO3の設定の```WEKO_ACCOUNTS_GAKUNIN_DEFAULT_GROUP_MAPPING```を未設定とする。
+手動で登録ユーザを追加したいという場合は、
+WEKO3の設定の```WEKO_ACCOUNTS_GAKUNIN_DEFAULT_GROUP_MAPPING```を未設定とする。
 
 ```
 WEKO_ACCOUNTS_GAKUNIN_DEFAULT_GROUP_MAPPING = {}
@@ -804,7 +836,7 @@ WEKO_ACCOUNTS_GAKUNIN_DEFAULT_GROUP_MAPPING = {}
 
 ただし、機関側はコントリビュータグループの管理が必要となる。
 
-### 2. リポジトリ管理者をグループに追加する。
+### 3. リポジトリ管理者をグループに追加する。
 
 機関側から受け取ったリポジトリ管理者のメイルアドレスを
 リポジトリ管理者グループ、コントリビュータグループへ追加する。
@@ -843,6 +875,20 @@ https://dev.cg.gakunin.jp/
 -----------------------------------------------------------------------
 ```
 
-### 3. ログイン可否を確認してもらう。
+### 4. ログイン可否を確認してもらう。
 
 機関リポジトリ担当者にログイン可否を確認してもらう。
+
+### 5. リポジトリ管理者をグループ管理者にする
+
+MYグループをクリックし、所属グループの中にあるリポジトリ管理者グループをクリックする。
+
+![グループ](./pics/gakunin_test_image015.png)
+
+グループメニューからメンバーリストをクリックする。
+
+追加されたリポジトリ管理者をグループの「管理者＋メンバー」とする。
+
+![メンバーリスト](./pics/gakunin_test_image014.png)
+
+これにより当該リポジトリ管理者はメンバーの追加削除が可能となる。
