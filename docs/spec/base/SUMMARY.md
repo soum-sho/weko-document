@@ -22,6 +22,10 @@
 * [USER-3-7: エクスポート 73](./user/USER_3_7.md)
 * [USER-3-8: Google Scholar メタデータ出力 81](./user/USER_3_8.md)
 * [USER-3-9: Google Dataset メタデータ出力 83](./user/USER_3_9.md)
+* [USER-3-10: 所属コミュニティ情報表示](user/USER_3_10.md)
+* [USER-3-11: リクエスト機能](user/USER_3_11.md)
+* [USER-3-12: メールアドレス入力](user/USER_3_12.md)
+* [USER-3-13: アイテム利用申請機能](user/USER_3_13.md)
 ### ワークフロー 85
 * [USER-4-1: アクティビティ一覧表示 85](./user/USER_4_1.md)
 * [USER-4-2: ワークフロー一覧表示 95](./user/USER_4_2.md)
@@ -32,12 +36,16 @@
 * [USER-4-7: Item Registration：代理投稿 28](./user/USER_4_7.md)
 * [USER-4-8: Item Registration：フィードバックメール機能 30](./user/USER_4_8.md)
 * [USER-4-9: Item Registration：インデックス指定 34](./user/USER_4_9.md)
+* [USER-4-14: Item Registration：リクエストメール](user/USER_4_14.md)
+* [USER-4-16: Item Registration：アイテム未登録時の制限公開機能](user/USER_4_16.md)
 * [USER-4-10: Identifier Grant 36](./user/USER_4_10.md)
 * [USER-4-11: Item Link 45](./user/USER_4_11.md)
 * [USER-4-12: OA Policy Confirmation（現在非対応） 49](./user/USER_4_12.md)
 * [USER-4-13: Approval 51](./user/USER_4_13.md)
+* [USER-4-15: End](user/USER_4_15.md)
 ### コミュニティ 53
 * [USER-5-1: コミュニティ 53](./user/USER_5_1.md)
+* [USER-5-2: コンテンツポリシー](user/USER_5_2.md)
 ### ランキング 55
 * [USER-6-1: ランキング 55](./user/USER_6_1.md)
 ### 大容量ファイルアップロード 61
@@ -52,6 +60,10 @@
 * [USER-8-5: API設定 71](./user/USER_8_5.md)
 ### Cookie 75
 * [USER-9-1: Cookie使用確認画面表示 75](./user/USER_9_1.md)
+### ワークスペース
+* [USER-10-1: アイテム一覧情報取得](user/USER_10_1.md)
+* [USER-10-2: 簡易アイテム登録機能](user/USER_10_2.md)
+* [USER-10-3: メタデータ自動補完機能](user/USER_10_3.md)
 ## [管理機能](./admin/README.md)
 ### アイテムタイプ管理
 * [ADMIN-1-1: メタデータ 76](./admin/ADMIN_1_1.md)
@@ -62,49 +74,54 @@
 * [ADMIN-2-1: 一括更新 104](./admin/ADMIN_2_1.md)
 * [ADMIN-2-2: 一括削除 108](./admin/ADMIN_2_2.md)
 * [ADMIN-2-3: 一括エクスポート 110](./admin/ADMIN_2_3.md)
-* [ADMIN-2-4: インポート](./admin/ADMIN_2_4.md)
-### 3 インデックスツリー管理 155
+* [ADMIN-2-4: インポート 113](./admin/ADMIN_2_4.md)
+* [ADMIN-2-5: RO-Crateインポート](./admin/ADMIN_2_5.md)
+### インデックスツリー管理 155
 * [ADMIN-3-1: ツリー編集 155](./admin/ADMIN_3_1.md)
 * [ADMIN-3-2: 雑誌情報 162](./admin/ADMIN_3_2.md)
 * [ADMIN-3-3: カスタムソート 165](./admin/ADMIN_3_3.md)
-### 4 ウェブデザイン管理 167
+### ウェブデザイン管理 167
 * [ADMIN-4-1: ウィジェット 167](./admin/ADMIN_4_1.md)
 * [ADMIN-4-2: ページレイアウト 180](./admin/ADMIN_4_2.md)
-### 5 著者DB管理 185
+### 著者DB管理 185
 * [ADMIN-5-1: 編集 185](./admin/ADMIN_5_1.md)
-* [Affiliation ID](./admin/ADMIN_5_1_3.md)
+  * [Affiliation ID](./admin/ADMIN_5_1_3.md)
 * [ADMIN-5-2: 一括出力 198](./admin/ADMIN_5_2.md)
 * [ADMIN-5-3: 一括登録 204](./admin/ADMIN_5_3.md)
 * [ADMIN-5-4: 外部著者ID Prefix](./admin/ADMIN_5_4.md)
-### 6 統計 217
+### 統計 217
 * [ADMIN-6-1: 運用レポート 217](./admin/ADMIN_6_1.md)
 * [ADMIN-6-2: フィードバックメール 233](./admin/ADMIN_6_2.md)
 * [ADMIN-6-3: サイトライセンス 238](./admin/ADMIN_6_3.md)
-### 7 ワークフロー管理 242
+### ワークフロー管理 242
 * [ADMIN-7-1: フロー 242](./admin/ADMIN_7_1.md)
 * [ADMIN-7-2: ワークフロー 253](./admin/ADMIN_7_2.md)
-### 8 コミュニティ管理 256
+* [ADMIN-7-3: ワークスペース設定](admin/ADMIN_7_3.md)
+### コミュニティ管理 256
 * [ADMIN-8-1: コミュニティ 256](./admin/ADMIN_8_1.md)
 * [ADMIN-8-2: 注目のコミュニティ 261](./admin/ADMIN_8_2.md)
 * [ADMIN-8-3: 参加リクエスト 264](./admin/ADMIN_8_3.md)
-### 9 OAI-PMH 265
+### OAI-PMH 265
 * [ADMIN-9-1: ハーベスト 265](./admin/ADMIN_9_1.md)
 * [ADMIN-9-2: Identify 273](./admin/ADMIN_9_2.md)
 * [ADMIN-9-3: Sets 275](./admin/ADMIN_9_3.md)
-### 10 Resource Sync 277
+### Resource Sync 277
 * [ADMIN-10-1: Resource List 277](./admin/ADMIN_10_1.md)
 * [ADMIN-10-2: Change List 283](./admin/ADMIN_10_2.md)
 * [ADMIN-10-3: Resync 291](./admin/ADMIN_10_3.md)
-### 11 レコード管理 296
+### 11 SWQRD API
+* [ADMIN-16-1: TSV/XML](admin/ADMIN_16_1.md)
+* [ADMIN-16-2: JSON-LD](admin/ADMIN_16_2.md)
+### レコード管理 296
 * [ADMIN-11-1: 永続識別子 296](./admin/ADMIN_11_1.md)
 * [ADMIN-11-2: レコードメタデータ 299](./admin/ADMIN_11_2.md)
-### 12 ファイル管理 302
+### ファイル管理 302
 * [ADMIN-12-1: バケット 302](./admin/ADMIN_12_1.md)
 * [ADMIN-12-2: ファイルインスタンス 306](./admin/ADMIN_12_2.md)
 * [ADMIN-12-3: ロケーション 311](./admin/ADMIN_12_3.md)
 * [ADMIN-12-4: マルチパートオブジェクト 317](./admin/ADMIN_12_4.md)
 * [ADMIN-12-5: オブジェクトバージョン 320](./admin/ADMIN_12_5.md)
-### 13 ユーザ管理 324
+### ユーザ管理 324
 * [ADMIN-13-1: アクセス\_ロール 324](./admin/ADMIN_13_1.md)
 * [ADMIN-13-2: アクセス\_システムロール 328](./admin/ADMIN_13_2.md)
 * [ADMIN-13-3: アクセス\_ユーザー 329](./admin/ADMIN_13_3.md)
@@ -139,11 +156,14 @@
 * [ADMIN-14-19: Shibboleth 410](./admin/ADMIN_14_19.md)
 * [ADMIN-14-20: 制限公開 412](./admin/ADMIN_14_20.md)
 * [ADMIN-14-21: その他 422](./admin/ADMIN_14_21.md)
-## 15 メンテナンス
+* [ADMIN-14-22: メールテンプレート](admin/ADMIN_14_22.md)
+## 基本監査ログ
+* [ADMIN-17-1: エクスポート](admin/ADMIN_17_1.md)
+## メンテナンス
 * [ADMIN-15-1: Elasticsearchインデックス 423](./admin/ADMIN_15_1.md)
 ## [WebAPI](./api/README.md)
 * [API-1: OAuth2 425](./api/API_01_Oauth2.md)
-* [API-2: OAI-PMH ](./api/API_02_OAIPMH.md)
+* [API-2: OAI-PMH 429](./api/API_02_OAIPMH.md)
 * [API-3: OpenSearch 436](./api/API_03_OpenSearch.md)
 * [API-4: Workflow API 5](./api/API_04_workflow.md)
 * [API-5: Index操作API 7](./api/API_05_index_op.md)
@@ -158,19 +178,21 @@
 * [SCHEMA-1-2: Schema 329](./other/SCHEMA_1_2.md)
 * [SCHEMA-1-3: Form 329](./other/SCHEMA_1_3.md)
 ## その他
-* [2 モジュール、ライブラリ 330](./other/MODULE_01.md)
-* [3 コンフィグ 331](./other/CONFIG_01.md)
-* [4 DB 336](./other/DB_01.md)
-* [5 elasticsearch 337](./other/OTHER_elasticsearch.md)
-* [6 celery タスク 342](./other/CELERY_01.md)
-* [7 ログ 345](./other/LOG.md)
+* [モジュール、ライブラリ 330](./other/MODULE_01.md)
+* [コンフィグ 331](./other/CONFIG_01.md)
+* [DB 336](./other/DB_01.md)
+* [elasticsearch 337](./other/OTHER_elasticsearch.md)
+* [celery タスク 342](./other/CELERY_01.md)
+* [ログ 345](./other/LOG.md)
 * [利用統計ログ](./other/USAGE_LOG.md)
-* [8 セッション管理 357](./other/SESSION_01.md)
-* [9 API Endpoint 358](./api/API_ENDPOINT_01.md)
-* [10 Shibboleth対応 359](./other/SHIBBOLETH_01.md)
-* [11 GakuNinRDM連携 362](./other/WORKFLOW_01.md)
-* [12 ID体系 371](./other/ID_01.md)
-* [13 解析基盤連携 372](./other/KAISEKI_01.md)
+* [基本監査ログ](other/USER_ACTIVITY_LOG.md)
+* [セッション管理 357](./other/SESSION_01.md)
+* [API Endpoint 358](./api/API_ENDPOINT_01.md)
+* [Shibboleth対応 359](./other/SHIBBOLETH_01.md)
+* [GakuNinRDM連携 362](./other/WORKFLOW_01.md)
+* [ID体系 371](./other/ID_01.md)
+* [解析基盤連携 372](./other/KAISEKI_01.md)
+* [プッシュ通知機能](other/INBOX_01.md)
 ## [制限公開機能](./restricted_access/README.md)
 * [RESTRICTED_ACCESS-13-1: アイテムタイプ管理（制限公開） 373](./restricted_access/RESTRICTED_ACCESS_01.md)
 * [RESTRICTED_ACCESS-13-2: アイテム詳細(制限公開) 376](./restricted_access/RESTRICTED_ACCESS_02.md)
